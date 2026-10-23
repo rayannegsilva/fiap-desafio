@@ -43,13 +43,13 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] Instalar lottie-react-native; `pod install`; mock no `jest.setup.ts`
     - [x] Smoke test: renderiza e repassa `onAnimationFinish`
     - [x] Commit `build(lottie): add lottie-react-native`
-- [ ] Task 8: Fontes + verificação nativa
-    - [ ] Baixar Montserrat (4 pesos) para `src/assets/fonts/`
-    - [ ] `react-native-asset` + `react-native.config.js`; conferir `UIAppFonts` e `android/app/src/main/assets/fonts`
-    - [ ] Build `yarn ios` e `yarn android` com texto em Montserrat-SemiBold (temporário, revertido); Android sem crash ao restaurar activity
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
-    - [ ] Commit `build(fonts): link montserrat with react-native-asset`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task 8: Fontes + verificação nativa [b14ab39]
+    - [x] Baixar Montserrat (4 pesos) para `src/assets/fonts/`
+    - [x] `react-native-asset` + `react-native.config.js`; conferir `UIAppFonts` e `android/app/src/main/assets/fonts`
+    - [x] Build `yarn ios` e `yarn android` com texto em Montserrat-SemiBold (temporário, revertido); Android sem crash ao restaurar activity
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
+    - [x] Commit `build(fonts): link montserrat with react-native-asset`
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: b14ab39]
 
 ## Phase 3: Documentação
 
