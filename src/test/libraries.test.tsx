@@ -2,7 +2,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { act, render, screen } from '@testing-library/react-native';
+import { act, fireEvent, render, screen } from '@testing-library/react-native';
+import LottieView from 'lottie-react-native';
 import { Text } from 'react-native';
 import Animated, { FadeIn } from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -57,6 +58,22 @@ describe('zustand + async-storage', () => {
     );
     await act(() => useProbe.getState().inc());
     expect(JSON.parse((await AsyncStorage.getItem('probe'))!).state.n).toBe(1);
+  });
+});
+
+describe('lottie', () => {
+  it('renders and forwards onAnimationFinish', async () => {
+    const onFinish = jest.fn();
+    await render(
+      <LottieView
+        testID="anim"
+        source={{} as unknown as string}
+        autoPlay
+        onAnimationFinish={onFinish}
+      />,
+    );
+    await fireEvent(screen.getByTestId('anim'), 'animationFinish');
+    expect(onFinish).toHaveBeenCalled();
   });
 });
 
