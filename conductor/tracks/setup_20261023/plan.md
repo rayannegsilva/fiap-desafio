@@ -30,11 +30,11 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] Escrever testes: `src/assets/icons/icons.test.ts` (currentColor) e smoke de import SVG — confirmar FAIL
     - [x] Normalizar SVGs — confirmar PASS
     - [x] Commit `build(svg): add react-native-svg with svg transformer`
-- [ ] Task 5: Navegação
-    - [ ] Instalar native, native-stack, bottom-tabs, screens; `pod install`
-    - [ ] `MainActivity.onCreate(null)`
-    - [ ] Smoke test: stack dentro de tabs renderiza
-    - [ ] Commit `build(navigation): add react navigation stack and tabs`
+- [x] Task 5: Navegação [e55738b]
+    - [x] Instalar native, native-stack, bottom-tabs, screens; `pod install`
+    - [x] `MainActivity.onCreate(null)`
+    - [x] Smoke test: stack dentro de tabs renderiza
+    - [x] Commit `build(navigation): add react navigation stack and tabs`
 - [ ] Task 6: Estado e persistência
     - [ ] Instalar zustand + async-storage; `pod install`; mock no `jest.setup.ts`
     - [ ] Smoke test: store persistida grava no AsyncStorage
