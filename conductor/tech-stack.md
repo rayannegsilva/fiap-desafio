@@ -7,14 +7,18 @@
 - **iOS deps:** CocoaPods via Bundler
 
 ## UI e experiência
-- **Design system / tema:** @shopify/restyle — tokens tipados, tema claro/escuro
+- **Design system / tema:** @shopify/restyle — tokens tipados; escuro (padrão, do design) e claro derivado, preferência persistida
+- **Fonte:** Montserrat (Google Fonts), linkada com `react-native-asset` *(planejado)*
+- **Ícones:** SVGs do design via `react-native-svg` + `react-native-svg-transformer` (`fill="currentColor"`) *(planejado)*
 - **Animações:** react-native-reanimated 4 + react-native-worklets
 - **Splash animada:** lottie-react-native *(planejado)*
 - **Layout seguro:** react-native-safe-area-context
 
 ## Arquitetura
-- **Navegação:** React Navigation — native stack *(planejado)*
-- **Estado global:** Zustand *(planejado)*
+- **Navegação:** React Navigation — native stack + bottom tabs (Aulas/Boletim) *(planejado)*
+- **Estado global:** Zustand — tema, sessão e aluno selecionado *(planejado)*
+- **Persistência:** AsyncStorage — preferência de tema e identificador do responsável autenticado (nunca a senha) *(planejado)*
+- **Dados:** JSON embarcado em `src/`, acessado por uma camada própria (tipos + funções de consulta), para a UI não depender do formato do arquivo *(planejado)*
 
 ## Testes
 - **Runner:** Jest (`@react-native/jest-preset`)
@@ -25,8 +29,8 @@
 ## Qualidade de código
 - **Lint:** ESLint (`@react-native`)
 - **Formatação:** Prettier
-- **Commits:** Conventional Commits + commitlint *(planejado)*
+- **Commits:** Conventional Commits + commitlint *(planejado)* — a config deve aceitar o tipo `conductor` (usado nos commits de plano/track do Conductor).
 - **Git hooks:** Husky — lint, typecheck e testes antes de commit/push *(planejado)*
 
 ## Fora de escopo
-- Backend e banco de dados próprios (salvo se o escopo funcional exigir).
+- Backend, Firebase ou API remota: os dados vêm do JSON embarcado.

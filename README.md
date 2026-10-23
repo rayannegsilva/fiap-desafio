@@ -1,97 +1,74 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# FiapTeste
 
-# Getting Started
+App mobile (iOS e Android) para responsáveis acompanharem as aulas do dia e o boletim dos alunos. React Native CLI, TypeScript e Restyle, com tema escuro (e opção clara) e animações em todas as telas.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+> Em construção. Funcionalidades são adicionadas por tracks (ver [Fluxo de desenvolvimento](#fluxo-de-desenvolvimento)).
 
-## Step 1: Start Metro
+## Stack
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- [React Native](https://reactnative.dev) 0.88 (React Native CLI)
+- TypeScript
+- [Restyle](https://github.com/Shopify/restyle): tema tipado, dark/light mode
+- [Reanimated](https://docs.swmansion.com/react-native-reanimated/) 4: animações
+- [react-native-safe-area-context](https://github.com/AppAndFlow/react-native-safe-area-context)
+- Jest: testes
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+## Como rodar
 
-```sh
-# Using npm
-npm start
+### Requisitos
 
-# OR using Yarn
-yarn start
-```
+- Node >= 22.11
+- Yarn
+- Ruby + Bundler (CocoaPods)
+- Xcode (iOS) e/ou Android Studio (Android)
+- Ambiente configurado conforme [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment)
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+### Instalação
 
 ```sh
+yarn
 bundle install
+cd ios && bundle exec pod install && cd ..
 ```
 
-Then, and every time you update your native dependencies, run:
+### Execução
 
 ```sh
-bundle exec pod install
+yarn start     # Metro
+yarn ios       # iOS
+yarn android   # Android
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### Qualidade
 
 ```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+yarn lint
+yarn test
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## Estrutura
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```
+.
+├── App.tsx          # Componente raiz
+├── index.js         # Entry point
+├── __tests__/       # Testes
+├── android/         # Projeto nativo Android
+└── ios/             # Projeto nativo iOS
+```
 
-## Step 3: Modify your app
+## Fluxo de desenvolvimento
 
-Now that you have successfully run the app, let's make changes!
+Spec driven development: nenhuma funcionalidade começa pelo código.
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+1. **Plano** — brainstorming da funcionalidade resulta num plano com contexto, decisões, critérios de aceite e tasks detalhadas, em [`docs/superpowers/plans/`](docs/superpowers/plans/).
+2. **Track** — o plano vira uma track no [Conductor](https://github.com/gemini-cli-extensions/conductor) em [`conductor/tracks/`](conductor/tracks/), com `spec.md` e `plan.md`. O contexto do projeto (produto, guidelines, stack, workflow) fica em [`conductor/`](conductor/index.md).
+3. **Implementação** — TDD, um commit por task ([Conventional Commits](https://www.conventionalcommits.org/)); o `plan.md` registra o SHA de cada task e o checkpoint de cada fase.
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+Este README é atualizado ao concluir cada track.
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+## Status
 
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+| Funcionalidade | Status |
+| -------------- | ------ |
+| Projeto base (RN CLI + TypeScript + Restyle + Reanimated) | ✅ |

@@ -10,6 +10,16 @@
 6. **Não interativo:** usar `CI=true` em ferramentas com watch mode.
 7. **README vivo:** nenhuma track é concluída sem o `README.md` refletir o estado atual do projeto.
 
+## Origem de uma track
+
+Toda track nasce de um plano, antes de qualquer código:
+
+1. **Plano:** brainstorming + writing-plans (superpowers) → `docs/superpowers/plans/YYYY-MM-DD-<tema>.md` (contexto, decisões, critérios de aceite e tasks detalhadas: arquivos, testes, código, comandos).
+2. **Track:** `conductor-new-track` usa esse plano como fonte — deriva o `spec.md`, converte em fases/tasks no `plan.md` e **não refaz a entrevista**; só pergunta sobre lacunas reais.
+3. **Rastreabilidade:** o `index.md` da track linka o plano de origem.
+
+O plano é commitado junto com a criação da track.
+
 ## Ciclo de uma task
 
 1. **Selecionar:** próxima task do `plan.md`, em ordem.
