@@ -4,12 +4,12 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
 
 ## Phase 1: Tema
 
-- [ ] Task 1: Paleta e tema Restyle
-    - [ ] Escrever testes falhando (`theme.test.ts`: tokens de cor, 14 variantes + `defaults`, `bodyStrong`)
-    - [ ] Implementar `palette.ts` (11 tokens de cor, dark/light)
-    - [ ] Implementar `theme.ts` (`createTheme`, spacing, borderRadii, textVariants)
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(theme): add restyle dark and light themes`
+- [x] Task 1: Paleta e tema Restyle [f999e46]
+    - [x] Escrever testes falhando (`theme.test.ts`: tokens de cor, 14 variantes + `defaults`, `bodyStrong`)
+    - [x] Implementar `palette.ts` (11 tokens de cor, dark/light)
+    - [x] Implementar `theme.ts` (`createTheme`, spacing, borderRadii, textVariants)
+    - [x] Confirmar PASS
+    - [x] Commit `feat(theme): add restyle dark and light themes`
 - [ ] Task 2: Store de tema persistida + hook `useAppTheme`
     - [ ] Escrever teste falhando da store (`useThemeStore.test.ts`: default dark, toggle + persistência)
     - [ ] Implementar `useThemeStore.ts` (Zustand + persist + AsyncStorage)
