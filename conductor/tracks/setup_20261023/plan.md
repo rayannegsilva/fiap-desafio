@@ -39,10 +39,10 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] Instalar zustand + async-storage; `pod install`; mock no `jest.setup.ts`
     - [x] Smoke test: store persistida grava no AsyncStorage
     - [x] Commit `build(state): add zustand and async storage`
-- [ ] Task 7: Lottie
-    - [ ] Instalar lottie-react-native; `pod install`; mock no `jest.setup.ts`
-    - [ ] Smoke test: renderiza e repassa `onAnimationFinish`
-    - [ ] Commit `build(lottie): add lottie-react-native`
+- [x] Task 7: Lottie [8e6dadb]
+    - [x] Instalar lottie-react-native; `pod install`; mock no `jest.setup.ts`
+    - [x] Smoke test: renderiza e repassa `onAnimationFinish`
+    - [x] Commit `build(lottie): add lottie-react-native`
 - [ ] Task 8: Fontes + verificação nativa
     - [ ] Baixar Montserrat (4 pesos) para `src/assets/fonts/`
     - [ ] `react-native-asset` + `react-native.config.js`; conferir `UIAppFonts` e `android/app/src/main/assets/fonts`
