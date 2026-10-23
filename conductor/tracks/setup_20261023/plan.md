@@ -35,10 +35,10 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] `MainActivity.onCreate(null)`
     - [x] Smoke test: stack dentro de tabs renderiza
     - [x] Commit `build(navigation): add react navigation stack and tabs`
-- [ ] Task 6: Estado e persistência
-    - [ ] Instalar zustand + async-storage; `pod install`; mock no `jest.setup.ts`
-    - [ ] Smoke test: store persistida grava no AsyncStorage
-    - [ ] Commit `build(state): add zustand and async storage`
+- [x] Task 6: Estado e persistência [5982d7d]
+    - [x] Instalar zustand + async-storage; `pod install`; mock no `jest.setup.ts`
+    - [x] Smoke test: store persistida grava no AsyncStorage
+    - [x] Commit `build(state): add zustand and async storage`
 - [ ] Task 7: Lottie
     - [ ] Instalar lottie-react-native; `pod install`; mock no `jest.setup.ts`
     - [ ] Smoke test: renderiza e repassa `onAnimationFinish`
