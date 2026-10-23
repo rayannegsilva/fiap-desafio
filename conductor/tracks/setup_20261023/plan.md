@@ -58,3 +58,7 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] `yarn lint && yarn typecheck && CI=true yarn test`
     - [x] Commit `docs: update readme with project setup`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: d4554a7]
+
+## Phase: Review Fixes
+
+- [x] Task: Apply review suggestions [79dd551]
