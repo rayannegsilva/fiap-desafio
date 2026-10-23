@@ -11,7 +11,13 @@ App mobile (iOS e Android) para responsáveis acompanharem as aulas do dia e o b
 - [Restyle](https://github.com/Shopify/restyle): tema tipado, dark/light mode
 - [Reanimated](https://docs.swmansion.com/react-native-reanimated/) 4: animações
 - [react-native-safe-area-context](https://github.com/AppAndFlow/react-native-safe-area-context)
-- Jest: testes
+- [react-native-svg](https://github.com/software-mansion/react-native-svg) + [svg-transformer](https://github.com/kristerkari/react-native-svg-transformer): ícones como componentes
+- [React Navigation](https://reactnavigation.org) (native-stack + bottom-tabs) + react-native-screens
+- [Zustand](https://zustand.docs.pmnd.rs) + [AsyncStorage](https://github.com/react-native-async-storage/async-storage): estado e persistência
+- [Lottie](https://github.com/lottie-react-native/lottie-react-native): animações
+- Montserrat (Regular/Medium/SemiBold/Bold) via [react-native-asset](https://github.com/unimonkiez/react-native-asset)
+- [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) + Jest: testes
+- [Husky](https://typicode.github.io/husky/) + [commitlint](https://commitlint.js.org): hooks de qualidade nos commits
 
 ## Como rodar
 
@@ -26,9 +32,10 @@ App mobile (iOS e Android) para responsáveis acompanharem as aulas do dia e o b
 ### Instalação
 
 ```sh
-yarn
+yarn               # instala deps e ativa os hooks (husky) via "prepare"
 bundle install
 cd ios && bundle exec pod install && cd ..
+yarn react-native-asset   # linka as fontes (após clonar ou trocar fontes)
 ```
 
 ### Execução
@@ -43,18 +50,37 @@ yarn android   # Android
 
 ```sh
 yarn lint
+yarn typecheck
 yarn test
 ```
+
+Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`.
+
+### Hooks (Husky + commitlint)
+
+- `commit-msg`: valida a mensagem ([Conventional Commits](https://www.conventionalcommits.org/) + tipo `conductor`)
+- `pre-commit`: `yarn lint && yarn typecheck`
+- `pre-push`: `CI=true yarn test`
 
 ## Estrutura
 
 ```
 .
-├── App.tsx          # Componente raiz
-├── index.js         # Entry point
-├── __tests__/       # Testes
-├── android/         # Projeto nativo Android
-└── ios/             # Projeto nativo iOS
+├── index.js                 # Entry point
+├── src/
+│   ├── App.tsx               # Componente raiz
+│   ├── App.test.tsx
+│   ├── assets/
+│   │   ├── fonts/             # Montserrat
+│   │   ├── icons/              # SVGs (fill="currentColor")
+│   │   └── images/
+│   ├── test/
+│   │   ├── renderWithProviders.tsx
+│   │   └── libraries.test.tsx  # smoke test de cada biblioteca
+│   └── types/
+│       └── svg.d.ts
+├── android/                 # Projeto nativo Android
+└── ios/                     # Projeto nativo iOS
 ```
 
 ## Fluxo de desenvolvimento
@@ -72,3 +98,4 @@ Este README é atualizado ao concluir cada track.
 | Funcionalidade | Status |
 | -------------- | ------ |
 | Projeto base (RN CLI + TypeScript + Restyle + Reanimated) | ✅ |
+| Setup de dependências e ferramentas | ✅ |
