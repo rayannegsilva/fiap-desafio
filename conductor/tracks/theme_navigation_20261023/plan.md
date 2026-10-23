@@ -52,6 +52,8 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] Confirmar PASS
     - [x] Commit `feat(routes): add temporary navigation buttons for manual QA`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: bdf4d74]
+    - **Verificação manual:** iOS (screenshot) e Android (toques reais via adb) confirmados: Login → Entrar → Aulas (ícones tingidos certo, aba ativa turquesa) → Trocar aluno → Troca de aluno (sem header/footer) → voltar (botão físico) → Aulas. Tema escuro correto nos dois.
+    - **Desvio descoberto na verificação:** o Metro bundler do emulador Android estava rodando desde antes do `metro.config.js` ganhar o transformer de SVG (track anterior), servindo `.svg` como asset numérico em vez de componente — crash `Element type is invalid ... got: number` ao navegar pra Main. Não é bug de código; resolvido reiniciando o Metro (`--reset-cache`). Nenhuma mudança de código necessária.
 
 ## Phase 3: Documentação
 
