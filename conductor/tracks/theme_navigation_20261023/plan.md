@@ -44,13 +44,14 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] Atualizar `App.tsx`
     - [x] Confirmar PASS
     - [x] Commit `feat(routes): add root stack navigator and wire it into App`
-- [ ] Task 6: Acesso temporário entre telas (Login→Main, Aulas→TrocaAluno)
-    - [ ] Escrever teste falhando de ponta a ponta em `RootNavigator.test.tsx`
-    - [ ] Implementar botão em `Login.tsx`
-    - [ ] Implementar botão em `Aulas.tsx`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(routes): add temporary navigation buttons for manual QA`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task 6: Acesso temporário entre telas (Login→Main, Aulas→TrocaAluno) [bdf4d74]
+    - [x] Escrever teste falhando de ponta a ponta em `RootNavigator.test.tsx`
+    - [x] Implementar botão em `Login.tsx`
+    - [x] Implementar botão em `Aulas.tsx`
+    - [x] **Desvio:** `findByText('Aulas')` no teste de ponta a ponta era ambíguo (aba + título da tela têm o mesmo texto); teste passa a confirmar a chegada em Aulas pelo `accessibilityLabel` do botão "Trocar aluno (temporário)", único daquela tela.
+    - [x] Confirmar PASS
+    - [x] Commit `feat(routes): add temporary navigation buttons for manual QA`
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: bdf4d74]
 
 ## Phase 3: Documentação
 
