@@ -14,13 +14,13 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] `commitlint.config.js` com tipo `conductor`; verificar mensagens válida/inválida
     - [x] Hooks `commit-msg`, `pre-commit`, `pre-push`
     - [x] Commit `chore(tooling): add husky and commitlint`
-- [ ] Task 3: Infra de testes + App em `src/`
-    - [ ] Instalar RNTL + test-renderer; remover react-test-renderer, @types/react-test-renderer, @react-native/new-app-screen; safe-area-context ^5.10.1
-    - [ ] `jest.config.js` e `jest.setup.ts` (Reanimated, worklets, safe-area)
-    - [ ] Escrever testes: `src/App.test.tsx`, `src/test/libraries.test.tsx` (safe-area, reanimated) — confirmar FAIL
-    - [ ] `src/App.tsx`, `index.js`, `renderWithProviders`; remover `App.tsx` e `__tests__/` — confirmar PASS
-    - [ ] Commit `test: set up testing library and move app to src`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task 3: Infra de testes + App em `src/` [0891e68]
+    - [x] Instalar RNTL + test-renderer; remover react-test-renderer, @types/react-test-renderer, @react-native/new-app-screen; safe-area-context ^5.10.1
+    - [x] `jest.config.js` e `jest.setup.ts` (Reanimated, worklets, safe-area)
+    - [x] Escrever testes: `src/App.test.tsx`, `src/test/libraries.test.tsx` (safe-area, reanimated) — confirmar FAIL
+    - [x] `src/App.tsx`, `index.js`, `renderWithProviders`; remover `App.tsx` e `__tests__/` — confirmar PASS
+    - [x] Commit `test: set up testing library and move app to src`
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: 0891e68]
 
 ## Phase 2: Bibliotecas do app
 
