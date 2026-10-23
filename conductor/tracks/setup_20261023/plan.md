@@ -8,12 +8,12 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] Conferir `git status` (só base, docs, assets)
     - [x] `yarn lint && yarn test` passam
     - [x] Commit `chore: set up yarn, restyle and reanimated base`
-- [~] Task 2: Husky + commitlint + typecheck
-    - [ ] Instalar husky, @commitlint/cli, @commitlint/config-conventional; scripts `typecheck` e `prepare`
-    - [ ] Confirmar que `conductor(plan): ...` falha sem config
-    - [ ] `commitlint.config.js` com tipo `conductor`; verificar mensagens válida/inválida
-    - [ ] Hooks `commit-msg`, `pre-commit`, `pre-push`
-    - [ ] Commit `chore(tooling): add husky and commitlint`
+- [x] Task 2: Husky + commitlint + typecheck [025d9d9]
+    - [x] Instalar husky, @commitlint/cli, @commitlint/config-conventional; scripts `typecheck` e `prepare`
+    - [x] Confirmar que `conductor(plan): ...` falha sem config
+    - [x] `commitlint.config.js` com tipo `conductor`; verificar mensagens válida/inválida
+    - [x] Hooks `commit-msg`, `pre-commit`, `pre-push`
+    - [x] Commit `chore(tooling): add husky and commitlint`
 - [ ] Task 3: Infra de testes + App em `src/`
     - [ ] Instalar RNTL + test-renderer; remover react-test-renderer, @types/react-test-renderer, @react-native/new-app-screen; safe-area-context ^5.10.1
     - [ ] `jest.config.js` e `jest.setup.ts` (Reanimated, worklets, safe-area)
