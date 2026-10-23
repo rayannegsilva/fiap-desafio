@@ -38,12 +38,12 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] **Desvio 2:** `src/test/libraries.test.tsx` tinha um `<NavigationContainer>` próprio no smoke test de navegação — duplicava o que `renderWithProviders` passou a prover, causando erro de container aninhado; removido.
     - [x] Confirmar PASS
     - [x] Commit `feat(routes): add bottom tab navigator and extend test providers`
-- [ ] Task 5: Stack raiz e `App.tsx`
-    - [ ] Escrever testes falhando (`RootNavigator.test.tsx`, `App.test.tsx` atualizado)
-    - [ ] Implementar `RootNavigator.tsx`
-    - [ ] Atualizar `App.tsx`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(routes): add root stack navigator and wire it into App`
+- [x] Task 5: Stack raiz e `App.tsx` [9bd08ac]
+    - [x] Escrever testes falhando (`RootNavigator.test.tsx`, `App.test.tsx` atualizado)
+    - [x] Implementar `RootNavigator.tsx`
+    - [x] Atualizar `App.tsx`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(routes): add root stack navigator and wire it into App`
 - [ ] Task 6: Acesso temporário entre telas (Login→Main, Aulas→TrocaAluno)
     - [ ] Escrever teste falhando de ponta a ponta em `RootNavigator.test.tsx`
     - [ ] Implementar botão em `Login.tsx`
