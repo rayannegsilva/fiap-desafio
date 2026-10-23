@@ -1,10 +1,13 @@
-import { Text } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { AppProviders } from './theme/AppProviders';
+import { RootNavigator } from './routes/RootNavigator';
 
 export function App() {
   return (
     <SafeAreaProvider>
-      <Text>FiapTeste</Text>
+      <AppProviders>
+        <RootNavigator />
+      </AppProviders>
     </SafeAreaProvider>
   );
 }

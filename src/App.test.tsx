@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react-native';
 import { App } from './App';
 
-it('renders the app root', async () => {
+it('renders the app starting on Login', async () => {
   await render(<App />);
-  expect(screen.getByText('FiapTeste')).toBeOnTheScreen();
+  expect(screen.getByText('Login')).toBeOnTheScreen();
 });
