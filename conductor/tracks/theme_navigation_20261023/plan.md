@@ -10,15 +10,15 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] Implementar `theme.ts` (`createTheme`, spacing, borderRadii, textVariants)
     - [x] Confirmar PASS
     - [x] Commit `feat(theme): add restyle dark and light themes`
-- [ ] Task 2: Store de tema persistida + hook `useAppTheme`
-    - [ ] Escrever teste falhando da store (`useThemeStore.test.ts`: default dark, toggle + persistência)
-    - [ ] Implementar `useThemeStore.ts` (Zustand + persist + AsyncStorage)
-    - [ ] Confirmar PASS
-    - [ ] Escrever teste falhando do hook (`useAppTheme.test.tsx`)
-    - [ ] Implementar `useAppTheme.ts`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(theme): add persisted theme store and useAppTheme hook`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task 2: Store de tema persistida + hook `useAppTheme` [697c030]
+    - [x] Escrever teste falhando da store (`useThemeStore.test.ts`: default dark, toggle + persistência)
+    - [x] Implementar `useThemeStore.ts` (Zustand + persist + AsyncStorage)
+    - [x] Confirmar PASS
+    - [x] Escrever teste falhando do hook (`useAppTheme.test.tsx`)
+    - [x] Implementar `useAppTheme.ts`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(theme): add persisted theme store and useAppTheme hook`
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: 697c030]
 
 ## Phase 2: Navegação
 
