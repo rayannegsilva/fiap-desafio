@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { act, fireEvent, render, screen } from '@testing-library/react-native';
 import LottieView from 'lottie-react-native';
@@ -37,12 +36,10 @@ describe('react-navigation', () => {
       </Stack.Navigator>
     );
     await renderWithProviders(
-      <NavigationContainer>
-        <Tabs.Navigator>
-          <Tabs.Screen name="One" component={Inner} />
-          <Tabs.Screen name="Two" component={() => null} />
-        </Tabs.Navigator>
-      </NavigationContainer>,
+      <Tabs.Navigator>
+        <Tabs.Screen name="One" component={Inner} />
+        <Tabs.Screen name="Two" component={() => null} />
+      </Tabs.Navigator>,
     );
     expect(await screen.findByText('inner')).toBeOnTheScreen();
   });
