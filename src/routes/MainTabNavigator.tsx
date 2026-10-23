@@ -2,7 +2,6 @@ import {
   createBottomTabNavigator,
   type BottomTabNavigationOptions,
 } from '@react-navigation/bottom-tabs';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Calendar from '../assets/icons/calendar.svg';
 import CheckFile from '../assets/icons/check-file.svg';
 import { useAppTheme } from '../theme/useAppTheme';
@@ -31,7 +30,6 @@ const renderBoletimIcon: NonNullable<
 
 export function MainTabNavigator() {
   const theme = useAppTheme();
-  const insets = useSafeAreaInsets();
 
   return (
     <Tab.Navigator
@@ -39,11 +37,7 @@ export function MainTabNavigator() {
         headerShown: false,
         tabBarActiveTintColor: theme.colors.accentText,
         tabBarInactiveTintColor: theme.colors.textPrimary,
-        tabBarStyle: {
-          backgroundColor: theme.colors.surface,
-          height: 64 + insets.bottom,
-          paddingBottom: insets.bottom,
-        },
+        tabBarStyle: { backgroundColor: theme.colors.surface, height: 64 },
         tabBarLabelStyle: {
           fontSize: theme.textVariants.tab.fontSize,
           fontFamily: theme.textVariants.tab.fontFamily,
