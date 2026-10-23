@@ -30,12 +30,14 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] **Desvio:** telas usam `Box`/`Text` do Restyle, que exigem `ThemeProvider` no contexto — sem ele o teste falha em runtime (`Value 'background' does not exist in theme['colors']`), não só por módulo faltando. Adiantado o `ThemeProvider` (via `Providers` interno) pro `renderWithProviders` nesta task; Task 4 só adiciona `NavigationContainer` e extrai `AppProviders` reutilizável por `App.tsx`.
     - [x] Confirmar PASS
     - [x] Commit `feat(routes): add typed route params and placeholder screens`
-- [ ] Task 4: `renderWithProviders` estendido e bottom-tabs
-    - [ ] Escrever teste falhando do `MainTabNavigator` (cor dos ícones ativa/inativa, troca de aba)
-    - [ ] Implementar `AppProviders.tsx` e atualizar `renderWithProviders.tsx`
-    - [ ] Implementar `MainTabNavigator.tsx`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(routes): add bottom tab navigator and extend test providers`
+- [x] Task 4: `renderWithProviders` estendido e bottom-tabs [4e89dbb]
+    - [x] Escrever teste falhando do `MainTabNavigator` (cor dos ícones ativa/inativa, troca de aba)
+    - [x] Implementar `AppProviders.tsx` e atualizar `renderWithProviders.tsx` (`NavigationContainer`; `ThemeProvider` já tinha entrado na Task 3)
+    - [x] Implementar `MainTabNavigator.tsx`
+    - [x] **Desvio 1:** React Navigation renderiza cada `tabBarIcon` duas vezes (crossfade de cor focado/não-focado); teste de cor identifica o ícone visível pelo wrapper com `opacity: 1`, não por índice.
+    - [x] **Desvio 2:** `src/test/libraries.test.tsx` tinha um `<NavigationContainer>` próprio no smoke test de navegação — duplicava o que `renderWithProviders` passou a prover, causando erro de container aninhado; removido.
+    - [x] Confirmar PASS
+    - [x] Commit `feat(routes): add bottom tab navigator and extend test providers`
 - [ ] Task 5: Stack raiz e `App.tsx`
     - [ ] Escrever testes falhando (`RootNavigator.test.tsx`, `App.test.tsx` atualizado)
     - [ ] Implementar `RootNavigator.tsx`
