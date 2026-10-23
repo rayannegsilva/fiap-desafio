@@ -24,12 +24,12 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
 
 ## Phase 2: Bibliotecas do app
 
-- [ ] Task 4: SVG
-    - [ ] Instalar react-native-svg + react-native-svg-transformer; `pod install`
-    - [ ] Metro, `src/types/svg.d.ts`, mock `__mocks__/svgMock.js` + `moduleNameMapper`
-    - [ ] Escrever testes: `src/assets/icons/icons.test.ts` (currentColor) e smoke de import SVG — confirmar FAIL
-    - [ ] Normalizar SVGs — confirmar PASS
-    - [ ] Commit `build(svg): add react-native-svg with svg transformer`
+- [x] Task 4: SVG [9dd1621]
+    - [x] Instalar react-native-svg + react-native-svg-transformer; `pod install`
+    - [x] Metro, `src/types/svg.d.ts`, mock `__mocks__/svgMock.js` + `moduleNameMapper`
+    - [x] Escrever testes: `src/assets/icons/icons.test.ts` (currentColor) e smoke de import SVG — confirmar FAIL
+    - [x] Normalizar SVGs — confirmar PASS
+    - [x] Commit `build(svg): add react-native-svg with svg transformer`
 - [ ] Task 5: Navegação
     - [ ] Instalar native, native-stack, bottom-tabs, screens; `pod install`
     - [ ] `MainActivity.onCreate(null)`
