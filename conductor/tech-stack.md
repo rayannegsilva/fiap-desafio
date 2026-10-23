@@ -8,29 +8,29 @@
 
 ## UI e experiência
 - **Design system / tema:** @shopify/restyle — tokens tipados; escuro (padrão, do design) e claro derivado, preferência persistida
-- **Fonte:** Montserrat (Google Fonts), linkada com `react-native-asset` *(planejado)*
-- **Ícones:** SVGs do design via `react-native-svg` + `react-native-svg-transformer` (`fill="currentColor"`) *(planejado)*
+- **Fonte:** Montserrat (Google Fonts), linkada com `react-native-asset`
+- **Ícones:** SVGs do design via `react-native-svg` + `react-native-svg-transformer` (`fill="currentColor"`)
 - **Animações:** react-native-reanimated 4 + react-native-worklets
-- **Splash animada:** lottie-react-native *(planejado)*
+- **Splash animada:** lottie-react-native
 - **Layout seguro:** react-native-safe-area-context
 
 ## Arquitetura
-- **Navegação:** React Navigation — native stack + bottom tabs (Aulas/Boletim) *(planejado)*
-- **Estado global:** Zustand — tema, sessão e aluno selecionado *(planejado)*
-- **Persistência:** AsyncStorage — preferência de tema e identificador do responsável autenticado (nunca a senha) *(planejado)*
+- **Navegação:** React Navigation — native stack + bottom tabs (Aulas/Boletim)
+- **Estado global:** Zustand — tema, sessão e aluno selecionado
+- **Persistência:** AsyncStorage — preferência de tema e identificador do responsável autenticado (nunca a senha)
 - **Dados:** JSON embarcado em `src/`, acessado por uma camada própria (tipos + funções de consulta), para a UI não depender do formato do arquivo *(planejado)*
 
 ## Testes
 - **Runner:** Jest (`@react-native/jest-preset`)
 - **Unitários:** funções puras, hooks e stores Zustand isolados.
-- **Integração:** React Native Testing Library *(planejado)* — telas renderizadas com tema, navegação e store reais, validando fluxo do usuário (renderiza → interage → verifica resultado).
+- **Integração:** React Native Testing Library — telas renderizadas com tema, navegação e store reais, validando fluxo do usuário (renderiza → interage → verifica resultado).
 - **Fora de escopo:** testes E2E (Detox/Maestro).
 
 ## Qualidade de código
 - **Lint:** ESLint (`@react-native`)
 - **Formatação:** Prettier
-- **Commits:** Conventional Commits + commitlint *(planejado)* — a config deve aceitar o tipo `conductor` (usado nos commits de plano/track do Conductor).
-- **Git hooks:** Husky — lint, typecheck e testes antes de commit/push *(planejado)*
+- **Commits:** Conventional Commits + commitlint — a config aceita o tipo `conductor` (usado nos commits de plano/track do Conductor).
+- **Git hooks:** Husky — lint, typecheck e testes antes de commit/push
 
 ## Fora de escopo
 - Backend, Firebase ou API remota: os dados vêm do JSON embarcado.
