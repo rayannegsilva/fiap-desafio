@@ -2,6 +2,9 @@ module.exports = {
   preset: '@react-native/jest-preset',
   resolver: 'react-native-reanimated/jest/resolver',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
+  moduleNameMapper: {
+    '\\.svg$': '<rootDir>/__mocks__/svgMock.js',
+  },
   transformIgnorePatterns: [
     'node_modules/(?!((jest-)?react-native[^/]*|@react-native[^/]*|@react-navigation|@shopify/restyle|lottie-react-native)/)',
   ],
