@@ -53,8 +53,8 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
 
 ## Phase 3: Documentação
 
-- [ ] Task 9: README
-    - [ ] Atualizar Stack, Como rodar, Estrutura, Status
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test`
-    - [ ] Commit `docs: update readme with project setup`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task 9: README [d4554a7]
+    - [x] Atualizar Stack, Como rodar, Estrutura, Status
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test`
+    - [x] Commit `docs: update readme with project setup`
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: d4554a7]
