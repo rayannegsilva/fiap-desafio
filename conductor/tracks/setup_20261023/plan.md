@@ -8,7 +8,7 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - [x] Conferir `git status` (só base, docs, assets)
     - [x] `yarn lint && yarn test` passam
     - [x] Commit `chore: set up yarn, restyle and reanimated base`
-- [ ] Task 2: Husky + commitlint + typecheck
+- [~] Task 2: Husky + commitlint + typecheck
     - [ ] Instalar husky, @commitlint/cli, @commitlint/config-conventional; scripts `typecheck` e `prepare`
     - [ ] Confirmar que `conductor(plan): ...` falha sem config
     - [ ] `commitlint.config.js` com tipo `conductor`; verificar mensagens válida/inválida
