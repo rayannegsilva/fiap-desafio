@@ -70,3 +70,9 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
     - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
     - [x] Commit `docs: update readme with base components`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída [checkpoint: 56494dc]
+
+## Phase: Review Fixes
+
+- [x] Task: Apply review suggestions [1278b0e]
+    - Área de toque: `TextButton` (hitSlop 15) e opções do `Dropdown` (hitSlop 4 sobre 36).
+    - Espaçamentos medidos no Figma: recuo 12 (token `sm`) em card, caixa do dropdown e disciplinas; disciplinas com 37 de altura; Nota/Faltas com 4 entre linhas. Verificado no aparelho pelo usuário.
