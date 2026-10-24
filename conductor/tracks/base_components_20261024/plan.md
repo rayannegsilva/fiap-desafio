@@ -47,12 +47,13 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
 
 ## Phase 3: Abre/fecha
 
-- [ ] Task 7: `Collapsible`
-    - [ ] Escrever testes falhando (abre/fecha, `defaultExpanded`, aninhado)
-    - [ ] Implementar
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(components): add animated collapsible for card and row`
-- [ ] Task 8: `Dropdown`
+- [x] Task 7: `Collapsible` [83e8e5f]
+    - [x] Escrever testes falhando (abre/fecha, `defaultExpanded`, aninhado)
+    - [x] Implementar
+    - [x] Confirmar PASS
+    - [x] Commit `feat(components): add animated collapsible for card and row`
+    - **Desvio:** `RNTL 14` usa `toBeExpanded()`/`toBeCollapsed()` no lugar de `toHaveAccessibilityState`. Rotação do chevron extraída para `src/animations/useChevronRotation.ts` (compartilhada com `Dropdown`).
+- [~] Task 8: `Dropdown`
     - [ ] Escrever testes falhando (fechado, abre/seleciona/fecha, alterna)
     - [ ] Implementar
     - [ ] Confirmar PASS
