@@ -42,7 +42,8 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
     - [x] Confirmar PASS
     - [x] Commit `feat(components): add text field with underline and error state`
     - **Desvio:** RNTL 14 não tem `toHaveAccessibilityState` (Task 4 usa `toBeBusy`). Adicionado teste de que o campo sacode sem "reduzir movimento"; alinhamento do input movido para `StyleSheet` (commit separado) para zerar o warning de lint.
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: 9a28364]
+    - **Verificação:** só automatizada (56 testes); sem tela nova nesta fase — uso real dos botões e do campo na track de Login.
 
 ## Phase 3: Abre/fecha
 
