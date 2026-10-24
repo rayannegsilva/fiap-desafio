@@ -55,10 +55,12 @@ Origem e detalhes (código, comandos, asserções): [`docs/superpowers/plans/202
     - **Verificação manual:** iOS (screenshot) e Android (toques reais via adb) confirmados: Login → Entrar → Aulas (ícones tingidos certo, aba ativa turquesa) → Trocar aluno → Troca de aluno (sem header/footer) → voltar (botão físico) → Aulas. Tema escuro correto nos dois.
     - **Desvio descoberto na verificação:** o Metro bundler do emulador Android estava rodando desde antes do `metro.config.js` ganhar o transformer de SVG (track anterior), servindo `.svg` como asset numérico em vez de componente — crash `Element type is invalid ... got: number` ao navegar pra Main. Não é bug de código; resolvido reiniciando o Metro (`--reset-cache`). Nenhuma mudança de código necessária.
 
+- [x] **Ajuste pós-checkpoint (rodapé) [8b9fb3a, 88737a3]:** a lib aplica `paddingBottom: insets.bottom` dentro da altura fixa do `tabBarStyle`; no Android com navegação de 3 botões isso escondia o rodapé. Android usa `64 + insets.bottom`, iOS mantém 64 (verificado no iPhone 15: ícone e label inteiros, livres do home indicator). Borda superior default removida. Teste cobre a altura nas duas plataformas.
+
 ## Phase 3: Documentação
 
-- [ ] Task 7: README
-    - [ ] Atualizar Status (e Estrutura, se necessário)
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
-    - [ ] Commit `docs: update readme with theme and navigation foundation`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
+- [x] Task 7: README [86cfc2c]
+    - [x] Atualizar Status (e Estrutura, se necessário)
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
+    - [x] Commit `docs: update readme with theme and navigation foundation`
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída [checkpoint: 86cfc2c]
