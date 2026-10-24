@@ -53,11 +53,12 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
     - [x] Confirmar PASS
     - [x] Commit `feat(components): add animated collapsible for card and row`
     - **Desvio:** `RNTL 14` usa `toBeExpanded()`/`toBeCollapsed()` no lugar de `toHaveAccessibilityState`. Rotação do chevron extraída para `src/animations/useChevronRotation.ts` (compartilhada com `Dropdown`).
-- [~] Task 8: `Dropdown`
-    - [ ] Escrever testes falhando (fechado, abre/seleciona/fecha, alterna)
-    - [ ] Implementar
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(components): add generic dropdown with floating options`
+- [x] Task 8: `Dropdown` [89634eb]
+    - [x] Escrever testes falhando (fechado, abre/seleciona/fecha, alterna)
+    - [x] Implementar
+    - [x] Confirmar PASS
+    - [x] Commit `feat(components): add generic dropdown with floating options`
+    - **Desvio:** adicionado teste de que o painel é `absolute` abaixo da caixa (`top: 53`, flutua); wrapper com `zIndex` para o painel sobrepor irmãos no iOS. Asserções de a11y usam `toBeExpanded`/`toBeSelected`/`toHaveAccessibilityValue`.
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 4: Documentação
