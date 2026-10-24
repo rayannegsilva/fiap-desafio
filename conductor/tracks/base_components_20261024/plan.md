@@ -25,11 +25,11 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
 
 ## Phase 2: Botões e campo
 
-- [ ] Task 4: `PrimaryButton`
-    - [ ] Escrever testes falhando (toque, desabilitado, carregando)
-    - [ ] Implementar
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(components): add primary button with disabled and loading states`
+- [x] Task 4: `PrimaryButton` [bef19c7]
+    - [x] Escrever testes falhando (toque, desabilitado, carregando)
+    - [x] Implementar
+    - [x] Confirmar PASS
+    - [x] Commit `feat(components): add primary button with disabled and loading states`
 - [ ] Task 5: `TextButton`
     - [ ] Escrever testes falhando (toque, `hitSlop`, cor do ícone)
     - [ ] Implementar
