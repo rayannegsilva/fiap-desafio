@@ -2,7 +2,8 @@ import { Pressable } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../../routes/types';
-import { Box, Text } from '../../theme/restyle';
+import { Text } from '../../components/Text/Text';
+import { Box } from '../../theme/restyle';
 
 export function Login() {
   const navigation =

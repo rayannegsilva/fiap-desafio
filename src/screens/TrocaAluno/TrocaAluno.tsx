@@ -1,4 +1,5 @@
-import { Box, Text } from '../../theme/restyle';
+import { Text } from '../../components/Text/Text';
+import { Box } from '../../theme/restyle';
 
 export function TrocaAluno() {
   return (
