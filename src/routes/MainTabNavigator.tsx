@@ -42,6 +42,8 @@ export function MainTabNavigator() {
         tabBarInactiveTintColor: theme.colors.textPrimary,
         tabBarStyle: {
           backgroundColor: theme.colors.surface,
+          // A lib aplica paddingBottom: insets.bottom dentro da altura fixa;
+          // sem somar no Android, a navegação de 3 botões esconde o rodapé.
           height: 64 + (Platform.OS === 'android' ? insets.bottom : 0),
           borderTopWidth: 0,
         },
