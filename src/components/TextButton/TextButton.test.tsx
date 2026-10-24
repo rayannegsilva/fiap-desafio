@@ -14,8 +14,8 @@ it('calls onPress and exposes an accessible button', async () => {
 it('extends the touch area to at least 44pt', async () => {
   await renderWithProviders(<TextButton label="SAIR" onPress={jest.fn()} />);
   expect(screen.getByRole('button', { name: 'SAIR' })).toHaveProp('hitSlop', {
-    top: 12,
-    bottom: 12,
+    top: 15,
+    bottom: 15,
     left: 12,
     right: 12,
   });

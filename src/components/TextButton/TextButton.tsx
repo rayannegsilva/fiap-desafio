@@ -7,7 +7,7 @@ import { Box } from '../../theme/restyle';
 import { useAppTheme } from '../../theme/useAppTheme';
 import { Text } from '../Text/Text';
 
-const HIT_SLOP = { top: 12, bottom: 12, left: 12, right: 12 };
+const HIT_SLOP = { top: 15, bottom: 15, left: 12, right: 12 };
 const DEFAULT_ICON_SIZE = 24;
 
 type Props = {

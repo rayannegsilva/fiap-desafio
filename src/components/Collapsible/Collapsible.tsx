@@ -24,6 +24,7 @@ import { Text } from '../Text/Text';
 
 const CHEVRON_SIZE = 14;
 const CARD_HEIGHT = 90;
+const ROW_HEIGHT = 37;
 const OPEN_EASING = Easing.out(Easing.cubic);
 const CLOSE_EASING = Easing.in(Easing.cubic);
 
@@ -110,6 +111,11 @@ export function Collapsible({
     measured.value = event.nativeEvent.layout.height;
   };
   const isCard = variant === 'card';
+  const cardContent = {
+    paddingHorizontal: theme.spacing.sm,
+    paddingTop: theme.spacing.s,
+  };
+  const rowContent = { gap: theme.spacing.xs, paddingBottom: theme.spacing.s };
 
   return (
     <View>
@@ -128,9 +134,9 @@ export function Collapsible({
                 backgroundColor: 'surfaceRaised',
                 borderRadius: 'default',
                 height: CARD_HEIGHT,
-                paddingHorizontal: 'm',
+                paddingHorizontal: 'sm',
               }
-            : { paddingVertical: 's' })}
+            : { height: ROW_HEIGHT })}
         >
           <Text variant={isCard ? 'cardTitle' : 'captionMedium'} flex={1}>
             {title}
@@ -153,7 +159,7 @@ export function Collapsible({
       >
         <Animated.View
           ref={contentRef}
-          style={contentStyle}
+          style={[isCard ? cardContent : rowContent, contentStyle]}
           onLayout={onContentLayout}
         >
           {children}

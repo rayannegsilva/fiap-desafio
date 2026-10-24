@@ -58,3 +58,11 @@ it('floats over following content instead of pushing it', async () => {
     right: 0,
   });
 });
+
+it('extends each option touch target to 44pt without changing its visuals', async () => {
+  await setup();
+  await fireEvent.press(screen.getByRole('button', { name: 'Ano letivo' }));
+  const row = screen.getByRole('button', { name: '6EF - 2024' });
+  expect(row.props.hitSlop).toEqual({ top: 4, bottom: 4 });
+  expect(row.children[0]).toHaveStyle({ paddingVertical: 8 });
+});

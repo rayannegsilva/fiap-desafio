@@ -9,6 +9,7 @@ import { useAppTheme } from '../../theme/useAppTheme';
 import { Text } from '../Text/Text';
 
 const BOX_HEIGHT = 45;
+const OPTION_HIT_SLOP = { top: 4, bottom: 4 };
 const CHEVRON_SIZE = 14;
 const PANEL_Z_INDEX = 10;
 
@@ -60,7 +61,7 @@ export function Dropdown<T>({
           height={BOX_HEIGHT}
           backgroundColor="surface"
           borderRadius="default"
-          paddingHorizontal="m"
+          paddingHorizontal="sm"
         >
           <Text flex={1}>{getLabel(selected)}</Text>
           <Animated.View style={chevronStyle}>
@@ -83,6 +84,7 @@ export function Dropdown<T>({
               top: BOX_HEIGHT + theme.spacing.s,
               backgroundColor: theme.colors.surface,
               borderRadius: theme.borderRadii.default,
+              paddingVertical: theme.spacing.s,
             },
           ]}
         >
@@ -92,6 +94,7 @@ export function Dropdown<T>({
               <Pressable
                 key={key}
                 accessibilityRole="button"
+                hitSlop={OPTION_HIT_SLOP}
                 accessibilityLabel={getLabel(option)}
                 accessibilityState={{ selected: key === selectedKey }}
                 onPress={() => {
