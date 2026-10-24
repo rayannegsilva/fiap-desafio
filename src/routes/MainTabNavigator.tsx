@@ -2,6 +2,7 @@ import {
   createBottomTabNavigator,
   type BottomTabNavigationOptions,
 } from '@react-navigation/bottom-tabs';
+import { Platform } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Calendar from '../assets/icons/calendar.svg';
 import CheckFile from '../assets/icons/check-file.svg';
@@ -41,12 +42,8 @@ export function MainTabNavigator() {
         tabBarInactiveTintColor: theme.colors.textPrimary,
         tabBarStyle: {
           backgroundColor: theme.colors.surface,
-          // react-navigation ignora o inset no cálculo da altura quando
-          // `height` é um número fixo, mas sempre aplica paddingBottom:
-          // insets.bottom por dentro — sem somar o inset aqui, o conteúdo
-          // fica espremido/cortado em dispositivos com navigation bar de
-          // 3 botões (inset grande).
-          height: 64 + insets.bottom,
+          height: 64 + (Platform.OS === 'android' ? insets.bottom : 0),
+          borderTopWidth: 0,
         },
         tabBarLabelStyle: {
           fontSize: theme.textVariants.tab.fontSize,
