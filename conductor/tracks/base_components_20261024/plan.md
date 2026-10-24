@@ -4,11 +4,11 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
 
 ## Phase 1: Fundamentos
 
-- [ ] Task 1: `Text`
-    - [ ] Escrever testes falhando (variante padrão, `maxFontSizeMultiplier`, props nativos)
-    - [ ] Implementar `src/components/Text/Text.tsx`; trocar import de `Text` nas 4 telas
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(components): add text component with dynamic font limit`
+- [x] Task 1: `Text` c25d5b6
+    - [x] Escrever testes falhando (variante padrão, `maxFontSizeMultiplier`, props nativos)
+    - [x] Implementar `src/components/Text/Text.tsx`; trocar import de `Text` nas 4 telas
+    - [x] Confirmar PASS
+    - [x] Commit `feat(components): add text component with dynamic font limit`
 - [ ] Task 2: `motion` + `usePressScale`
     - [ ] Escrever testes falhando (escala ao pressionar; opacidade com "reduzir movimento")
     - [ ] Implementar `src/theme/motion.ts` e `src/animations/usePressScale.ts`
