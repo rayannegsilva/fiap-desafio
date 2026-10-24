@@ -73,6 +73,16 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   │   ├── fonts/             # Montserrat
 │   │   ├── icons/             # SVGs (fill="currentColor")
 │   │   └── images/
+│   ├── animations/
+│   │   ├── usePressScale.ts      # Escala ao pressionar
+│   │   └── useChevronRotation.ts # Rotação do chevron (abre/fecha)
+│   ├── components/            # Uma pasta por componente (Componente.tsx + Componente.test.tsx)
+│   │   ├── Text/
+│   │   ├── PrimaryButton/
+│   │   ├── TextButton/
+│   │   ├── TextField/
+│   │   ├── Collapsible/
+│   │   └── Dropdown/
 │   ├── routes/
 │   │   ├── RootNavigator.tsx    # Stack: Login, Main, TrocaAluno
 │   │   ├── MainTabNavigator.tsx # Abas: Aulas, Boletim
@@ -87,14 +97,17 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   ├── theme/
 │   │   ├── palette.ts         # Cores do design (escuro e claro)
 │   │   ├── theme.ts           # Tema Restyle: cores, espaçamento, raio, tipografia
+│   │   ├── motion.ts          # Constantes de animação
 │   │   ├── restyle.ts         # Box e Text tipados
 │   │   ├── useAppTheme.ts     # Tema ativo
 │   │   └── AppProviders.tsx   # ThemeProvider + NavigationContainer
 │   ├── test/
 │   │   ├── renderWithProviders.tsx
 │   │   └── libraries.test.tsx # smoke test de cada biblioteca
-│   └── types/
-│       └── svg.d.ts
+│   ├── types/
+│   │   └── svg.d.ts
+│   └── utils/
+│       └── formatCpf.ts       # Máscara de CPF
 ├── android/                 # Projeto nativo Android
 └── ios/                     # Projeto nativo iOS
 ```
@@ -116,3 +129,4 @@ Este README é atualizado ao concluir cada track.
 | Projeto base (RN CLI + TypeScript + Restyle + Reanimated) | ✅ |
 | Setup de dependências e ferramentas | ✅ |
 | Tema (escuro/claro) e navegação (stack + abas Aulas/Boletim) | ✅ |
+| Componentes base (texto, botões, campo, collapsible, dropdown) | ✅ |
