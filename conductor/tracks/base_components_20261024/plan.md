@@ -53,13 +53,15 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
     - [x] Confirmar PASS
     - [x] Commit `feat(components): add animated collapsible for card and row`
     - **Desvio:** `RNTL 14` usa `toBeExpanded()`/`toBeCollapsed()` no lugar de `toHaveAccessibilityState`. Rotação do chevron extraída para `src/animations/useChevronRotation.ts` (compartilhada com `Dropdown`).
+    - **Desvio (verificação no aparelho) [08baf9b]:** fade + `LinearTransition` davam sensação diferente conforme houvesse card abaixo (deslizava × aparecia). Trocado por altura animada (300ms, ease-out ao abrir, ease-in ao fechar) com o chevron no mesmo ritmo. Ao abrir por completo a altura fica `'auto'` (aninhados empurram o card); abrir/fechar medem a altura real na UI thread (`measure` + `scheduleOnUI`), com o conteúdo absoluto só enquanto fechado/animando — sem flicker no Android.
 - [x] Task 8: `Dropdown` [89634eb]
     - [x] Escrever testes falhando (fechado, abre/seleciona/fecha, alterna)
     - [x] Implementar
     - [x] Confirmar PASS
     - [x] Commit `feat(components): add generic dropdown with floating options`
     - **Desvio:** adicionado teste de que o painel é `absolute` abaixo da caixa (`top: 53`, flutua); wrapper com `zIndex` para o painel sobrepor irmãos no iOS. Asserções de a11y usam `toBeExpanded`/`toBeSelected`/`toHaveAccessibilityValue`.
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: 08baf9b]
+    - **Verificação manual:** cenário temporário no Boletim (não commitado) em iOS e Android — `Dropdown` flutua sobre o card sem deslocá-lo e fecha ao escolher; título longo quebra com chevron visível; 1º e 2º trimestre abrem/fecham igual; aninhado empurra o card; sem flicker. Confirmado pelo usuário.
 
 ## Phase 4: Documentação
 
