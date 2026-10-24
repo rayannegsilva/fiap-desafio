@@ -30,11 +30,11 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
     - [x] Implementar
     - [x] Confirmar PASS
     - [x] Commit `feat(components): add primary button with disabled and loading states`
-- [ ] Task 5: `TextButton`
-    - [ ] Escrever testes falhando (toque, `hitSlop`, cor do ícone)
-    - [ ] Implementar
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(components): add text button with optional icon`
+- [x] Task 5: `TextButton` [022d453]
+    - [x] Escrever testes falhando (toque, `hitSlop`, cor do ícone)
+    - [x] Implementar
+    - [x] Confirmar PASS
+    - [x] Commit `feat(components): add text button with optional icon`
 - [ ] Task 6: `TextField`
     - [ ] Ajustar `renderWithProviders` para usar `wrapper`
     - [ ] Escrever testes falhando (label/props nativos, sublinhado, erro, sem shake com "reduzir movimento")
