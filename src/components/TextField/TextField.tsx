@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { TextInput, type TextInputProps } from 'react-native';
+import { StyleSheet, TextInput, type TextInputProps } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useReducedMotion,
@@ -14,6 +14,8 @@ import { Text } from '../Text/Text';
 
 const SHAKE_OFFSETS = [-8, 8, -6, 6, 0];
 const SHAKE_STEP = motion.duration.micro / 3;
+
+const styles = StyleSheet.create({ input: { textAlign: 'center' } });
 
 type Props = TextInputProps & {
   label: string;
@@ -51,8 +53,8 @@ export function TextField({ label, error, style, ...rest }: Props) {
             fontSize: inputVariant.fontSize,
             lineHeight: inputVariant.lineHeight,
             color: theme.colors[inputVariant.color],
-            textAlign: 'center',
           },
+          styles.input,
           style,
         ]}
         {...rest}
