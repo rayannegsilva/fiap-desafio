@@ -48,10 +48,10 @@ describe('react-navigation', () => {
 describe('zustand + async-storage', () => {
   it('persists state to AsyncStorage', async () => {
     const useProbe = create<{ n: number; inc(): void }>()(
-      persist(
-        set => ({ n: 0, inc: () => set(s => ({ n: s.n + 1 })) }),
-        { name: 'probe', storage: createJSONStorage(() => AsyncStorage) },
-      ),
+      persist(set => ({ n: 0, inc: () => set(s => ({ n: s.n + 1 })) }), {
+        name: 'probe',
+        storage: createJSONStorage(() => AsyncStorage),
+      }),
     );
     await act(() => useProbe.getState().inc());
     const stored = await AsyncStorage.getItem('probe');
