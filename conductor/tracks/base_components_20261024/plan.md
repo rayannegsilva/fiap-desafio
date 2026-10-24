@@ -35,12 +35,13 @@ Origem e detalhes (código, testes, comandos): [`docs/superpowers/plans/2026-10-
     - [x] Implementar
     - [x] Confirmar PASS
     - [x] Commit `feat(components): add text button with optional icon`
-- [ ] Task 6: `TextField`
-    - [ ] Ajustar `renderWithProviders` para usar `wrapper`
-    - [ ] Escrever testes falhando (label/props nativos, sublinhado, erro, sem shake com "reduzir movimento")
-    - [ ] Implementar
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(components): add text field with underline and error state`
+- [x] Task 6: `TextField` [fa033aa]
+    - [x] Ajustar `renderWithProviders` para usar `wrapper`
+    - [x] Escrever testes falhando (label/props nativos, sublinhado, erro, sem shake com "reduzir movimento")
+    - [x] Implementar
+    - [x] Confirmar PASS
+    - [x] Commit `feat(components): add text field with underline and error state`
+    - **Desvio:** RNTL 14 não tem `toHaveAccessibilityState` (Task 4 usa `toBeBusy`). Adicionado teste de que o campo sacode sem "reduzir movimento"; alinhamento do input movido para `StyleSheet` (commit separado) para zerar o warning de lint.
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Abre/fecha
