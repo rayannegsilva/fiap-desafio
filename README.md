@@ -68,15 +68,31 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 .
 ├── index.js                 # Entry point
 ├── src/
-│   ├── App.tsx               # Componente raiz
-│   ├── App.test.tsx
+│   ├── App.tsx               # Raiz: safe area + tema + navegação
 │   ├── assets/
 │   │   ├── fonts/             # Montserrat
-│   │   ├── icons/              # SVGs (fill="currentColor")
+│   │   ├── icons/             # SVGs (fill="currentColor")
 │   │   └── images/
+│   ├── routes/
+│   │   ├── RootNavigator.tsx    # Stack: Login, Main, TrocaAluno
+│   │   ├── MainTabNavigator.tsx # Abas: Aulas, Boletim
+│   │   └── types.ts             # Parâmetros de rota tipados
+│   ├── screens/               # Uma pasta por tela (Tela.tsx + Tela.test.tsx)
+│   │   ├── Login/
+│   │   ├── Aulas/
+│   │   ├── Boletim/
+│   │   └── TrocaAluno/
+│   ├── store/
+│   │   └── useThemeStore.ts   # Tema claro/escuro (Zustand + AsyncStorage)
+│   ├── theme/
+│   │   ├── palette.ts         # Cores do design (escuro e claro)
+│   │   ├── theme.ts           # Tema Restyle: cores, espaçamento, raio, tipografia
+│   │   ├── restyle.ts         # Box e Text tipados
+│   │   ├── useAppTheme.ts     # Tema ativo
+│   │   └── AppProviders.tsx   # ThemeProvider + NavigationContainer
 │   ├── test/
 │   │   ├── renderWithProviders.tsx
-│   │   └── libraries.test.tsx  # smoke test de cada biblioteca
+│   │   └── libraries.test.tsx # smoke test de cada biblioteca
 │   └── types/
 │       └── svg.d.ts
 ├── android/                 # Projeto nativo Android
@@ -99,3 +115,4 @@ Este README é atualizado ao concluir cada track.
 | -------------- | ------ |
 | Projeto base (RN CLI + TypeScript + Restyle + Reanimated) | ✅ |
 | Setup de dependências e ferramentas | ✅ |
+| Tema (escuro/claro) e navegação (stack + abas Aulas/Boletim) | ✅ |
