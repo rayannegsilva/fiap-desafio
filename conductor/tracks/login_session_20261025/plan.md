@@ -24,11 +24,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 2: Login
 
-- [ ] Task 4: Ícone do `TextButton` depois do texto
-    - [ ] Escrever teste falhando (ordem texto → ícone)
-    - [ ] Implementar
-    - [ ] Confirmar PASS
-    - [ ] Commit `fix(components): place text button icon after the label`
+- [x] Task 4: Ícone do `TextButton` depois do texto [a9cbe27]
+    - [x] Escrever teste falhando (ordem texto → ícone)
+    - [x] Implementar
+    - [x] Confirmar PASS
+    - [x] Commit `fix(components): place text button icon after the label`
 - [ ] Task 5: `useLoginForm`
     - [ ] Escrever testes falhando (máscara, habilitação, sucesso, erro que limpa, uma autenticação por vez)
     - [ ] Implementar
