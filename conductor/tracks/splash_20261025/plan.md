@@ -43,3 +43,7 @@ Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/pl
     - [x] Commit `docs: update readme with animated splash`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída [checkpoint: a68976e]
     - **Verificação:** só automatizada (157 testes, lint e typecheck); fase só de documentação.
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions 10dbe7a
+    - Timers da saída da splash limpos ao desmontar (com teste).
