@@ -16,7 +16,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Commit `feat(boletim): add report card hook with year selection`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
-## Phase 2: Tela
+## Phase 2: Tela [checkpoint: 4192b95]
 
 - [x] Task 3: Dropdown estático com uma opção [3eb4850]
     - [x] Escrever teste falhando
@@ -33,7 +33,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `Boletim.tsx`
     - [x] `yarn lint && yarn typecheck && CI=true yarn test` PASS
     - [x] Commit `feat(boletim): show report card with trimesters and subjects`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Documentação
 
