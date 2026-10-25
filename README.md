@@ -95,7 +95,7 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   ├── screens/               # Uma pasta por tela (Tela.tsx + Tela.test.tsx)
 │   │   ├── Login/
 │   │   ├── Aulas/             # Agenda do aluno: useAgenda, AulaItem, SemAulas
-│   │   ├── Boletim/
+│   │   ├── Boletim/           # Boletim: useBoletim, DisciplinaDetalhe
 │   │   └── TrocaAluno/
 │   ├── store/
 │   │   ├── useSessionStore.ts # Sessão persistida (Zustand + AsyncStorage)
@@ -115,6 +115,7 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   │   └── svg.d.ts
 │   └── utils/
 │       ├── agenda.ts          # Rótulo do dia e dia inicial da agenda
+│       ├── boletim.ts         # Rótulos e formatação de nota e faltas
 │       ├── formatCpf.ts       # Máscara de CPF
 │       └── student.ts         # Helpers de aluno
 ├── android/                 # Projeto nativo Android
@@ -141,6 +142,7 @@ Este README é atualizado ao concluir cada track.
 | Componentes base (texto, botões, campo, collapsible, dropdown) | ✅ |
 | Login, sessão, cabeçalho e troca de aluno | ✅ |
 | Agenda de aulas | ✅ |
+| Boletim | ✅ |
 
 ## Acesso de demonstração
 
