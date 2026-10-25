@@ -4,16 +4,16 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 1: Lógica do boletim
 
-- [ ] Task 1: Formatadores do boletim
-    - [ ] Escrever testes falhando (nota inteira/decimal/null, faltas 0/null, rótulos)
-    - [ ] Implementar `src/utils/boletim.ts`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(boletim): add report card formatters`
-- [ ] Task 2: `useBoletim`
-    - [ ] Escrever testes falhando (ano mais recente e ordem, trocar ano, voltar ao mais recente ao trocar de aluno)
-    - [ ] Implementar `src/screens/Boletim/useBoletim.ts`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(boletim): add report card hook with year selection`
+- [x] Task 1: Formatadores do boletim [adf5e89]
+    - [x] Escrever testes falhando (nota inteira/decimal/null, faltas 0/null, rótulos)
+    - [x] Implementar `src/utils/boletim.ts`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(boletim): add report card formatters`
+- [x] Task 2: `useBoletim`
+    - [x] Escrever testes falhando (ano mais recente e ordem, trocar ano, voltar ao mais recente ao trocar de aluno)
+    - [x] Implementar `src/screens/Boletim/useBoletim.ts`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(boletim): add report card hook with year selection`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Tela
