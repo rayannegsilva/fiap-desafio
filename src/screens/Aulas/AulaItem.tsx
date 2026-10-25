@@ -1,0 +1,34 @@
+import Animated, { FadeInDown } from 'react-native-reanimated';
+import { Text } from '../../components/Text/Text';
+import type { Aula } from '../../data/types';
+import { motion } from '../../theme/motion';
+import { Box } from '../../theme/restyle';
+
+const MARKER_SIZE = 6;
+const MARKER_GAP = 10;
+
+type Props = { aula: Aula; index: number };
+
+export function AulaItem({ aula, index }: Props) {
+  return (
+    <Animated.View
+      entering={FadeInDown.duration(motion.duration.transition).delay(
+        index * motion.stagger,
+      )}
+    >
+      <Box flexDirection="row" alignItems="center" style={{ gap: MARKER_GAP }}>
+        <Box
+          width={MARKER_SIZE}
+          height={MARKER_SIZE}
+          borderWidth={1}
+          borderColor="marker"
+          style={{ borderRadius: MARKER_SIZE / 2 }}
+        />
+        <Text variant="caption">{aula.horario}</Text>
+      </Box>
+      <Box marginTop="s" style={{ marginLeft: MARKER_SIZE + MARKER_GAP }}>
+        <Text variant="bodyStrong">{aula.disciplina}</Text>
+      </Box>
+    </Animated.View>
+  );
+}
