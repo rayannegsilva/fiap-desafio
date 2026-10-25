@@ -37,7 +37,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 3: Documentação
 
-- [ ] Task 6: README
+- [x] Task 6: README [d08149b]
     - [ ] Atualizar Estrutura e Status
     - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
     - [ ] Commit `docs: update readme with report card`
