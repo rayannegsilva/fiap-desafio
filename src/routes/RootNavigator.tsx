@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function RootNavigator() {
   const hydrated = useSessionHydrated();
-  const signedIn = useSessionStore(s => s.responsavelId !== null);
+  const signedIn = useSessionStore(s => s.guardianId !== null);
 
   if (!hydrated) {
     return null;

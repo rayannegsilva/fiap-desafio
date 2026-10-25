@@ -3,14 +3,14 @@ import { useSession, useSessionHydrated } from './useSession';
 import { useSessionStore } from './useSessionStore';
 
 beforeEach(() => {
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
 });
 
 it('resolves the guardian and student of the session', async () => {
   await act(() => useSessionStore.getState().signIn(1, 12567));
   const { result } = await renderHook(() => useSession());
-  expect(result.current?.responsavel.primeiroNome).toBe('Gustavo');
-  expect(result.current?.aluno.primeiroNome).toBe('Rafael');
+  expect(result.current?.guardian.primeiroNome).toBe('Gustavo');
+  expect(result.current?.student.primeiroNome).toBe('Rafael');
 });
 
 it('returns null without a session', async () => {
@@ -22,14 +22,14 @@ it('clears an orphan session', async () => {
   await act(() => useSessionStore.getState().signIn(999, 1));
   const { result } = await renderHook(() => useSession());
   expect(result.current).toBeNull();
-  expect(useSessionStore.getState().responsavelId).toBeNull();
+  expect(useSessionStore.getState().guardianId).toBeNull();
 });
 
 it('clears a session whose student does not belong to the guardian', async () => {
   await act(() => useSessionStore.getState().signIn(1, 13752));
   const { result } = await renderHook(() => useSession());
   expect(result.current).toBeNull();
-  expect(useSessionStore.getState().responsavelId).toBeNull();
+  expect(useSessionStore.getState().guardianId).toBeNull();
 });
 
 it('reports hydration', async () => {

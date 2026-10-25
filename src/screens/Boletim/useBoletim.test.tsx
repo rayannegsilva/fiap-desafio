@@ -3,7 +3,7 @@ import { useSessionStore } from '../../store/useSessionStore';
 import { useBoletim } from './useBoletim';
 
 beforeEach(() => {
-  useSessionStore.setState({ responsavelId: 1, alunoRm: 12567 });
+  useSessionStore.setState({ guardianId: 1, studentRm: 12567 });
 });
 
 it('starts on the most recent year, sorted descending', async () => {
@@ -23,14 +23,14 @@ it('selects another year', async () => {
 it('resets to the most recent year when switching student', async () => {
   const { result } = await renderHook(() => useBoletim());
   await act(() => result.current.selectBoletim(result.current.boletins[1]));
-  await act(() => useSessionStore.getState().selectAluno(12568));
+  await act(() => useSessionStore.getState().selectStudent(12568));
   expect(result.current.selected?.ano).toBe('2025');
-  await act(() => useSessionStore.getState().selectAluno(12567));
+  await act(() => useSessionStore.getState().selectStudent(12567));
   expect(result.current.selected?.ano).toBe('2025');
 });
 
 it('is empty without a session', async () => {
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
   const { result } = await renderHook(() => useBoletim());
   expect(result.current.boletins).toEqual([]);
   expect(result.current.selected).toBeNull();

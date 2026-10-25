@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { AgendaDia } from '../../data/types';
+import type { ScheduleDay } from '../../data/types';
 import { useSession } from '../../store/useSession';
 import { initialDay } from '../../utils/agenda';
 
@@ -7,13 +7,13 @@ export function useAgenda() {
   const session = useSession();
   const [chosen, setChosen] = useState<string | null>(null);
 
-  const days = session?.aluno.agenda ?? [];
+  const days = session?.student.agenda ?? [];
   const selectedDay =
     days.find(d => d.dia === chosen) ?? initialDay(days, new Date());
 
   return {
     days,
     selectedDay,
-    selectDay: (day: AgendaDia) => setChosen(day.dia),
+    selectDay: (day: ScheduleDay) => setChosen(day.dia),
   };
 }

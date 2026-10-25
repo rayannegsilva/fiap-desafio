@@ -1,4 +1,4 @@
-import type { Boletim } from '../data/types';
+import type { ReportCard } from '../data/types';
 
 const EMPTY = '-';
 
@@ -8,7 +8,7 @@ export const formatNota = (nota: number | null) =>
 export const formatFaltas = (faltas: number | null) =>
   faltas === null ? EMPTY : String(faltas);
 
-export const boletimLabel = ({ turma, ano }: Boletim) => `${turma} - ${ano}`;
+export const boletimLabel = ({ turma, ano }: ReportCard) => `${turma} - ${ano}`;
 
 export const trimestreLabel = (n: number) => `${n}º TRIMESTRE`;
 

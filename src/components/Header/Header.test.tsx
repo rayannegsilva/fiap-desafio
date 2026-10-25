@@ -4,7 +4,7 @@ import { renderWithProviders } from '../../test/renderWithProviders';
 import { Header } from './Header';
 
 beforeEach(() => {
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
 });
 
 it('shows greeting, student and info line', async () => {
@@ -13,7 +13,9 @@ it('shows greeting, student and info line', async () => {
   expect(screen.getByText('GUSTAVO')).toBeOnTheScreen();
   expect(screen.getByRole('header', { name: 'RAFAEL' })).toBeOnTheScreen();
   expect(screen.getByText('7EF - RM 12567 - Matutino')).toBeOnTheScreen();
-  expect(screen.getByRole('button', { name: 'TROCAR PERFIL' })).toBeOnTheScreen();
+  expect(
+    screen.getByRole('button', { name: 'TROCAR PERFIL' }),
+  ).toBeOnTheScreen();
 });
 
 it('hides TROCAR PERFIL when the guardian has a single student', async () => {
@@ -29,7 +31,7 @@ it('signs out on SAIR', async () => {
   useSessionStore.getState().signIn(1, 12567);
   await renderWithProviders(<Header />);
   await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
-  expect(useSessionStore.getState().responsavelId).toBeNull();
+  expect(useSessionStore.getState().guardianId).toBeNull();
 });
 
 it('renders nothing without a session', async () => {

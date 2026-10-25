@@ -5,7 +5,7 @@ import { Aulas } from './Aulas';
 
 beforeEach(() => {
   jest.useFakeTimers({ now: new Date(2026, 9, 27) });
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
   useSessionStore.getState().signIn(1, 12567);
 });
 
@@ -33,7 +33,7 @@ it('switches day from the dropdown', async () => {
 });
 
 it('shows only the header without a session', async () => {
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
   await renderWithProviders(<Aulas />);
   expect(screen.getByText('AGENDA')).toBeOnTheScreen();
   expect(screen.queryByRole('button', { name: 'Dia da agenda' })).toBeNull();

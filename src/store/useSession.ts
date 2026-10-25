@@ -1,6 +1,6 @@
 import { useEffect, useSyncExternalStore } from 'react';
-import { getResponsavel } from '../data/repository';
-import type { Aluno, Responsavel } from '../data/types';
+import { getGuardian } from '../data/repository';
+import type { Student, Guardian } from '../data/types';
 import { useSessionStore } from './useSessionStore';
 
 const subscribeHydration = (cb: () => void) => {
@@ -19,17 +19,16 @@ export function useSessionHydrated(): boolean {
 }
 
 export function useSession(): {
-  responsavel: Responsavel;
-  aluno: Aluno;
+  guardian: Guardian;
+  student: Student;
 } | null {
-  const responsavelId = useSessionStore(s => s.responsavelId);
-  const alunoRm = useSessionStore(s => s.alunoRm);
+  const guardianId = useSessionStore(s => s.guardianId);
+  const studentRm = useSessionStore(s => s.studentRm);
   const signOut = useSessionStore(s => s.signOut);
 
-  const responsavel =
-    responsavelId === null ? null : getResponsavel(responsavelId);
-  const aluno = responsavel?.alunos.find(a => a.rm === alunoRm) ?? null;
-  const orphan = responsavelId !== null && !(responsavel && aluno);
+  const guardian = guardianId === null ? null : getGuardian(guardianId);
+  const student = guardian?.alunos.find(a => a.rm === studentRm) ?? null;
+  const orphan = guardianId !== null && !(guardian && student);
 
   useEffect(() => {
     if (orphan) {
@@ -37,5 +36,5 @@ export function useSession(): {
     }
   }, [orphan, signOut]);
 
-  return responsavel && aluno ? { responsavel, aluno } : null;
+  return guardian && student ? { guardian, student } : null;
 }

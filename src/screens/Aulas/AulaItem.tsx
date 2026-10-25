@@ -1,13 +1,13 @@
 import Animated, { FadeInDown } from 'react-native-reanimated';
 import { Text } from '../../components/Text/Text';
-import type { Aula } from '../../data/types';
+import type { Lesson } from '../../data/types';
 import { motion } from '../../theme/motion';
 import { Box } from '../../theme/restyle';
 
 const MARKER_SIZE = 6;
 const MARKER_GAP = 10;
 
-type Props = { aula: Aula; index: number };
+type Props = { aula: Lesson; index: number };
 
 export function AulaItem({ aula, index }: Props) {
   return (

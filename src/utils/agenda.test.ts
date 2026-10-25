@@ -1,7 +1,7 @@
-import type { AgendaDia } from '../data/types';
+import type { ScheduleDay } from '../data/types';
 import { formatDayLabel, initialDay } from './agenda';
 
-const agenda: AgendaDia[] = [16, 17, 18, 19, 20, 21, 22].map(d => ({
+const agenda: ScheduleDay[] = [16, 17, 18, 19, 20, 21, 22].map(d => ({
   dia: `2025-03-${d}`,
   aulas: [],
 }));

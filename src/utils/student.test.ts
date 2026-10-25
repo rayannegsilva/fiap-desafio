@@ -1,4 +1,4 @@
-import { getResponsavel } from '../data/repository';
+import { getGuardian } from '../data/repository';
 import {
   guardianFirstName,
   studentFirstName,
@@ -6,18 +6,18 @@ import {
   studentInfoLine,
 } from './student';
 
-const responsavel = getResponsavel(1)!;
-const aluno = responsavel.alunos[0];
+const guardian = getGuardian(1)!;
+const student = guardian.alunos[0];
 
 it('formats the student names in upper case', () => {
-  expect(studentFirstName(aluno)).toBe('RAFAEL');
-  expect(studentFullName(aluno)).toBe('RAFAEL DA SILVA');
+  expect(studentFirstName(student)).toBe('RAFAEL');
+  expect(studentFullName(student)).toBe('RAFAEL DA SILVA');
 });
 
 it('formats the student info line', () => {
-  expect(studentInfoLine(aluno)).toBe('7EF - RM 12567 - Matutino');
+  expect(studentInfoLine(student)).toBe('7EF - RM 12567 - Matutino');
 });
 
 it('formats the guardian first name', () => {
-  expect(guardianFirstName(responsavel)).toBe('GUSTAVO');
+  expect(guardianFirstName(guardian)).toBe('GUSTAVO');
 });

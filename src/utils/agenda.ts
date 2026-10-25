@@ -1,4 +1,4 @@
-import type { AgendaDia } from '../data/types';
+import type { ScheduleDay } from '../data/types';
 
 const MONTHS = [
   'janeiro',
@@ -40,7 +40,7 @@ export const formatDayLabel = (dia: string) => {
   return `${day} de ${MONTHS[month - 1]}, ${WEEKDAYS[weekday]}`;
 };
 
-export const initialDay = (agenda: AgendaDia[], today: Date) =>
+export const initialDay = (agenda: ScheduleDay[], today: Date) =>
   agenda.find(d => parse(d.dia).weekday === today.getDay()) ??
   agenda[0] ??
   null;

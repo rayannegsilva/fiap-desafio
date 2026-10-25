@@ -6,7 +6,7 @@ import { usePressScale } from '../../animations/usePressScale';
 import Close from '../../assets/icons/close.svg';
 import { Text } from '../../components/Text/Text';
 import { TextButton } from '../../components/TextButton/TextButton';
-import type { Aluno } from '../../data/types';
+import type { Student } from '../../data/types';
 import { useSession } from '../../store/useSession';
 import { useSessionStore } from '../../store/useSessionStore';
 import { Box } from '../../theme/restyle';
@@ -19,18 +19,18 @@ const CARDS_TOP = 64;
 const SELECTED_BORDER = 2;
 
 type CardProps = {
-  aluno: Aluno;
+  student: Student;
   selected: boolean;
   onPress: () => void;
 };
 
-function AlunoCard({ aluno, selected, onPress }: CardProps) {
+function AlunoCard({ student, selected, onPress }: CardProps) {
   const { animatedStyle, onPressIn, onPressOut } = usePressScale();
 
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={studentFullName(aluno)}
+      accessibilityLabel={studentFullName(student)}
       accessibilityState={{ selected }}
       onPress={onPress}
       onPressIn={onPressIn}
@@ -46,8 +46,8 @@ function AlunoCard({ aluno, selected, onPress }: CardProps) {
           borderWidth={selected ? SELECTED_BORDER : 0}
           borderColor="accent"
         >
-          <Text variant="bodyMedium">{studentFullName(aluno)}</Text>
-          <Text variant="body">{studentInfoLine(aluno)}</Text>
+          <Text variant="bodyMedium">{studentFullName(student)}</Text>
+          <Text variant="body">{studentInfoLine(student)}</Text>
         </Box>
       </Animated.View>
     </Pressable>
@@ -57,7 +57,7 @@ function AlunoCard({ aluno, selected, onPress }: CardProps) {
 export function TrocaAluno() {
   const navigation = useNavigation();
   const session = useSession();
-  const selectAluno = useSessionStore(s => s.selectAluno);
+  const selectStudent = useSessionStore(s => s.selectStudent);
   const insets = useSafeAreaInsets();
 
   if (!session) {
@@ -85,13 +85,13 @@ export function TrocaAluno() {
         </Text>
       </Box>
       <Box paddingHorizontal="m" gap="m" style={{ marginTop: CARDS_TOP }}>
-        {session.responsavel.alunos.map(aluno => (
+        {session.guardian.alunos.map(student => (
           <AlunoCard
-            key={aluno.rm}
-            aluno={aluno}
-            selected={aluno.rm === session.aluno.rm}
+            key={student.rm}
+            student={student}
+            selected={student.rm === session.student.rm}
             onPress={() => {
-              selectAluno(aluno.rm);
+              selectStudent(student.rm);
               navigation.goBack();
             }}
           />

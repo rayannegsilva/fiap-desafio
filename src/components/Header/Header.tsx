@@ -34,7 +34,7 @@ export function Header() {
   if (!session) {
     return null;
   }
-  const { responsavel, aluno } = session;
+  const { guardian, student } = session;
 
   return (
     <Box backgroundColor="background" style={{ paddingTop: insets.top }}>
@@ -54,7 +54,7 @@ export function Header() {
           accessibilityLabel="FIAP School"
         />
         <Box flexDirection="row" alignItems="center" gap="l">
-          {responsavel.alunos.length > 1 ? (
+          {guardian.alunos.length > 1 ? (
             <TextButton
               label="TROCAR PERFIL"
               onPress={() => navigation.navigate('TrocaAluno')}
@@ -70,14 +70,13 @@ export function Header() {
       </Box>
       <Box alignItems="center" paddingTop="m" paddingBottom="m">
         <Text variant="greeting">
-          Olá,{' '}
-          <Text variant="greetingName">{guardianFirstName(responsavel)}</Text>
+          Olá, <Text variant="greetingName">{guardianFirstName(guardian)}</Text>
         </Text>
         <Box marginTop="xl2" alignItems="center" gap="s">
           <Text variant="bodyMedium" accessibilityRole="header">
-            {studentFirstName(aluno)}
+            {studentFirstName(student)}
           </Text>
-          <Text variant="body">{studentInfoLine(aluno)}</Text>
+          <Text variant="body">{studentInfoLine(student)}</Text>
         </Box>
       </Box>
     </Box>

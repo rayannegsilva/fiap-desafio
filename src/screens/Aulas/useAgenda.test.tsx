@@ -4,7 +4,7 @@ import { useAgenda } from './useAgenda';
 
 beforeEach(() => {
   jest.useFakeTimers({ now: new Date(2026, 9, 27) });
-  useSessionStore.setState({ responsavelId: 1, alunoRm: 12567 });
+  useSessionStore.setState({ guardianId: 1, studentRm: 12567 });
 });
 
 afterEach(() => {
@@ -26,7 +26,7 @@ it('selects another day', async () => {
 it('keeps the selected day when switching student', async () => {
   const { result } = await renderHook(() => useAgenda());
   await act(() => result.current.selectDay(result.current.days[3]));
-  await act(() => useSessionStore.getState().selectAluno(12568));
+  await act(() => useSessionStore.getState().selectStudent(12568));
   expect(result.current.selectedDay?.dia).toBe('2025-03-19');
   expect(result.current.selectedDay?.aulas[0].disciplina).toBe(
     'Produção e Interpretação de Textos',
@@ -34,7 +34,7 @@ it('keeps the selected day when switching student', async () => {
 });
 
 it('is empty without a session', async () => {
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
   const { result } = await renderHook(() => useAgenda());
   expect(result.current.days).toEqual([]);
   expect(result.current.selectedDay).toBeNull();

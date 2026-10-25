@@ -8,12 +8,12 @@ import { Login } from './Login';
 
 beforeEach(() => {
   jest.useFakeTimers();
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
 });
 
-async function fillAndSubmit(cpf: string, senha: string) {
+async function fillAndSubmit(cpf: string, password: string) {
   await fireEvent.changeText(screen.getByLabelText('CPF'), cpf);
-  await fireEvent.changeText(screen.getByLabelText('SENHA'), senha);
+  await fireEvent.changeText(screen.getByLabelText('SENHA'), password);
   await fireEvent.press(screen.getByRole('button', { name: 'FAZER LOGIN' }));
 }
 
@@ -48,7 +48,7 @@ it('shows loading and then signs in with valid credentials', async () => {
   expect(screen.getByRole('button', { name: 'FAZER LOGIN' })).toBeBusy();
 
   await act(() => jest.advanceTimersByTimeAsync(AUTH_DELAY_MS));
-  expect(useSessionStore.getState().responsavelId).toBe(1);
+  expect(useSessionStore.getState().guardianId).toBe(1);
 });
 
 it('shows the generic error on invalid credentials', async () => {
@@ -58,7 +58,7 @@ it('shows the generic error on invalid credentials', async () => {
   expect(
     screen.getByText('Usuário ou senha inválida. Pode tentar novamente?'),
   ).toBeOnTheScreen();
-  expect(useSessionStore.getState().responsavelId).toBeNull();
+  expect(useSessionStore.getState().guardianId).toBeNull();
 });
 
 it('moves focus to the password field when submitting the cpf', async () => {
@@ -90,7 +90,9 @@ describe('with the keyboard open', () => {
 
 it('paints the keyboard avoiding area with the theme background', async () => {
   await renderWithProviders(<Login />);
-  expect(StyleSheet.flatten(screen.getByTestId('login-screen').props.style)).toMatchObject({
+  expect(
+    StyleSheet.flatten(screen.getByTestId('login-screen').props.style),
+  ).toMatchObject({
     backgroundColor: darkTheme.colors.background,
   });
 });

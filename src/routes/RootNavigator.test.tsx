@@ -9,7 +9,7 @@ afterEach(() => {
 });
 
 beforeEach(() => {
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
 });
 
 it('starts on the Login screen without a session', async () => {

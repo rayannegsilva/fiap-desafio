@@ -5,7 +5,7 @@ import { useLoginForm } from './useLoginForm';
 
 beforeEach(() => {
   jest.useFakeTimers();
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
 });
 
 afterEach(() => {
@@ -16,10 +16,10 @@ afterEach(() => {
 async function fill(
   result: { current: ReturnType<typeof useLoginForm> },
   cpf: string,
-  senha: string,
+  password: string,
 ) {
   await act(() => result.current.setCpf(cpf));
-  await act(() => result.current.setSenha(senha));
+  await act(() => result.current.setPassword(password));
 }
 
 it('masks the cpf as it is typed', async () => {
@@ -47,8 +47,8 @@ it('signs in with the first student on success', async () => {
     await pending;
   });
   expect(useSessionStore.getState()).toMatchObject({
-    responsavelId: 1,
-    alunoRm: 12567,
+    guardianId: 1,
+    studentRm: 12567,
   });
   expect(result.current.loading).toBe(false);
 });
@@ -64,8 +64,8 @@ it('shows the generic error on failure and clears it when a field changes', asyn
   expect(result.current.error).toBe(
     'Usuário ou senha inválida. Pode tentar novamente?',
   );
-  expect(useSessionStore.getState().responsavelId).toBeNull();
-  await act(() => result.current.setSenha('errad'));
+  expect(useSessionStore.getState().guardianId).toBeNull();
+  await act(() => result.current.setPassword('errad'));
   expect(result.current.error).toBeNull();
 });
 
@@ -84,7 +84,7 @@ it('reports a guardian without students', async () => {
   expect(result.current.error).toBe(
     'Nenhum aluno vinculado a este responsável.',
   );
-  expect(useSessionStore.getState().responsavelId).toBeNull();
+  expect(useSessionStore.getState().guardianId).toBeNull();
 });
 
 it('authenticates only once when submit is called twice while loading', async () => {

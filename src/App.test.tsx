@@ -3,7 +3,7 @@ import { App } from './App';
 import { useSessionStore } from './store/useSessionStore';
 
 it('renders the app starting on Login without a session', async () => {
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
   await render(<App />);
   expect(screen.getByLabelText('CPF')).toBeOnTheScreen();
 });

@@ -1,9 +1,9 @@
 import { Text } from '../../components/Text/Text';
-import type { Disciplina } from '../../data/types';
+import type { Subject } from '../../data/types';
 import { Box } from '../../theme/restyle';
 import { formatFaltas, formatNota } from '../../utils/boletim';
 
-type Props = { disciplina: Disciplina };
+type Props = { disciplina: Subject };
 
 type LinhaProps = { label: string; value: string };
 

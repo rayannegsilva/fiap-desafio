@@ -4,7 +4,7 @@ import { renderWithProviders } from '../../test/renderWithProviders';
 import { Boletim } from './Boletim';
 
 beforeEach(() => {
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
   useSessionStore.getState().signIn(1, 12567);
 });
 

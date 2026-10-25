@@ -10,22 +10,22 @@ const NO_STUDENTS = 'Nenhum aluno vinculado a este responsável.';
 export function useLoginForm() {
   const signIn = useSessionStore(s => s.signIn);
   const [cpf, setCpfValue] = useState('');
-  const [senha, setSenhaValue] = useState('');
+  const [password, setPasswordValue] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const inFlight = useRef(false);
 
   const canSubmit =
-    cpf.replace(/\D/g, '').length === CPF_DIGITS && senha !== '' && !loading;
+    cpf.replace(/\D/g, '').length === CPF_DIGITS && password !== '' && !loading;
 
   const setCpf = (value: string) => {
     setError(null);
     setCpfValue(formatCpf(value));
   };
 
-  const setSenha = (value: string) => {
+  const setPassword = (value: string) => {
     setError(null);
-    setSenhaValue(value);
+    setPasswordValue(value);
   };
 
   const submit = async () => {
@@ -36,13 +36,13 @@ export function useLoginForm() {
     setLoading(true);
     setError(null);
     try {
-      const responsavel = await authenticate(cpf, senha);
-      if (!responsavel) {
+      const guardian = await authenticate(cpf, password);
+      if (!guardian) {
         setError(INVALID_CREDENTIALS);
-      } else if (responsavel.alunos.length === 0) {
+      } else if (guardian.alunos.length === 0) {
         setError(NO_STUDENTS);
       } else {
-        signIn(responsavel.id, responsavel.alunos[0].rm);
+        signIn(guardian.id, guardian.alunos[0].rm);
       }
     } finally {
       inFlight.current = false;
@@ -52,9 +52,9 @@ export function useLoginForm() {
 
   return {
     cpf,
-    senha,
+    password,
     setCpf,
-    setSenha,
+    setPassword,
     canSubmit,
     loading,
     error,

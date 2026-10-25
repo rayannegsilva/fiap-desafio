@@ -11,7 +11,7 @@ jest.mock('@react-navigation/native', () => ({
 
 beforeEach(() => {
   mockGoBack.mockClear();
-  useSessionStore.setState({ responsavelId: null, alunoRm: null });
+  useSessionStore.setState({ guardianId: null, studentRm: null });
   useSessionStore.getState().signIn(1, 12567);
 });
 
@@ -33,13 +33,13 @@ it('lists the students with the current one selected', async () => {
 it('selects the pressed student and goes back', async () => {
   await renderWithProviders(<TrocaAluno />);
   await fireEvent.press(screen.getByRole('button', { name: 'JOANA DA SILVA' }));
-  expect(useSessionStore.getState().alunoRm).toBe(12568);
+  expect(useSessionStore.getState().studentRm).toBe(12568);
   expect(mockGoBack).toHaveBeenCalledTimes(1);
 });
 
 it('goes back on FECHAR without switching', async () => {
   await renderWithProviders(<TrocaAluno />);
   await fireEvent.press(screen.getByRole('button', { name: 'FECHAR' }));
-  expect(useSessionStore.getState().alunoRm).toBe(12567);
+  expect(useSessionStore.getState().studentRm).toBe(12567);
   expect(mockGoBack).toHaveBeenCalledTimes(1);
 });

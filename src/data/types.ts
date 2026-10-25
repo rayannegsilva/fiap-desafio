@@ -1,32 +1,32 @@
-export type Aula = { horario: string; disciplina: string };
+export type Lesson = { horario: string; disciplina: string };
 
-export type AgendaDia = { dia: string; aulas: Aula[] };
+export type ScheduleDay = { dia: string; aulas: Lesson[] };
 
-export type Disciplina = {
+export type Subject = {
   nome: string;
   nota: number | null;
   faltas: number | null;
 };
 
-export type Trimestre = { trimestre: number; disciplinas: Disciplina[] };
+export type Term = { trimestre: number; disciplinas: Subject[] };
 
-export type Boletim = { ano: string; turma: string; trimestres: Trimestre[] };
+export type ReportCard = { ano: string; turma: string; trimestres: Term[] };
 
-export type Aluno = {
+export type Student = {
   rm: number;
   turma: string;
   periodo: string;
   primeiroNome: string;
   sobrenome: string;
-  agenda: AgendaDia[];
-  boletim: Boletim[];
+  agenda: ScheduleDay[];
+  boletim: ReportCard[];
 };
 
-export type Responsavel = {
+export type Guardian = {
   id: number;
   cpf: string;
   email: string;
   primeiroNome: string;
   sobrenome: string;
-  alunos: Aluno[];
+  alunos: Student[];
 };

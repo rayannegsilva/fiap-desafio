@@ -23,10 +23,18 @@ const FIELD_GAP = 40;
 const LOGO_TO_FIELDS = 76;
 
 export function Login() {
-  const { cpf, senha, setCpf, setSenha, canSubmit, loading, error, submit } =
-    useLoginForm();
+  const {
+    cpf,
+    password,
+    setCpf,
+    setPassword,
+    canSubmit,
+    loading,
+    error,
+    submit,
+  } = useLoginForm();
 
-  const senhaRef = useRef<ComponentRef<typeof TextInput>>(null);
+  const passwordRef = useRef<ComponentRef<typeof TextInput>>(null);
   const scrollRef = useRef<ComponentRef<typeof ScrollView>>(null);
   const keyboardVisible = useKeyboardVisible();
 
@@ -85,15 +93,15 @@ export function Login() {
                 maxLength={14}
                 returnKeyType="next"
                 submitBehavior="submit"
-                onSubmitEditing={() => senhaRef.current?.focus()}
+                onSubmitEditing={() => passwordRef.current?.focus()}
                 style={styles.input}
               />
               <Box height={FIELD_GAP} />
               <TextField
                 label="SENHA"
-                ref={senhaRef}
-                value={senha}
-                onChangeText={setSenha}
+                ref={passwordRef}
+                value={password}
+                onChangeText={setPassword}
                 secureTextEntry
                 returnKeyType="done"
                 onSubmitEditing={onSubmit}
