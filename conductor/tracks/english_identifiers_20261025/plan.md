@@ -4,10 +4,10 @@ Origem e detalhes (regras, mapa de nomes, comandos): [`docs/superpowers/plans/20
 
 ## Phase 1: Refactor
 
-- [ ] Task 1: Dados e sessão
-    - [ ] Renomear tipos, repositório, store e `useSession` + consumidores
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test` PASS
-    - [ ] Commit `refactor: use english names for data and session`
+- [x] Task 1: Dados e sessão [a10f822]
+    - [x] Renomear tipos, repositório, store e `useSession` + consumidores
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test` PASS
+    - [x] Commit `refactor: use english names for data and session`
 - [ ] Task 2: Utilitários
     - [ ] `schedule.ts` e `reportCard.ts` + funções
     - [ ] Verificação completa PASS
