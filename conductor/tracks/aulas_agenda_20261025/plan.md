@@ -2,7 +2,7 @@
 
 Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/superpowers/plans/2026-10-25-aulas-agenda.md`](../../../docs/superpowers/plans/2026-10-25-aulas-agenda.md). Cada task abaixo corresponde à task de mesmo número lá. Seguir `conductor/workflow.md`.
 
-## Phase 1: Lógica da agenda
+## Phase 1: Lógica da agenda [checkpoint: 697a8f9]
 
 - [x] Task 1: Utilitários de data da agenda [e0591ed]
     - [x] Escrever testes falhando (rótulos de domingo/segunda/sábado/janeiro, dia inicial por dia da semana, fallback e agenda vazia)
@@ -14,7 +14,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `src/screens/Aulas/useAgenda.ts` e `motion.stagger`
     - [x] Confirmar PASS
     - [x] Commit `feat(agenda): add agenda hook with day selection`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Tela
 
