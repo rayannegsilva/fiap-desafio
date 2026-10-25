@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, type ComponentRef, type Ref } from 'react';
 import { StyleSheet, TextInput, type TextInputProps } from 'react-native';
 import Animated, {
   useAnimatedStyle,
@@ -23,9 +23,10 @@ const styles = StyleSheet.create({
 type Props = TextInputProps & {
   label: string;
   error?: string;
+  ref?: Ref<ComponentRef<typeof TextInput>>;
 };
 
-export function TextField({ label, error, style, ...rest }: Props) {
+export function TextField({ label, error, style, ref, ...rest }: Props) {
   const theme = useAppTheme();
   const reduceMotion = useReducedMotion();
   const shake = useSharedValue(0);
@@ -50,6 +51,7 @@ export function TextField({ label, error, style, ...rest }: Props) {
         {label}
       </Text>
       <TextInput
+        ref={ref}
         accessibilityLabel={label}
         placeholderTextColor={theme.colors.textDisabled}
         style={[

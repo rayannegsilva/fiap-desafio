@@ -1,3 +1,4 @@
+import { TextInput } from 'react-native';
 import { act, fireEvent, screen } from '@testing-library/react-native';
 import { AUTH_DELAY_MS } from '../../data/repository';
 import { useSessionStore } from '../../store/useSessionStore';
@@ -50,4 +51,11 @@ it('shows the generic error on invalid credentials', async () => {
     screen.getByText('Usuário ou senha inválida. Pode tentar novamente?'),
   ).toBeOnTheScreen();
   expect(useSessionStore.getState().responsavelId).toBeNull();
+});
+
+it('moves focus to the password field when submitting the cpf', async () => {
+  const focus = jest.spyOn(TextInput.prototype, 'focus');
+  await renderWithProviders(<Login />);
+  await fireEvent(screen.getByLabelText('CPF'), 'submitEditing');
+  expect(focus).toHaveBeenCalled();
 });

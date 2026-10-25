@@ -1,8 +1,10 @@
+import { useRef, type ComponentRef } from 'react';
 import {
   KeyboardAvoidingView,
   Image,
   Platform,
   StyleSheet,
+  TextInput,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import logo from '../../assets/images/logo.png';
@@ -27,6 +29,7 @@ const styles = StyleSheet.create({
 export function Login() {
   const { cpf, senha, setCpf, setSenha, canSubmit, loading, error, submit } =
     useLoginForm();
+  const senhaRef = useRef<ComponentRef<typeof TextInput>>(null);
   const insets = useSafeAreaInsets();
   const onSubmit = () => {
     submit();
@@ -54,11 +57,14 @@ export function Login() {
               onChangeText={setCpf}
               keyboardType="number-pad"
               returnKeyType="next"
+              submitBehavior="submit"
+              onSubmitEditing={() => senhaRef.current?.focus()}
               style={styles.input}
             />
             <Box height={FIELD_GAP} />
             <TextField
               label="SENHA"
+              ref={senhaRef}
               value={senha}
               onChangeText={setSenha}
               secureTextEntry

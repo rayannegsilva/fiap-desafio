@@ -1,3 +1,5 @@
+import { createRef, type ComponentRef } from 'react';
+import { TextInput } from 'react-native';
 import { fireEvent, screen } from '@testing-library/react-native';
 import { getAnimatedStyle, useReducedMotion } from 'react-native-reanimated';
 import { renderWithProviders } from '../../test/renderWithProviders';
@@ -86,4 +88,10 @@ it('shakes horizontally when an error appears', async () => {
 it('centers the label', async () => {
   await renderWithProviders(<TextField label="CPF" value="" />);
   expect(screen.getByText('CPF')).toHaveStyle({ textAlign: 'center' });
+});
+
+it('forwards the ref to the TextInput', async () => {
+  const ref = createRef<ComponentRef<typeof TextInput>>();
+  await renderWithProviders(<TextField label="CPF" ref={ref} />);
+  expect(ref.current?.focus).toEqual(expect.any(Function));
 });
