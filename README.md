@@ -87,16 +87,16 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   ├── data/
 │   │   ├── types.ts           # Tipos de responsável, aluno e agenda
 │   │   ├── responsaveis.json  # Responsáveis e alunos (dados fictícios)
-│   │   └── repository.ts      # authenticate e getResponsavel
+│   │   └── repository.ts      # authenticate e getGuardian
 │   ├── routes/
-│   │   ├── RootNavigator.tsx    # Stack: Login, Main, TrocaAluno
-│   │   ├── MainTabNavigator.tsx # Abas: Aulas, Boletim
+│   │   ├── RootNavigator.tsx    # Stack: Login, Main, StudentSwitch
+│   │   ├── MainTabNavigator.tsx # Abas: Schedule, ReportCard
 │   │   └── types.ts             # Parâmetros de rota tipados
 │   ├── screens/               # Uma pasta por tela (Tela.tsx + Tela.test.tsx)
 │   │   ├── Login/
-│   │   ├── Aulas/             # Agenda do aluno: useAgenda, AulaItem, SemAulas
-│   │   ├── Boletim/           # Boletim: useBoletim, DisciplinaDetalhe
-│   │   └── TrocaAluno/
+│   │   ├── Schedule/          # Agenda do aluno: useSchedule, LessonItem, EmptyDay
+│   │   ├── ReportCard/        # Boletim: useReportCard, SubjectDetails
+│   │   └── StudentSwitch/
 │   ├── store/
 │   │   ├── useSessionStore.ts # Sessão persistida (Zustand + AsyncStorage)
 │   │   ├── useSession.ts      # Responsável e aluno ativo da sessão
@@ -114,8 +114,8 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   ├── types/
 │   │   └── svg.d.ts
 │   └── utils/
-│       ├── agenda.ts          # Rótulo do dia e dia inicial da agenda
-│       ├── boletim.ts         # Rótulos e formatação de nota e faltas
+│       ├── schedule.ts        # Rótulo do dia e dia inicial da agenda
+│       ├── reportCard.ts      # Rótulos e formatação de nota e faltas
 │       ├── formatCpf.ts       # Máscara de CPF
 │       └── student.ts         # Helpers de aluno
 ├── android/                 # Projeto nativo Android
@@ -138,7 +138,7 @@ Este README é atualizado ao concluir cada track.
 | -------------- | ------ |
 | Projeto base (RN CLI + TypeScript + Restyle + Reanimated) | ✅ |
 | Setup de dependências e ferramentas | ✅ |
-| Tema (escuro/claro) e navegação (stack + abas Aulas/Boletim) | ✅ |
+| Tema (escuro/claro) e navegação (stack + abas Schedule/ReportCard) | ✅ |
 | Componentes base (texto, botões, campo, collapsible, dropdown) | ✅ |
 | Login, sessão, cabeçalho e troca de aluno | ✅ |
 | Agenda de aulas | ✅ |
