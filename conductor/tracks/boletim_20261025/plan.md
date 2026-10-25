@@ -35,10 +35,10 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Commit `feat(boletim): show report card with trimesters and subjects`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
-## Phase 3: Documentação
+## Phase 3: Documentação [checkpoint: d08149b]
 
 - [x] Task 6: README [d08149b]
     - [x] Atualizar Estrutura e Status
     - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
     - [x] Commit `docs: update readme with report card`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
