@@ -23,6 +23,7 @@ type StrokeShape = {
 const VIEW_BOX = { width: 798, height: 216 };
 const STROKE_WIDTH = 15.8;
 const LETTER_COUNT = 4;
+const A_LETTER = 2;
 const CLIP_ID = 'fiap-clip';
 const CLIP_PATH =
   'M0 0H420V214.506H0Z M420 0H585V120.39H420Z M500 159.546H600V214.504H500Z M585 0H798V216H585Z';
@@ -104,7 +105,7 @@ function Stroke({ stroke, index, progress, color }: StrokeProps) {
       d={stroke.d}
       fill="none"
       strokeWidth={STROKE_WIDTH}
-      strokeLinejoin="bevel"
+      strokeLinejoin={stroke.letter === A_LETTER ? 'bevel' : 'miter'}
       strokeDasharray={stroke.length}
       animatedProps={animatedProps}
     />
