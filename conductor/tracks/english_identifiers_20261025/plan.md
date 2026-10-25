@@ -8,10 +8,10 @@ Origem e detalhes (regras, mapa de nomes, comandos): [`docs/superpowers/plans/20
     - [x] Renomear tipos, repositório, store e `useSession` + consumidores
     - [x] `yarn lint && yarn typecheck && CI=true yarn test` PASS
     - [x] Commit `refactor: use english names for data and session`
-- [ ] Task 2: Utilitários
-    - [ ] `schedule.ts` e `reportCard.ts` + funções
-    - [ ] Verificação completa PASS
-    - [ ] Commit `refactor: use english names for schedule and report card helpers`
+- [x] Task 2: Utilitários [5cef0c5]
+    - [x] `schedule.ts` e `reportCard.ts` + funções
+    - [x] Verificação completa PASS
+    - [x] Commit `refactor: use english names for schedule and report card helpers`
 - [ ] Task 3: Telas e rotas
     - [ ] Pastas `Schedule`, `ReportCard`, `StudentSwitch`, componentes, hooks, rotas
     - [ ] Verificação completa PASS
