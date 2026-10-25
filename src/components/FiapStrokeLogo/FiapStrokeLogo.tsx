@@ -25,7 +25,7 @@ const STROKE_WIDTH = 15.8;
 const LETTER_COUNT = 4;
 const CLIP_ID = 'fiap-clip';
 const CLIP_PATH =
-  'M0 0H798V120.39H350V214.506H0Z M500 159.546H600V214.504H500Z';
+  'M0 0H798V120.39H420V214.506H0Z M500 159.546H600V214.504H500Z';
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 
