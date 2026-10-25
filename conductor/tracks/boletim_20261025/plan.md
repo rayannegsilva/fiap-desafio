@@ -9,7 +9,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `src/utils/boletim.ts`
     - [x] Confirmar PASS
     - [x] Commit `feat(boletim): add report card formatters`
-- [x] Task 2: `useBoletim`
+- [x] Task 2: `useBoletim` [0d798e9]
     - [x] Escrever testes falhando (ano mais recente e ordem, trocar ano, voltar ao mais recente ao trocar de aluno)
     - [x] Implementar `src/screens/Boletim/useBoletim.ts`
     - [x] Confirmar PASS
