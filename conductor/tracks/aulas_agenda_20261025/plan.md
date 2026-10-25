@@ -23,11 +23,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `AulaItem` e `SemAulas`
     - [x] Confirmar PASS
     - [x] Commit `feat(agenda): add class item and empty day components`
-- [ ] Task 4: Tela de Aulas
-    - [ ] Escrever testes falhando (aulas do dia de hoje, trocar dia pelo dropdown → vazio)
-    - [ ] Implementar `Aulas.tsx`
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test` PASS
-    - [ ] Commit `feat(agenda): show student schedule with day selection`
+- [x] Task 4: Tela de Aulas [ca05f42]
+    - [x] Escrever testes falhando (aulas do dia de hoje, trocar dia pelo dropdown → vazio)
+    - [x] Implementar `Aulas.tsx`
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test` PASS
+    - [x] Commit `feat(agenda): show student schedule with day selection`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Documentação
