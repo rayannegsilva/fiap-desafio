@@ -44,7 +44,11 @@ export function Aulas() {
             <Box paddingTop="l" gap="m">
               {selectedDay.aulas.length > 0 ? (
                 selectedDay.aulas.map((aula, index) => (
-                  <AulaItem key={aula.horario} aula={aula} index={index} />
+                  <AulaItem
+                    key={`${aula.horario}-${aula.disciplina}`}
+                    aula={aula}
+                    index={index}
+                  />
                 ))
               ) : (
                 <SemAulas />
