@@ -52,11 +52,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `Header`, tokens `greetingName` e `xl2`; usar em Aulas e Boletim; remover botão temporário de Aulas
     - [x] Confirmar PASS
     - [x] Commit `feat(header): add authenticated header with student info and actions`
-- [ ] Task 8: Troca de aluno
-    - [ ] Escrever testes falhando (lista, seleção + volta, FECHAR, ponta a ponta)
-    - [ ] Implementar `TrocaAluno.tsx`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(student-switch): add student selection screen`
+- [x] Task 8: Troca de aluno [f4da901]
+    - [x] Escrever testes falhando (lista, seleção + volta, FECHAR, ponta a ponta)
+    - [x] Implementar `TrocaAluno.tsx`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(student-switch): add student selection screen`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 4: Documentação
