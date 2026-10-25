@@ -26,7 +26,7 @@ it('tints the active tab icon with accentText and the inactive one with textPrim
 });
 
 function tabBarHeight() {
-  for (const label of screen.getAllByText('Aulas')) {
+  for (const label of screen.getAllByText('AGENDA')) {
     for (let node = label.parent; node; node = node.parent) {
       const style = StyleSheet.flatten(node.props.style);
       if (style?.backgroundColor === darkTheme.colors.surface) {
@@ -67,9 +67,15 @@ describe('tab bar height', () => {
 
 it('switches to Boletim when its tab is pressed', async () => {
   await renderWithProviders(<MainTabNavigator />);
-  expect(screen.queryByText('BOLETIM')).toBeNull();
-  await fireEvent.press(screen.getByLabelText(/^Boletim/));
+  expect(screen.getAllByText('BOLETIM')).toHaveLength(1);
+  await fireEvent.press(screen.getByRole('button', { name: /BOLETIM/ }));
   await waitFor(() => {
-    expect(screen.getByText('BOLETIM')).toBeOnTheScreen();
+    expect(screen.getAllByText('BOLETIM').length).toBeGreaterThan(1);
   });
+});
+
+it('labels the tabs AGENDA and BOLETIM', async () => {
+  await renderWithProviders(<MainTabNavigator />);
+  expect(screen.getByRole('button', { name: /AGENDA/ })).toBeOnTheScreen();
+  expect(screen.getByRole('button', { name: /BOLETIM/ })).toBeOnTheScreen();
 });

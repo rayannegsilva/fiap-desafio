@@ -95,3 +95,10 @@ it('forwards the ref to the TextInput', async () => {
   await renderWithProviders(<TextField label="CPF" ref={ref} />);
   expect(ref.current?.focus).toEqual(expect.any(Function));
 });
+
+it('colors the cursor and selection with accentText', async () => {
+  await renderWithProviders(<TextField label="CPF" />);
+  const input = screen.getByLabelText('CPF');
+  expect(input).toHaveProp('cursorColor', darkTheme.colors.accentText);
+  expect(input).toHaveProp('selectionColor', darkTheme.colors.accentText);
+});

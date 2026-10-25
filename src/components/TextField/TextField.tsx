@@ -56,6 +56,8 @@ export function TextField({ label, error, style, ref, ...rest }: Props) {
         ref={ref}
         accessibilityLabel={label}
         placeholderTextColor={theme.colors.textDisabled}
+        cursorColor={theme.colors.accentText}
+        selectionColor={theme.colors.accentText}
         style={[
           {
             fontFamily: inputVariant.fontFamily,

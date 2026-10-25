@@ -56,12 +56,12 @@ export function MainTabNavigator() {
       <Tab.Screen
         name="Aulas"
         component={Aulas}
-        options={{ tabBarIcon: renderAulasIcon }}
+        options={{ tabBarIcon: renderAulasIcon, tabBarLabel: 'AGENDA' }}
       />
       <Tab.Screen
         name="Boletim"
         component={Boletim}
-        options={{ tabBarIcon: renderBoletimIcon }}
+        options={{ tabBarIcon: renderBoletimIcon, tabBarLabel: 'BOLETIM' }}
       />
     </Tab.Navigator>
   );
