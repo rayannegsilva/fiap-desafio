@@ -14,11 +14,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `src/utils/student.ts`
     - [x] Confirmar PASS
     - [x] Commit `feat(utils): add student display formatters`
-- [ ] Task 3: Store de sessão
-    - [ ] Escrever testes falhando (signIn/selectAluno/signOut, persistência só de ids, sessão órfã)
-    - [ ] Implementar `useSessionStore`, `useSessionHydrated`, `useSession`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(store): add persisted session with student selection`
+- [x] Task 3: Store de sessão [f28a06f]
+    - [x] Escrever testes falhando (signIn/selectAluno/signOut, persistência só de ids, sessão órfã)
+    - [x] Implementar `useSessionStore`, `useSessionHydrated`, `useSession`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(store): add persisted session with student selection`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Login
