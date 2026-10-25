@@ -2,7 +2,7 @@
 
 Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/plans/2026-10-25-splash.md`](../../../docs/superpowers/plans/2026-10-25-splash.md). Cada task abaixo corresponde à task de mesmo número lá. Seguir `conductor/workflow.md`.
 
-## Phase 1: Tema do sistema e splash nativa
+## Phase 1: Tema do sistema e splash nativa [checkpoint: e129412]
 
 - [x] Task 0: Tema segue o sistema b640f0b
     - [x] Escrever testes falhando (padrão `system`, override manual, troca ao vivo)
@@ -14,7 +14,7 @@ Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/pl
     - [x] Android `values`/`values-night` + Android 12+ sem ícone
     - [x] Verificação completa PASS
     - [x] Commit `feat(splash): native launch screen follows the system scheme`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Splash animada
 
