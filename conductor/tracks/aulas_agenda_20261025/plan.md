@@ -9,11 +9,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `src/utils/agenda.ts` (`formatDayLabel`, `initialDay`)
     - [x] Confirmar PASS
     - [x] Commit `feat(agenda): add day label and initial day helpers`
-- [ ] Task 2: `useAgenda`
-    - [ ] Escrever testes falhando (dia inicial, selecionar dia, manter dia ao trocar de aluno)
-    - [ ] Implementar `src/screens/Aulas/useAgenda.ts` e `motion.stagger`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(agenda): add agenda hook with day selection`
+- [x] Task 2: `useAgenda` [697a8f9]
+    - [x] Escrever testes falhando (dia inicial, selecionar dia, manter dia ao trocar de aluno)
+    - [x] Implementar `src/screens/Aulas/useAgenda.ts` e `motion.stagger`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(agenda): add agenda hook with day selection`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Tela
