@@ -15,7 +15,10 @@ import { Text } from '../Text/Text';
 const SHAKE_OFFSETS = [-8, 8, -6, 6, 0];
 const SHAKE_STEP = motion.duration.micro / 3;
 
-const styles = StyleSheet.create({ input: { textAlign: 'center' } });
+const styles = StyleSheet.create({
+  input: { textAlign: 'center' },
+  error: { marginTop: 32, textAlign: 'center' },
+});
 
 type Props = TextInputProps & {
   label: string;
@@ -43,7 +46,9 @@ export function TextField({ label, error, style, ...rest }: Props) {
 
   return (
     <Animated.View testID="text-field-container" style={animatedStyle}>
-      <Text variant="label">{label}</Text>
+      <Text variant="label" textAlign="center">
+        {label}
+      </Text>
       <TextInput
         accessibilityLabel={label}
         placeholderTextColor={theme.colors.textDisabled}
@@ -65,7 +70,11 @@ export function TextField({ label, error, style, ...rest }: Props) {
         backgroundColor={filled ? 'lineActive' : 'lineIdle'}
       />
       {error ? (
-        <Text variant="error" accessibilityLiveRegion="polite">
+        <Text
+          variant="error"
+          style={styles.error}
+          accessibilityLiveRegion="polite"
+        >
           {error}
         </Text>
       ) : null}

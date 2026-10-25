@@ -82,3 +82,8 @@ it('shakes horizontally when an error appears', async () => {
   );
   expect((transform as [{ translateX: number }])[0].translateX).not.toBe(0);
 });
+
+it('centers the label', async () => {
+  await renderWithProviders(<TextField label="CPF" value="" />);
+  expect(screen.getByText('CPF')).toHaveStyle({ textAlign: 'center' });
+});
