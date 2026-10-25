@@ -66,4 +66,5 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Atualizar Estrutura, Status e Acesso de demonstração
     - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
     - [x] Commit `docs: update readme with login and session`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída [checkpoint: 1ecc4e3]
+    - **Verificação:** só automatizada (104 testes, lint e typecheck); fase só de documentação.
