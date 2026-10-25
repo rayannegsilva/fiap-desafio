@@ -11,11 +11,11 @@ import {
   subjectLabel,
   termLabel,
 } from '../../utils/reportCard';
-import { DisciplinaDetalhe } from './DisciplinaDetalhe';
-import { useBoletim } from './useBoletim';
+import { SubjectDetails } from './SubjectDetails';
+import { useReportCard } from './useReportCard';
 
-export function Boletim() {
-  const { boletins, selected, selectBoletim, listKey } = useBoletim();
+export function ReportCard() {
+  const { reportCards, selected, selectReportCard, listKey } = useReportCard();
 
   return (
     <Box flex={1} backgroundColor="background">
@@ -32,32 +32,29 @@ export function Boletim() {
         {selected ? (
           <Box marginTop="m" marginHorizontal="m" paddingBottom="m">
             <Dropdown
-              options={boletins}
+              options={reportCards}
               selected={selected}
-              onSelect={selectBoletim}
+              onSelect={selectReportCard}
               getLabel={reportCardLabel}
-              getKey={boletim => boletim.ano}
+              getKey={reportCard => reportCard.ano}
               accessibilityLabel="Ano do boletim"
             />
             <Box key={listKey} marginTop="m" gap="m">
-              {selected.trimestres.map((trimestre, index) => (
+              {selected.trimestres.map((term, index) => (
                 <Animated.View
-                  key={trimestre.trimestre}
+                  key={term.trimestre}
                   entering={FadeInDown.duration(
                     motion.duration.transition,
                   ).delay(index * motion.stagger)}
                 >
-                  <Collapsible
-                    variant="card"
-                    title={termLabel(trimestre.trimestre)}
-                  >
-                    {trimestre.disciplinas.map(disciplina => (
+                  <Collapsible variant="card" title={termLabel(term.trimestre)}>
+                    {term.disciplinas.map(subject => (
                       <Collapsible
-                        key={disciplina.nome}
+                        key={subject.nome}
                         variant="row"
-                        title={subjectLabel(disciplina.nome)}
+                        title={subjectLabel(subject.nome)}
                       >
-                        <DisciplinaDetalhe disciplina={disciplina} />
+                        <SubjectDetails subject={subject} />
                       </Collapsible>
                     ))}
                   </Collapsible>

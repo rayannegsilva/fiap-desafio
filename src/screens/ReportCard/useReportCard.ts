@@ -2,12 +2,12 @@ import { useState } from 'react';
 import type { ReportCard } from '../../data/types';
 import { useSession } from '../../store/useSession';
 
-export function useBoletim() {
+export function useReportCard() {
   const session = useSession();
   const [chosen, setChosen] = useState<string | null>(null);
 
   const student = session?.student ?? null;
-  const boletins = [...(student?.boletim ?? [])].sort((a, b) =>
+  const reportCards = [...(student?.boletim ?? [])].sort((a, b) =>
     b.ano.localeCompare(a.ano),
   );
   const rm = student?.rm ?? null;
@@ -19,12 +19,13 @@ export function useBoletim() {
     setChosen(null);
   }
 
-  const selected = boletins.find(b => b.ano === chosen) ?? boletins[0] ?? null;
+  const selected =
+    reportCards.find(b => b.ano === chosen) ?? reportCards[0] ?? null;
 
   return {
-    boletins,
+    reportCards,
     selected,
-    selectBoletim: (b: ReportCard) => setChosen(b.ano),
+    selectReportCard: (b: ReportCard) => setChosen(b.ano),
     listKey: rm && selected ? `${rm}-${selected.ano}` : '',
   };
 }

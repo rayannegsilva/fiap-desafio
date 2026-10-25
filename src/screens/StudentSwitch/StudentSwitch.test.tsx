@@ -1,7 +1,7 @@
 import { fireEvent, screen } from '@testing-library/react-native';
 import { useSessionStore } from '../../store/useSessionStore';
 import { renderWithProviders } from '../../test/renderWithProviders';
-import { TrocaAluno } from './TrocaAluno';
+import { StudentSwitch } from './StudentSwitch';
 
 const mockGoBack = jest.fn();
 jest.mock('@react-navigation/native', () => ({
@@ -16,7 +16,7 @@ beforeEach(() => {
 });
 
 it('lists the students with the current one selected', async () => {
-  await renderWithProviders(<TrocaAluno />);
+  await renderWithProviders(<StudentSwitch />);
   expect(
     screen.getByText('Escolha o perfil que você quer visualizar'),
   ).toBeOnTheScreen();
@@ -31,14 +31,14 @@ it('lists the students with the current one selected', async () => {
 });
 
 it('selects the pressed student and goes back', async () => {
-  await renderWithProviders(<TrocaAluno />);
+  await renderWithProviders(<StudentSwitch />);
   await fireEvent.press(screen.getByRole('button', { name: 'JOANA DA SILVA' }));
   expect(useSessionStore.getState().studentRm).toBe(12568);
   expect(mockGoBack).toHaveBeenCalledTimes(1);
 });
 
 it('goes back on FECHAR without switching', async () => {
-  await renderWithProviders(<TrocaAluno />);
+  await renderWithProviders(<StudentSwitch />);
   await fireEvent.press(screen.getByRole('button', { name: 'FECHAR' }));
   expect(useSessionStore.getState().studentRm).toBe(12567);
   expect(mockGoBack).toHaveBeenCalledTimes(1);

@@ -24,7 +24,7 @@ type CardProps = {
   onPress: () => void;
 };
 
-function AlunoCard({ student, selected, onPress }: CardProps) {
+function StudentCard({ student, selected, onPress }: CardProps) {
   const { animatedStyle, onPressIn, onPressOut } = usePressScale();
 
   return (
@@ -54,7 +54,7 @@ function AlunoCard({ student, selected, onPress }: CardProps) {
   );
 }
 
-export function TrocaAluno() {
+export function StudentSwitch() {
   const navigation = useNavigation();
   const session = useSession();
   const selectStudent = useSessionStore(s => s.selectStudent);
@@ -86,7 +86,7 @@ export function TrocaAluno() {
       </Box>
       <Box paddingHorizontal="m" gap="m" style={{ marginTop: CARDS_TOP }}>
         {session.guardian.alunos.map(student => (
-          <AlunoCard
+          <StudentCard
             key={student.rm}
             student={student}
             selected={student.rm === session.student.rm}

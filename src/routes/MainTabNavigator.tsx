@@ -7,23 +7,23 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Calendar from '../assets/icons/calendar.svg';
 import CheckFile from '../assets/icons/check-file.svg';
 import { useAppTheme } from '../theme/useAppTheme';
-import { Aulas } from '../screens/Aulas/Aulas';
-import { Boletim } from '../screens/Boletim/Boletim';
+import { Schedule } from '../screens/Schedule/Schedule';
+import { ReportCard } from '../screens/ReportCard/ReportCard';
 import type { MainTabParamList } from './types';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
-const renderAulasIcon: NonNullable<
+const renderScheduleIcon: NonNullable<
   BottomTabNavigationOptions['tabBarIcon']
 > = ({ color }) => (
-  <Calendar testID="tab-icon-aulas" width={24} height={24} color={color} />
+  <Calendar testID="tab-icon-schedule" width={24} height={24} color={color} />
 );
 
-const renderBoletimIcon: NonNullable<
+const renderReportCardIcon: NonNullable<
   BottomTabNavigationOptions['tabBarIcon']
 > = ({ color }) => (
   <CheckFile
-    testID="tab-icon-boletim"
+    testID="tab-icon-report-card"
     width={24}
     height={24}
     color={color}
@@ -54,14 +54,14 @@ export function MainTabNavigator() {
       }}
     >
       <Tab.Screen
-        name="Aulas"
-        component={Aulas}
-        options={{ tabBarIcon: renderAulasIcon, tabBarLabel: 'AGENDA' }}
+        name="Schedule"
+        component={Schedule}
+        options={{ tabBarIcon: renderScheduleIcon, tabBarLabel: 'AGENDA' }}
       />
       <Tab.Screen
-        name="Boletim"
-        component={Boletim}
-        options={{ tabBarIcon: renderBoletimIcon, tabBarLabel: 'BOLETIM' }}
+        name="ReportCard"
+        component={ReportCard}
+        options={{ tabBarIcon: renderReportCardIcon, tabBarLabel: 'BOLETIM' }}
       />
     </Tab.Navigator>
   );

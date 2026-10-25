@@ -4,15 +4,15 @@ import { Header } from '../../components/Header/Header';
 import { Text } from '../../components/Text/Text';
 import { Box } from '../../theme/restyle';
 import { formatDayLabel } from '../../utils/schedule';
-import { AulaItem } from './AulaItem';
-import { SemAulas } from './SemAulas';
-import { useAgenda } from './useAgenda';
+import { LessonItem } from './LessonItem';
+import { EmptyDay } from './EmptyDay';
+import { useSchedule } from './useSchedule';
 
 const TITLE_TO_DROPDOWN = 32;
 const LIST_SIDE_MARGIN = 40;
 
-export function Aulas() {
-  const { days, selectedDay, selectDay } = useAgenda();
+export function Schedule() {
+  const { days, selectedDay, selectDay } = useSchedule();
 
   return (
     <Box flex={1} backgroundColor="background">
@@ -43,15 +43,15 @@ export function Aulas() {
           >
             <Box paddingTop="l" gap="m">
               {selectedDay.aulas.length > 0 ? (
-                selectedDay.aulas.map((aula, index) => (
-                  <AulaItem
-                    key={`${aula.horario}-${aula.disciplina}`}
-                    aula={aula}
+                selectedDay.aulas.map((lesson, index) => (
+                  <LessonItem
+                    key={`${lesson.horario}-${lesson.disciplina}`}
+                    lesson={lesson}
                     index={index}
                   />
                 ))
               ) : (
-                <SemAulas />
+                <EmptyDay />
               )}
             </Box>
           </ScrollView>

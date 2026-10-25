@@ -1,10 +1,10 @@
 export type RootStackParamList = {
   Login: undefined;
   Main: undefined;
-  TrocaAluno: undefined;
+  StudentSwitch: undefined;
 };
 
 export type MainTabParamList = {
-  Aulas: undefined;
-  Boletim: undefined;
+  Schedule: undefined;
+  ReportCard: undefined;
 };

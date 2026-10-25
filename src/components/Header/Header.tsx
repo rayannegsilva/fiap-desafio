@@ -57,7 +57,7 @@ export function Header() {
           {guardian.alunos.length > 1 ? (
             <TextButton
               label="TROCAR PERFIL"
-              onPress={() => navigation.navigate('TrocaAluno')}
+              onPress={() => navigation.navigate('StudentSwitch')}
             />
           ) : null}
           <TextButton

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   image: { width: '100%', maxWidth: 328, aspectRatio: 328 / 208 },
 });
 
-export function SemAulas() {
+export function EmptyDay() {
   return (
     <Animated.View
       entering={FadeIn.duration(motion.duration.transition)}

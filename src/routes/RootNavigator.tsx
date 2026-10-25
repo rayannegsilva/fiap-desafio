@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Login } from '../screens/Login/Login';
-import { TrocaAluno } from '../screens/TrocaAluno/TrocaAluno';
+import { StudentSwitch } from '../screens/StudentSwitch/StudentSwitch';
 import { useSessionHydrated } from '../store/useSession';
 import { useSessionStore } from '../store/useSessionStore';
 import { MainTabNavigator } from './MainTabNavigator';
@@ -22,8 +22,8 @@ export function RootNavigator() {
         <>
           <Stack.Screen name="Main" component={MainTabNavigator} />
           <Stack.Screen
-            name="TrocaAluno"
-            component={TrocaAluno}
+            name="StudentSwitch"
+            component={StudentSwitch}
             options={{ animation: 'slide_from_bottom' }}
           />
         </>

@@ -3,11 +3,11 @@ import type { Subject } from '../../data/types';
 import { Box } from '../../theme/restyle';
 import { formatAbsences, formatGrade } from '../../utils/reportCard';
 
-type Props = { disciplina: Subject };
+type Props = { subject: Subject };
 
-type LinhaProps = { label: string; value: string };
+type RowProps = { label: string; value: string };
 
-function Linha({ label, value }: LinhaProps) {
+function Row({ label, value }: RowProps) {
   return (
     <Box flexDirection="row" alignItems="center" gap="sm">
       <Text variant="captionMedium">{label}</Text>
@@ -16,11 +16,11 @@ function Linha({ label, value }: LinhaProps) {
   );
 }
 
-export function DisciplinaDetalhe({ disciplina }: Props) {
+export function SubjectDetails({ subject }: Props) {
   return (
     <>
-      <Linha label="Nota:" value={formatGrade(disciplina.nota)} />
-      <Linha label="Faltas:" value={formatAbsences(disciplina.faltas)} />
+      <Row label="Nota:" value={formatGrade(subject.nota)} />
+      <Row label="Faltas:" value={formatAbsences(subject.faltas)} />
     </>
   );
 }

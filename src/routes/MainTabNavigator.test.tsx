@@ -19,8 +19,10 @@ function visibleIconColor(testId: string) {
 
 it('tints the active tab icon with accentText and the inactive one with textPrimary', async () => {
   await renderWithProviders(<MainTabNavigator />);
-  expect(visibleIconColor('tab-icon-aulas')).toBe(darkTheme.colors.accentText);
-  expect(visibleIconColor('tab-icon-boletim')).toBe(
+  expect(visibleIconColor('tab-icon-schedule')).toBe(
+    darkTheme.colors.accentText,
+  );
+  expect(visibleIconColor('tab-icon-report-card')).toBe(
     darkTheme.colors.textPrimary,
   );
 });
@@ -65,7 +67,7 @@ describe('tab bar height', () => {
   });
 });
 
-it('switches to Boletim when its tab is pressed', async () => {
+it('switches to ReportCard when its tab is pressed', async () => {
   await renderWithProviders(<MainTabNavigator />);
   expect(screen.getAllByText('BOLETIM')).toHaveLength(1);
   await fireEvent.press(screen.getByRole('button', { name: /BOLETIM/ }));

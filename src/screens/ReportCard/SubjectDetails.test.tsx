@@ -1,11 +1,11 @@
 import { screen } from '@testing-library/react-native';
 import { renderWithProviders } from '../../test/renderWithProviders';
-import { DisciplinaDetalhe } from './DisciplinaDetalhe';
+import { SubjectDetails } from './SubjectDetails';
 
 it('shows grade and absences', async () => {
   await renderWithProviders(
-    <DisciplinaDetalhe
-      disciplina={{ nome: 'Língua Portuguesa', nota: 9.5, faltas: 0 }}
+    <SubjectDetails
+      subject={{ nome: 'Língua Portuguesa', nota: 9.5, faltas: 0 }}
     />,
   );
   expect(screen.getByText('Nota:')).toBeOnTheScreen();
@@ -16,8 +16,8 @@ it('shows grade and absences', async () => {
 
 it('shows dashes without evaluation', async () => {
   await renderWithProviders(
-    <DisciplinaDetalhe
-      disciplina={{ nome: 'Língua Portuguesa', nota: null, faltas: null }}
+    <SubjectDetails
+      subject={{ nome: 'Língua Portuguesa', nota: null, faltas: null }}
     />,
   );
   expect(screen.getAllByText('-')).toHaveLength(2);

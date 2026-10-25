@@ -3,7 +3,7 @@ import type { ScheduleDay } from '../../data/types';
 import { useSession } from '../../store/useSession';
 import { initialDay } from '../../utils/schedule';
 
-export function useAgenda() {
+export function useSchedule() {
   const session = useSession();
   const [chosen, setChosen] = useState<string | null>(null);
 

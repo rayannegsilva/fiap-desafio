@@ -7,9 +7,9 @@ import { Box } from '../../theme/restyle';
 const MARKER_SIZE = 6;
 const MARKER_GAP = 10;
 
-type Props = { aula: Lesson; index: number };
+type Props = { lesson: Lesson; index: number };
 
-export function AulaItem({ aula, index }: Props) {
+export function LessonItem({ lesson, index }: Props) {
   return (
     <Animated.View
       entering={FadeInDown.duration(motion.duration.transition).delay(
@@ -24,10 +24,10 @@ export function AulaItem({ aula, index }: Props) {
           borderColor="marker"
           style={{ borderRadius: MARKER_SIZE / 2 }}
         />
-        <Text variant="caption">{aula.horario}</Text>
+        <Text variant="caption">{lesson.horario}</Text>
       </Box>
       <Box marginTop="s" style={{ marginLeft: MARKER_SIZE + MARKER_GAP }}>
-        <Text variant="bodyStrong">{aula.disciplina}</Text>
+        <Text variant="bodyStrong">{lesson.disciplina}</Text>
       </Box>
     </Animated.View>
   );
