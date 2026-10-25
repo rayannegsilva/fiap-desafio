@@ -47,11 +47,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 3: Cabeçalho e troca de aluno
 
-- [ ] Task 7: Cabeçalho
-    - [ ] Escrever testes falhando (saudação/aluno/linha, TROCAR PERFIL condicional, SAIR, Aulas/Boletim com cabeçalho)
-    - [ ] Implementar `Header`, tokens `greetingName` e `xl2`; usar em Aulas e Boletim; remover botão temporário de Aulas
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(header): add authenticated header with student info and actions`
+- [x] Task 7: Cabeçalho [35486be]
+    - [x] Escrever testes falhando (saudação/aluno/linha, TROCAR PERFIL condicional, SAIR, Aulas/Boletim com cabeçalho)
+    - [x] Implementar `Header`, tokens `greetingName` e `xl2`; usar em Aulas e Boletim; remover botão temporário de Aulas
+    - [x] Confirmar PASS
+    - [x] Commit `feat(header): add authenticated header with student info and actions`
 - [ ] Task 8: Troca de aluno
     - [ ] Escrever testes falhando (lista, seleção + volta, FECHAR, ponta a ponta)
     - [ ] Implementar `TrocaAluno.tsx`
