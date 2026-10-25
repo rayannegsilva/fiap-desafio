@@ -66,3 +66,18 @@ it('extends each option touch target to 44pt without changing its visuals', asyn
   expect(row.props.hitSlop).toEqual({ top: 4, bottom: 4 });
   expect(row.children[0]).toHaveStyle({ paddingVertical: 8 });
 });
+
+it('renders a static box when there is a single option', async () => {
+  await renderWithProviders(
+    <Dropdown
+      options={[years[0]]}
+      selected={years[0]}
+      onSelect={jest.fn()}
+      getLabel={y => y.label}
+      getKey={y => y.id}
+      accessibilityLabel="Ano letivo"
+    />,
+  );
+  expect(screen.getByText('7EF - 2025')).toBeOnTheScreen();
+  expect(screen.queryByRole('button', { name: 'Ano letivo' })).toBeNull();
+});

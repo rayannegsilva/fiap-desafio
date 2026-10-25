@@ -45,6 +45,33 @@ export function Dropdown<T>({
   const chevronStyle = useChevronRotation(open);
   const selectedKey = getKey(selected);
 
+  const isStatic = options.length < 2;
+  const field = (
+    <Box
+      flexDirection="row"
+      alignItems="center"
+      gap="s"
+      height={BOX_HEIGHT}
+      backgroundColor="surface"
+      borderRadius="default"
+      paddingHorizontal="sm"
+    >
+      <Text flex={1}>{getLabel(selected)}</Text>
+      {isStatic ? null : (
+        <Animated.View style={chevronStyle}>
+          <ChevronDown
+            width={CHEVRON_SIZE}
+            height={CHEVRON_SIZE}
+            color={theme.colors.accentText}
+          />
+        </Animated.View>
+      )}
+    </Box>
+  );
+
+  // A single option has nothing to choose: same box, no interaction.
+  if (isStatic) return field;
+
   return (
     <Box zIndex={PANEL_Z_INDEX}>
       <Pressable
@@ -54,24 +81,7 @@ export function Dropdown<T>({
         accessibilityState={{ expanded: open }}
         onPress={() => setOpen(value => !value)}
       >
-        <Box
-          flexDirection="row"
-          alignItems="center"
-          gap="s"
-          height={BOX_HEIGHT}
-          backgroundColor="surface"
-          borderRadius="default"
-          paddingHorizontal="sm"
-        >
-          <Text flex={1}>{getLabel(selected)}</Text>
-          <Animated.View style={chevronStyle}>
-            <ChevronDown
-              width={CHEVRON_SIZE}
-              height={CHEVRON_SIZE}
-              color={theme.colors.accentText}
-            />
-          </Animated.View>
-        </Box>
+        {field}
       </Pressable>
       {open ? (
         <Animated.View
