@@ -14,10 +14,9 @@ import { TextField } from '../../components/TextField/TextField';
 import { useKeyboardVisible } from '../../hooks/useKeyboardVisible';
 import { Box } from '../../theme/restyle';
 import { useAppTheme } from '../../theme/useAppTheme';
+import { LOGO_SIZE, LOGO_TOP } from './loginLayout';
 import { useLoginForm } from './useLoginForm';
 
-const LOGO_SIZE = { width: 306, height: 49 };
-const LOGO_TOP = 104;
 const FIELD_INPUT_HEIGHT = 71;
 const FIELD_GAP = 40;
 const LOGO_TO_FIELDS = 76;
