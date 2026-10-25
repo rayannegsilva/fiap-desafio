@@ -15,9 +15,11 @@ import { Text } from '../Text/Text';
 const SHAKE_OFFSETS = [-8, 8, -6, 6, 0];
 const SHAKE_STEP = motion.duration.micro / 3;
 
+const ERROR_TOP = 32;
+
 const styles = StyleSheet.create({
   input: { textAlign: 'center' },
-  error: { marginTop: 32, textAlign: 'center' },
+  error: { marginTop: ERROR_TOP, textAlign: 'center' },
 });
 
 type Props = TextInputProps & {

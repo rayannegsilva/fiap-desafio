@@ -16,6 +16,7 @@ const CLOSE_ICON_SIZE = 24;
 const CARD_HEIGHT = 90;
 const TITLE_TOP = 153;
 const CARDS_TOP = 64;
+const SELECTED_BORDER = 2;
 
 type CardProps = {
   aluno: Aluno;
@@ -42,7 +43,7 @@ function AlunoCard({ aluno, selected, onPress }: CardProps) {
           justifyContent="space-between"
           backgroundColor="surfaceRaised"
           borderRadius="default"
-          borderWidth={selected ? 2 : 0}
+          borderWidth={selected ? SELECTED_BORDER : 0}
           borderColor="accent"
         >
           <Text variant="bodyMedium">{studentFullName(aluno)}</Text>
