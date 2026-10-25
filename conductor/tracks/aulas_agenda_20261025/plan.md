@@ -32,8 +32,8 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 3: Documentação
 
-- [ ] Task 5: README
-    - [ ] Atualizar Estrutura e Status
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
-    - [ ] Commit `docs: update readme with class schedule`
+- [x] Task 5: README [f85124f]
+    - [x] Atualizar Estrutura e Status
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
+    - [x] Commit `docs: update readme with class schedule`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
