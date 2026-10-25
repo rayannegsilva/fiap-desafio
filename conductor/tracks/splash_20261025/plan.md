@@ -18,12 +18,12 @@ Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/pl
 
 ## Phase 2: Splash animada
 
-- [ ] Task 2: Logo vetorial com desenho
-    - [ ] Exportar SVG do Figma (`4001:4`) e derivar linhas centrais
-    - [ ] Escrever testes falhando
-    - [ ] Implementar `FiapStrokeLogo` e `motion.splash`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(splash): add stroke-drawn fiap logo`
+- [x] Task 2: Logo vetorial com desenho 231db4a
+    - [x] Exportar SVG do Figma (`4001:4`) e derivar linhas centrais
+    - [x] Escrever testes falhando
+    - [x] Implementar `FiapStrokeLogo` e `motion.splash`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(splash): add stroke-drawn fiap logo`
 - [ ] Task 3: Overlay da splash e saídas
     - [ ] Escrever testes falhando (esperar reidratação, terminar desenho, Login com handoff, Aulas com fade, reduzir movimento, bloquear toques)
     - [ ] Implementar `SplashOverlay`, `loginLayout`, `App`
