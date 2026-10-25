@@ -37,6 +37,7 @@ export function SplashOverlay({ onFinish }: Props) {
   const [drawn, setDrawn] = useState(reduceMotion);
   const [handedOff, setHandedOff] = useState(false);
   const leaving = useRef(false);
+  const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   const progress = useSharedValue(reduceMotion ? 1 : 0);
   const travelProgress = useSharedValue(0);
@@ -72,15 +73,19 @@ export function SplashOverlay({ onFinish }: Props) {
   }, [reduceMotion, progress, logoOpacity]);
 
   useEffect(() => {
-    if (!drawn || !hydrated || leaving.current) {
+    const pending = timers.current;
+    return () => pending.forEach(clearTimeout);
+  }, []);
+
+  useEffect(() => {
+    if (!drawn ||!hydrated || leaving.current) {
       return;
     }
     leaving.current = true;
     const { hold, travel, handoff, fadeOut } = motion.splash;
     const fade = { duration: fadeOut, easing: Easing.out(Easing.quad) };
-    const timers: ReturnType<typeof setTimeout>[] = [];
     const later = (ms: number, run: () => void) => {
-      timers.push(setTimeout(run, ms));
+      timers.current.push(setTimeout(run, ms));
     };
 
     const fadeAll = () => {

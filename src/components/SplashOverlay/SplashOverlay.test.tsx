@@ -102,6 +102,15 @@ it('only fades when reduce motion is on', async () => {
   expect(onFinish).toHaveBeenCalledTimes(1);
 });
 
+it('does not finish after unmounting mid-exit', async () => {
+  const onFinish = jest.fn();
+  const view = await renderWithProviders(<SplashOverlay onFinish={onFinish} />);
+  await advance(DRAWING + hold + 100);
+  await view.unmount();
+  await advance(LOGIN_EXIT);
+  expect(onFinish).not.toHaveBeenCalled();
+});
+
 it('blocks touches while visible', async () => {
   await renderWithProviders(<SplashOverlay onFinish={jest.fn()} />);
   expect(screen.getByTestId('splash-overlay').props.pointerEvents).toBe('auto');
