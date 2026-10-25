@@ -29,7 +29,11 @@ Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/pl
     - [x] Implementar `SplashOverlay`, `loginLayout`, `App`
     - [x] `yarn lint && yarn typecheck && CI=true yarn test` PASS
     - [x] Commit `feat(splash): animate the logo into the first screen`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: bfcfd5f]
+    - **Verificação manual:** iOS (aparelho) e Android (emulador) — desenho do FIAP, viagem até o Login (plano B não foi necessário), fade para Aulas com sessão, sessão corrompida cai no Login. Confirmado pelo usuário.
+    - **Desvio (traços) [987ef09, 61d904d, 2e04a64, d19b8af]:** ajustes no `FiapStrokeLogo` vistos no aparelho — entalhe da perna do A, bojo do P fora da área do A, cantos do F e do P, e retângulos do recorte sem sobreposição (a haste do P sumia com preenchimento par/ímpar).
+    - **Desvio (tempos) [d19b8af, 11944f6]:** desenho e viagem mais lentos por decisão de UX (Login ≈ 2,6 s); spec, plano e guidelines passam a "até 2,7 s, validada em dispositivo", com teste do limite.
+    - **Desvio (reidratação) [87a979f]:** storage corrompido deixava a splash presa; a store marca `hydrated` também no erro e cai no Login.
 
 ## Phase 3: Documentação
 
