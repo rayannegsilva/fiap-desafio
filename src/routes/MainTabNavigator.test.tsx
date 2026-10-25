@@ -67,9 +67,9 @@ describe('tab bar height', () => {
 
 it('switches to Boletim when its tab is pressed', async () => {
   await renderWithProviders(<MainTabNavigator />);
-  expect(screen.getAllByText('Boletim')).toHaveLength(1); // só o rótulo da aba
+  expect(screen.queryByText('BOLETIM')).toBeNull();
   await fireEvent.press(screen.getByLabelText(/^Boletim/));
   await waitFor(() => {
-    expect(screen.getAllByText('Boletim')).toHaveLength(2); // rótulo + conteúdo da tela
+    expect(screen.getByText('BOLETIM')).toBeOnTheScreen();
   });
 });
