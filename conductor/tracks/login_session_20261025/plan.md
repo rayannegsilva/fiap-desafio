@@ -19,7 +19,8 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `useSessionStore`, `useSessionHydrated`, `useSession`
     - [x] Confirmar PASS
     - [x] Commit `feat(store): add persisted session with student selection`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: f28a06f]
+    - **Verificação:** só automatizada (82 testes); sem tela nesta fase.
 
 ## Phase 2: Login
 
