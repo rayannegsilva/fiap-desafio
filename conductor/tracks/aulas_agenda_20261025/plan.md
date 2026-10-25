@@ -1,0 +1,39 @@
+# Plan: Agenda de aulas
+
+Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/superpowers/plans/2026-10-25-aulas-agenda.md`](../../../docs/superpowers/plans/2026-10-25-aulas-agenda.md). Cada task abaixo corresponde à task de mesmo número lá. Seguir `conductor/workflow.md`.
+
+## Phase 1: Lógica da agenda
+
+- [ ] Task 1: Utilitários de data da agenda
+    - [ ] Escrever testes falhando (rótulos de domingo/segunda/sábado/janeiro, dia inicial por dia da semana, fallback e agenda vazia)
+    - [ ] Implementar `src/utils/agenda.ts` (`formatDayLabel`, `initialDay`)
+    - [ ] Confirmar PASS
+    - [ ] Commit `feat(agenda): add day label and initial day helpers`
+- [ ] Task 2: `useAgenda`
+    - [ ] Escrever testes falhando (dia inicial, selecionar dia, manter dia ao trocar de aluno)
+    - [ ] Implementar `src/screens/Aulas/useAgenda.ts` e `motion.stagger`
+    - [ ] Confirmar PASS
+    - [ ] Commit `feat(agenda): add agenda hook with day selection`
+- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+
+## Phase 2: Tela
+
+- [ ] Task 3: Item de aula e estado vazio
+    - [ ] Escrever testes falhando
+    - [ ] Implementar `AulaItem` e `SemAulas`
+    - [ ] Confirmar PASS
+    - [ ] Commit `feat(agenda): add class item and empty day components`
+- [ ] Task 4: Tela de Aulas
+    - [ ] Escrever testes falhando (aulas do dia de hoje, trocar dia pelo dropdown → vazio)
+    - [ ] Implementar `Aulas.tsx`
+    - [ ] `yarn lint && yarn typecheck && CI=true yarn test` PASS
+    - [ ] Commit `feat(agenda): show student schedule with day selection`
+- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+
+## Phase 3: Documentação
+
+- [ ] Task 5: README
+    - [ ] Atualizar Estrutura e Status
+    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
+    - [ ] Commit `docs: update readme with class schedule`
+- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
