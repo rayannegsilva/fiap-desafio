@@ -24,11 +24,11 @@ Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/pl
     - [x] Implementar `FiapStrokeLogo` e `motion.splash`
     - [x] Confirmar PASS
     - [x] Commit `feat(splash): add stroke-drawn fiap logo`
-- [ ] Task 3: Overlay da splash e saídas
-    - [ ] Escrever testes falhando (esperar reidratação, terminar desenho, Login com handoff, Aulas com fade, reduzir movimento, bloquear toques)
-    - [ ] Implementar `SplashOverlay`, `loginLayout`, `App`
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test` PASS
-    - [ ] Commit `feat(splash): animate the logo into the first screen`
+- [x] Task 3: Overlay da splash e saídas 88aa246
+    - [x] Escrever testes falhando (esperar reidratação, terminar desenho, Login com handoff, Aulas com fade, reduzir movimento, bloquear toques)
+    - [x] Implementar `SplashOverlay`, `loginLayout`, `App`
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test` PASS
+    - [x] Commit `feat(splash): animate the logo into the first screen`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Documentação
