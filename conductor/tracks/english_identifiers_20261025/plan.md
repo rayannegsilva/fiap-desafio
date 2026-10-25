@@ -12,10 +12,10 @@ Origem e detalhes (regras, mapa de nomes, comandos): [`docs/superpowers/plans/20
     - [x] `schedule.ts` e `reportCard.ts` + funções
     - [x] Verificação completa PASS
     - [x] Commit `refactor: use english names for schedule and report card helpers`
-- [ ] Task 3: Telas e rotas
-    - [ ] Pastas `Schedule`, `ReportCard`, `StudentSwitch`, componentes, hooks, rotas
-    - [ ] Verificação completa PASS
-    - [ ] Commit `refactor: use english names for screens and routes`
+- [x] Task 3: Telas e rotas [3cf2b9e]
+    - [x] Pastas `Schedule`, `ReportCard`, `StudentSwitch`, componentes, hooks, rotas
+    - [x] Verificação completa PASS
+    - [x] Commit `refactor: use english names for screens and routes`
 - [ ] Task 4: Sem comentários e varredura final
     - [ ] Remover comentários de `src/`
     - [ ] Varreduras vazias
