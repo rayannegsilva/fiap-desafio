@@ -23,11 +23,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar em `Dropdown.tsx`
     - [x] Confirmar PASS (agenda intacta)
     - [x] Commit `feat(dropdown): render a static box for a single option`
-- [ ] Task 4: Detalhe da disciplina
-    - [ ] Escrever testes falhando (nota/faltas, traços sem avaliação)
-    - [ ] Implementar `DisciplinaDetalhe`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(boletim): add subject grade details`
+- [x] Task 4: Detalhe da disciplina [399eed0]
+    - [x] Escrever testes falhando (nota/faltas, traços sem avaliação)
+    - [x] Implementar `DisciplinaDetalhe`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(boletim): add subject grade details`
 - [ ] Task 5: Tela de Boletim
     - [ ] Escrever testes falhando (ano recente e trimestres fechados, abrir trimestre/disciplina, trocar ano, caixa estática)
     - [ ] Implementar `Boletim.tsx`
