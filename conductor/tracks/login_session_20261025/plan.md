@@ -29,11 +29,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar
     - [x] Confirmar PASS
     - [x] Commit `fix(components): place text button icon after the label`
-- [ ] Task 5: `useLoginForm`
-    - [ ] Escrever testes falhando (máscara, habilitação, sucesso, erro que limpa, uma autenticação por vez)
-    - [ ] Implementar
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(login): add login form state hook`
+- [x] Task 5: `useLoginForm` [a50a781]
+    - [x] Escrever testes falhando (máscara, habilitação, sucesso, erro que limpa, uma autenticação por vez)
+    - [x] Implementar
+    - [x] Confirmar PASS
+    - [x] Commit `feat(login): add login form state hook`
 - [ ] Task 6: Tela de Login e navegação por sessão
     - [ ] Escrever testes falhando (Login, RootNavigator sem/com sessão sem piscar o Login, App)
     - [ ] Implementar `Login.tsx` e `RootNavigator.tsx`; remover botão temporário
