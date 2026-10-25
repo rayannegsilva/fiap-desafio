@@ -4,11 +4,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 1: Lógica da agenda
 
-- [ ] Task 1: Utilitários de data da agenda
-    - [ ] Escrever testes falhando (rótulos de domingo/segunda/sábado/janeiro, dia inicial por dia da semana, fallback e agenda vazia)
-    - [ ] Implementar `src/utils/agenda.ts` (`formatDayLabel`, `initialDay`)
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(agenda): add day label and initial day helpers`
+- [x] Task 1: Utilitários de data da agenda [e0591ed]
+    - [x] Escrever testes falhando (rótulos de domingo/segunda/sábado/janeiro, dia inicial por dia da semana, fallback e agenda vazia)
+    - [x] Implementar `src/utils/agenda.ts` (`formatDayLabel`, `initialDay`)
+    - [x] Confirmar PASS
+    - [x] Commit `feat(agenda): add day label and initial day helpers`
 - [ ] Task 2: `useAgenda`
     - [ ] Escrever testes falhando (dia inicial, selecionar dia, manter dia ao trocar de aluno)
     - [ ] Implementar `src/screens/Aulas/useAgenda.ts` e `motion.stagger`
