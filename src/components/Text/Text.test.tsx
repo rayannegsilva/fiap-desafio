@@ -29,11 +29,3 @@ it('forwards native props', async () => {
   );
   expect(screen.getByRole('header')).toHaveProp('numberOfLines', 1);
 });
-
-it('uses the simple text break strategy by default', async () => {
-  await renderWithProviders(<Text>TROCAR PERFIL</Text>);
-  expect(screen.getByText('TROCAR PERFIL')).toHaveProp(
-    'textBreakStrategy',
-    'simple',
-  );
-});

@@ -1,0 +1,19 @@
+<resources>
+
+    <!--
+        Android 15+ breaks lines by glyph bounds while React Native measures by
+        glyph advances, so text measured to fit one line wraps at draw time and
+        loses its last word. Opt out here until the upstream fix lands:
+        https://github.com/react/react-native/pull/58280
+        Delete this file when on RN >= 0.89.
+    -->
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:editTextBackground">@drawable/rn_edit_text_material</item>
+        <item name="android:windowBackground">@color/splash_background</item>
+        <item name="android:windowSplashScreenBackground">@color/splash_background</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@android:color/transparent</item>
+        <item name="android:useBoundsForWidth">false</item>
+        <item name="android:shiftDrawingOffsetForStartOverhang">false</item>
+    </style>
+
+</resources>

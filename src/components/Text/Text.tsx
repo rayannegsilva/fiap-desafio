@@ -8,14 +8,12 @@ type Props = ComponentProps<typeof RestyleText>;
 export function Text({
   variant = 'body',
   maxFontSizeMultiplier = MAX_FONT_SIZE_MULTIPLIER,
-  textBreakStrategy = 'simple',
   ...rest
 }: Props) {
   return (
     <RestyleText
       variant={variant}
       maxFontSizeMultiplier={maxFontSizeMultiplier}
-      textBreakStrategy={textBreakStrategy}
       {...rest}
     />
   );
