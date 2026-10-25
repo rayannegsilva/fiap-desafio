@@ -59,3 +59,18 @@ it('moves focus to the password field when submitting the cpf', async () => {
   await fireEvent(screen.getByLabelText('CPF'), 'submitEditing');
   expect(focus).toHaveBeenCalled();
 });
+
+describe('with the keyboard open', () => {
+  it('drops the bottom inset padding under the button', async () => {
+    const hook = require('../../hooks/useKeyboardVisible');
+    jest.spyOn(hook, 'useKeyboardVisible').mockReturnValue(true);
+    await renderWithProviders(<Login />);
+    expect(screen.getByTestId('login-footer')).toHaveStyle({
+      paddingBottom: 0,
+    });
+    expect(
+      screen.getByRole('button', { name: 'FAZER LOGIN' }),
+    ).toBeOnTheScreen();
+    jest.restoreAllMocks();
+  });
+});

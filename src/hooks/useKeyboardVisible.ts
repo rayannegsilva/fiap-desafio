@@ -1,0 +1,25 @@
+import { useEffect, useState } from 'react';
+import { Keyboard, Platform } from 'react-native';
+
+export function useKeyboardVisible(): boolean {
+  const [visible, setVisible] = useState(Keyboard.isVisible());
+
+  useEffect(() => {
+    // Will* events don't fire on Android
+    const ios = Platform.OS === 'ios';
+    const show = Keyboard.addListener(
+      ios ? 'keyboardWillShow' : 'keyboardDidShow',
+      () => setVisible(true),
+    );
+    const hide = Keyboard.addListener(
+      ios ? 'keyboardWillHide' : 'keyboardDidHide',
+      () => setVisible(false),
+    );
+    return () => {
+      show.remove();
+      hide.remove();
+    };
+  }, []);
+
+  return visible;
+}
