@@ -4,11 +4,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 1: Dados e sessão
 
-- [ ] Task 1: Tipos e repositório
-    - [ ] Escrever testes falhando (CPF com/sem máscara, sem senha no retorno, credencial errada, `getResponsavel`)
-    - [ ] Implementar `src/data/types.ts` e `src/data/repository.ts`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(data): add typed repository over embedded json` (inclui `src/data/responsaveis.json`)
+- [x] Task 1: Tipos e repositório [31c3499]
+    - [x] Escrever testes falhando (CPF com/sem máscara, sem senha no retorno, credencial errada, `getResponsavel`)
+    - [x] Implementar `src/data/types.ts` e `src/data/repository.ts`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(data): add typed repository over embedded json` (inclui `src/data/responsaveis.json`)
 - [ ] Task 2: Formatadores de aluno
     - [ ] Escrever testes falhando
     - [ ] Implementar `src/utils/student.ts`
