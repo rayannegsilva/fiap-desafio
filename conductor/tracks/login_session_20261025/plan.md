@@ -57,7 +57,8 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `TrocaAluno.tsx`
     - [x] Confirmar PASS
     - [x] Commit `feat(student-switch): add student selection screen`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: 90c0358]
+    - **Verificação manual:** iOS e Android — cabeçalho dos responsáveis 1 e 2 (TROCAR PERFIL só com mais de um aluno), Troca de aluno (subida, aluno atual destacado, seleção, FECHAR), SAIR e reabertura no Login. Confirmado pelo usuário.
 
 ## Phase 4: Documentação
 
