@@ -82,7 +82,12 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   │   ├── TextButton/
 │   │   ├── TextField/
 │   │   ├── Collapsible/
-│   │   └── Dropdown/
+│   │   ├── Dropdown/
+│   │   └── Header/            # Cabeçalho autenticado (aluno, troca e sair)
+│   ├── data/
+│   │   ├── types.ts           # Tipos de responsável, aluno e agenda
+│   │   ├── responsaveis.json  # Responsáveis e alunos (dados fictícios)
+│   │   └── repository.ts      # authenticate e getResponsavel
 │   ├── routes/
 │   │   ├── RootNavigator.tsx    # Stack: Login, Main, TrocaAluno
 │   │   ├── MainTabNavigator.tsx # Abas: Aulas, Boletim
@@ -93,6 +98,8 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   │   ├── Boletim/
 │   │   └── TrocaAluno/
 │   ├── store/
+│   │   ├── useSessionStore.ts # Sessão persistida (Zustand + AsyncStorage)
+│   │   ├── useSession.ts      # Responsável e aluno ativo da sessão
 │   │   └── useThemeStore.ts   # Tema claro/escuro (Zustand + AsyncStorage)
 │   ├── theme/
 │   │   ├── palette.ts         # Cores do design (escuro e claro)
@@ -107,7 +114,8 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   ├── types/
 │   │   └── svg.d.ts
 │   └── utils/
-│       └── formatCpf.ts       # Máscara de CPF
+│       ├── formatCpf.ts       # Máscara de CPF
+│       └── student.ts         # Helpers de aluno
 ├── android/                 # Projeto nativo Android
 └── ios/                     # Projeto nativo iOS
 ```
@@ -130,3 +138,13 @@ Este README é atualizado ao concluir cada track.
 | Setup de dependências e ferramentas | ✅ |
 | Tema (escuro/claro) e navegação (stack + abas Aulas/Boletim) | ✅ |
 | Componentes base (texto, botões, campo, collapsible, dropdown) | ✅ |
+| Login, sessão, cabeçalho e troca de aluno | ✅ |
+
+## Acesso de demonstração
+
+Os dados são fictícios e ficam embutidos em `src/data/responsaveis.json`.
+
+| CPF | Senha | Responsável | Alunos |
+| --- | ----- | ----------- | ------ |
+| `969.294.560-04` | `123456` | Gustavo | Rafael e Joana (permite trocar de perfil) |
+| `508.795.670-07` | `987654` | Adelaide | Bianca |
