@@ -35,3 +35,24 @@ it('goes from Login to Main after a valid login', async () => {
   expect(await screen.findByText('GUSTAVO')).toBeOnTheScreen();
   expect(screen.queryByLabelText('CPF')).not.toBeOnTheScreen();
 });
+
+it('switches student from the header and signs out', async () => {
+  jest.useFakeTimers();
+  await renderWithProviders(<RootNavigator />);
+  await fireEvent.changeText(screen.getByLabelText('CPF'), '96929456004');
+  await fireEvent.changeText(screen.getByLabelText('SENHA'), '123456');
+  await fireEvent.press(screen.getByRole('button', { name: 'FAZER LOGIN' }));
+  await act(() => jest.advanceTimersByTimeAsync(AUTH_DELAY_MS));
+  expect(await screen.findByText('GUSTAVO')).toBeOnTheScreen();
+
+  await fireEvent.press(screen.getByRole('button', { name: 'TROCAR PERFIL' }));
+  await fireEvent.press(
+    await screen.findByRole('button', { name: 'JOANA DA SILVA' }),
+  );
+  await act(() => jest.advanceTimersByTimeAsync(1000));
+  expect(await screen.findByText('JOANA')).toBeOnTheScreen();
+  expect(screen.getByText('2EM - RM 12568 - Matutino')).toBeOnTheScreen();
+
+  await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
+  expect(await screen.findByLabelText('CPF')).toBeOnTheScreen();
+});
