@@ -31,7 +31,9 @@ function StudentCard({ student, selected, onPress }: CardProps) {
   return (
     <Pressable
       accessibilityRole="button"
-      accessibilityLabel={studentFullName(student)}
+      accessibilityLabel={`${studentFullName(student)}, ${studentInfoLine(
+        student,
+      )}`}
       accessibilityState={{ selected }}
       onPress={onPress}
       onPressIn={onPressIn}

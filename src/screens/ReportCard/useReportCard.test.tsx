@@ -22,17 +22,6 @@ it('selects another year', async () => {
   expect(result.current.listKey).toBe('12567-2024');
 });
 
-it('resets to the most recent year when switching student', async () => {
-  const { result } = await renderHook(() => useReportCard());
-  await act(() =>
-    result.current.selectReportCard(result.current.reportCards[1]),
-  );
-  await act(() => useSessionStore.getState().selectStudent(12568));
-  expect(result.current.selected?.ano).toBe('2025');
-  await act(() => useSessionStore.getState().selectStudent(12567));
-  expect(result.current.selected?.ano).toBe('2025');
-});
-
 it('is empty without a session', async () => {
   useSessionStore.setState({ guardianId: null, studentRm: null });
   const { result } = await renderHook(() => useReportCard());

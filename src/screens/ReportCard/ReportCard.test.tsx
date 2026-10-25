@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react-native';
+import { act, fireEvent, screen, within } from '@testing-library/react-native';
 import { useSessionStore } from '../../store/useSessionStore';
 import { renderWithProviders } from '../../test/renderWithProviders';
 import { ReportCard } from './ReportCard';
@@ -44,4 +44,24 @@ it('shows a static year box for a single year', async () => {
   await renderWithProviders(<ReportCard />);
   expect(screen.getByText('2EM - 2025')).toBeOnTheScreen();
   expect(screen.queryByRole('button', { name: 'Ano do boletim' })).toBeNull();
+});
+
+it('resets to the most recent year when switching student', async () => {
+  await renderWithProviders(<ReportCard />);
+  await fireEvent.press(screen.getByRole('button', { name: 'Ano do boletim' }));
+  await fireEvent.press(screen.getByRole('button', { name: '6EF - 2024' }));
+  await act(() => useSessionStore.getState().selectStudent(12568));
+  expect(screen.getByText('2EM - 2025')).toBeOnTheScreen();
+  await act(() => useSessionStore.getState().selectStudent(12567));
+  expect(screen.getByText('7EF - 2025')).toBeOnTheScreen();
+});
+
+it('scrolls the greeting together with the content', async () => {
+  await renderWithProviders(<ReportCard />);
+  const scroll = screen.getByTestId('report-card-scroll');
+  expect(scroll.props.showsVerticalScrollIndicator).toBe(false);
+  expect(within(scroll).getByText('GUSTAVO')).toBeOnTheScreen();
+  expect(
+    within(scroll).getByText('7EF - RM 12567 - Matutino'),
+  ).toBeOnTheScreen();
 });

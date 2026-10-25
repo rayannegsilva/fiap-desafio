@@ -19,7 +19,7 @@ O tema passa a seguir o modo do sistema, ao vivo. Ao abrir o app, a splash nativ
 
 ## Requisitos não funcionais
 
-- Total ≤ 2,5 s; não atrasa reidratação nem navegação.
+- Duração alvo de até 2,7 s, validada visualmente em dispositivo (decisão de UX: desenho mais lento ficou melhor no aparelho); não atrasa reidratação nem navegação.
 - Tempos em `motion.splash`; só `transform`, `opacity`, `strokeDashoffset` e cor animados.
 - Sem comentários no código; identificadores em inglês.
 

@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react-native';
+import { fireEvent, screen, within } from '@testing-library/react-native';
 import { useSessionStore } from '../../store/useSessionStore';
 import { renderWithProviders } from '../../test/renderWithProviders';
 import { Schedule } from './Schedule';
@@ -37,4 +37,13 @@ it('shows only the header without a session', async () => {
   await renderWithProviders(<Schedule />);
   expect(screen.getByText('AGENDA')).toBeOnTheScreen();
   expect(screen.queryByRole('button', { name: 'Dia da agenda' })).toBeNull();
+});
+
+it('scrolls the greeting together with the content', async () => {
+  await renderWithProviders(<Schedule />);
+  const scroll = screen.getByTestId('schedule-scroll');
+  expect(within(scroll).getByText('GUSTAVO')).toBeOnTheScreen();
+  expect(
+    within(scroll).getByText('7EF - RM 12567 - Matutino'),
+  ).toBeOnTheScreen();
 });

@@ -65,7 +65,6 @@ export function Login() {
             contentContainerStyle={[styles.scroll, scrollPadding]}
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
-            scrollEnabled={keyboardVisible}
           >
             <Image
               source={logo}

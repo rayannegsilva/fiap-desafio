@@ -7,12 +7,10 @@ beforeEach(() => {
   useSessionStore.setState({ guardianId: null, studentRm: null });
 });
 
-it('shows greeting, student and info line', async () => {
+it('shows the logo and TROCAR PERFIL for several students', async () => {
   useSessionStore.getState().signIn(1, 12567);
   await renderWithProviders(<Header />);
-  expect(screen.getByText('GUSTAVO')).toBeOnTheScreen();
-  expect(screen.getByRole('header', { name: 'RAFAEL' })).toBeOnTheScreen();
-  expect(screen.getByText('7EF - RM 12567 - Matutino')).toBeOnTheScreen();
+  expect(screen.getByRole('image', { name: 'FIAP School' })).toBeOnTheScreen();
   expect(
     screen.getByRole('button', { name: 'TROCAR PERFIL' }),
   ).toBeOnTheScreen();

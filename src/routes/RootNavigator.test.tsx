@@ -47,7 +47,7 @@ it('switches student from the header and signs out', async () => {
 
   await fireEvent.press(screen.getByRole('button', { name: 'TROCAR PERFIL' }));
   await fireEvent.press(
-    await screen.findByRole('button', { name: 'JOANA DA SILVA' }),
+    await screen.findByRole('button', { name: /^JOANA DA SILVA,/ }),
   );
   await act(() => jest.advanceTimersByTimeAsync(1000));
   expect(await screen.findByText('JOANA')).toBeOnTheScreen();
