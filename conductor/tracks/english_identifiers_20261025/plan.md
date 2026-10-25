@@ -21,8 +21,8 @@ Origem e detalhes (regras, mapa de nomes, comandos): [`docs/superpowers/plans/20
     - [x] Varreduras vazias
     - [x] Verificação completa PASS
     - [x] Commit `refactor: remove inline comments`
-- [ ] Task 5: README
-    - [ ] Atualizar Estrutura
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
-    - [ ] Commit `docs: update readme structure with english names`
+- [x] Task 5: README [1dc94b1]
+    - [x] Atualizar Estrutura
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
+    - [x] Commit `docs: update readme structure with english names`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
