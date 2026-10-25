@@ -16,7 +16,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Commit `feat(agenda): add agenda hook with day selection`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
-## Phase 2: Tela
+## Phase 2: Tela [checkpoint: ca05f42]
 
 - [x] Task 3: Item de aula e estado vazio [53abc70]
     - [x] Escrever testes falhando
@@ -28,7 +28,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `Aulas.tsx`
     - [x] `yarn lint && yarn typecheck && CI=true yarn test` PASS
     - [x] Commit `feat(agenda): show student schedule with day selection`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Documentação
 
