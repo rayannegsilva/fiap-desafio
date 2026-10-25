@@ -1,4 +1,4 @@
-import { TextInput } from 'react-native';
+import { StyleSheet, TextInput } from 'react-native';
 import { act, fireEvent, screen } from '@testing-library/react-native';
 import { AUTH_DELAY_MS } from '../../data/repository';
 import { useSessionStore } from '../../store/useSessionStore';
@@ -68,6 +68,11 @@ describe('with the keyboard open', () => {
     expect(screen.getByTestId('login-footer')).toHaveStyle({
       paddingBottom: 0,
     });
+    expect(
+      StyleSheet.flatten(
+        screen.getByTestId('login-scroll').props.contentContainerStyle,
+      ),
+    ).toMatchObject({ paddingBottom: 24 });
     expect(
       screen.getByRole('button', { name: 'FAZER LOGIN' }),
     ).toBeOnTheScreen();

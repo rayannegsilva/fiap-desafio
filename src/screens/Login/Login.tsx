@@ -2,6 +2,7 @@ import { useEffect, useRef, type ComponentRef } from 'react';
 import {
   KeyboardAvoidingView,
   Image,
+  Platform,
   ScrollView,
   StyleSheet,
   TextInput,
@@ -12,6 +13,7 @@ import { PrimaryButton } from '../../components/PrimaryButton/PrimaryButton';
 import { TextField } from '../../components/TextField/TextField';
 import { useKeyboardVisible } from '../../hooks/useKeyboardVisible';
 import { Box } from '../../theme/restyle';
+import { useAppTheme } from '../../theme/useAppTheme';
 import { useLoginForm } from './useLoginForm';
 
 const LOGO_SIZE = { width: 306, height: 49 };
@@ -37,8 +39,13 @@ export function Login() {
   useEffect(() => {
     if (keyboardVisible) scrollRef.current?.scrollToEnd({ animated: true });
   }, [keyboardVisible]);
+  const theme = useAppTheme();
   const insets = useSafeAreaInsets();
   const footerStyle = { paddingBottom: keyboardVisible ? 0 : insets.bottom };
+  // keeps SENHA off the button while the keyboard is open
+  const scrollPadding = {
+    paddingBottom: keyboardVisible ? theme.spacing.l : 0,
+  };
   const onSubmit = () => {
     submit();
   };
@@ -53,7 +60,8 @@ export function Login() {
         <Box flex={1}>
           <ScrollView
             ref={scrollRef}
-            contentContainerStyle={styles.scroll}
+            testID="login-scroll"
+            contentContainerStyle={[styles.scroll, scrollPadding]}
             keyboardShouldPersistTaps="handled"
             showsVerticalScrollIndicator={false}
             scrollEnabled={keyboardVisible}
@@ -71,7 +79,12 @@ export function Login() {
                 label="CPF"
                 value={cpf}
                 onChangeText={setCpf}
-                keyboardType="number-pad"
+                // iOS number-pad has no return key; this one does (mask keeps digits only)
+                keyboardType={
+                  Platform.OS === 'ios'
+                    ? 'numbers-and-punctuation'
+                    : 'number-pad'
+                }
                 returnKeyType="next"
                 submitBehavior="submit"
                 onSubmitEditing={() => senhaRef.current?.focus()}
