@@ -18,11 +18,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 2: Tela
 
-- [ ] Task 3: Dropdown estático com uma opção
-    - [ ] Escrever teste falhando
-    - [ ] Implementar em `Dropdown.tsx`
-    - [ ] Confirmar PASS (agenda intacta)
-    - [ ] Commit `feat(dropdown): render a static box for a single option`
+- [x] Task 3: Dropdown estático com uma opção [3eb4850]
+    - [x] Escrever teste falhando
+    - [x] Implementar em `Dropdown.tsx`
+    - [x] Confirmar PASS (agenda intacta)
+    - [x] Commit `feat(dropdown): render a static box for a single option`
 - [ ] Task 4: Detalhe da disciplina
     - [ ] Escrever testes falhando (nota/faltas, traços sem avaliação)
     - [ ] Implementar `DisciplinaDetalhe`
