@@ -1,21 +1,10 @@
-import { useEffect, useSyncExternalStore } from 'react';
+import { useEffect } from 'react';
 import { getGuardian } from '../data/repository';
 import type { Student, Guardian } from '../data/types';
 import { useSessionStore } from './useSessionStore';
 
-const subscribeHydration = (cb: () => void) => {
-  const offHydrate = useSessionStore.persist.onHydrate(cb);
-  const offFinish = useSessionStore.persist.onFinishHydration(cb);
-  return () => {
-    offHydrate();
-    offFinish();
-  };
-};
-
 export function useSessionHydrated(): boolean {
-  return useSyncExternalStore(subscribeHydration, () =>
-    useSessionStore.persist.hasHydrated(),
-  );
+  return useSessionStore(s => s.hydrated);
 }
 
 export function useSession(): {

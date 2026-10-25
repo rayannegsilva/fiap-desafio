@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 type SessionState = {
+  hydrated: boolean;
   guardianId: number | null;
   studentRm: number | null;
   signIn: (guardianId: number, studentRm: number) => void;
@@ -13,6 +14,7 @@ type SessionState = {
 export const useSessionStore = create<SessionState>()(
   persist(
     set => ({
+      hydrated: false,
       guardianId: null,
       studentRm: null,
       signIn: (guardianId, studentRm) => set({ guardianId, studentRm }),
@@ -23,6 +25,13 @@ export const useSessionStore = create<SessionState>()(
       name: 'session-storage',
       storage: createJSONStorage(() => AsyncStorage),
       partialize: ({ guardianId, studentRm }) => ({ guardianId, studentRm }),
+      onRehydrateStorage: () => (_state, error) => {
+        if (error) {
+          useSessionStore.setState({ guardianId: null, studentRm: null });
+          useSessionStore.persist.clearStorage();
+        }
+        useSessionStore.setState({ hydrated: true });
+      },
     },
   ),
 );
