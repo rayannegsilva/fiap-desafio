@@ -30,7 +30,7 @@ export function Boletim() {
           BOLETIM
         </Text>
         {selected ? (
-          <Box marginTop="m" marginHorizontal="m">
+          <Box marginTop="m" marginHorizontal="m" paddingBottom="m">
             <Dropdown
               options={boletins}
               selected={selected}
