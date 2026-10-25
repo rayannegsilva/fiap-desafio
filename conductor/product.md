@@ -33,9 +33,10 @@ Pais e responsáveis por alunos da escola, que acessam o app no celular para con
 - Trocar de aluno mantém o dia selecionado.
 
 ### Boletim
-- Ao abrir, mostra o boletim de 2025, com apenas o 1º trimestre avaliado.
-- Mostra ano, turma e trimestres, com disciplinas, notas gerais e faltas.
-- Navegação entre anos anteriores, quando houver dados.
+- Ao abrir, mostra o boletim mais recente do aluno, com os trimestres fechados; só o 1º trimestre de 2025 tem notas, os demais mostram "-".
+- Cada trimestre abre para listar as disciplinas; cada disciplina abre para mostrar nota e faltas.
+- Dropdown de ano troca para boletins anteriores; com um único ano, vira uma caixa estática sem chevron.
+- Trocar de aluno volta ao boletim mais recente.
 
 ### Seleção de aluno
 - Lista os alunos do responsável: nome completo, RM e turma.
