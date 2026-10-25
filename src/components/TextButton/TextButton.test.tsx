@@ -22,6 +22,17 @@ it('extends the touch area to at least 44pt', async () => {
   });
 });
 
+it('keeps the label on a single clipped line', async () => {
+  await renderWithProviders(
+    <TextButton label="TROCAR PERFIL" onPress={jest.fn()} />,
+  );
+  const label = screen.getByText('TROCAR PERFIL');
+  expect(label).toHaveProp('numberOfLines', 1);
+  expect(label).toHaveProp('ellipsizeMode', 'clip');
+  expect(label.props.children).toBe('TROCAR\u00A0PERFIL');
+  expect(screen.getByRole('button', { name: 'TROCAR PERFIL' })).toBeTruthy();
+});
+
 it('tints the icon with the variant text color', async () => {
   await renderWithProviders(
     <TextButton

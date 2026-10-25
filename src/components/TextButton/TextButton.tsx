@@ -28,6 +28,7 @@ export function TextButton({
   const theme = useAppTheme();
   const { animatedStyle, onPressIn, onPressOut } = usePressScale();
   const color = theme.colors[theme.textVariants[variant].color];
+  const visibleLabel = label.replace(/ /g, '\u00A0');
 
   return (
     <Pressable
@@ -44,7 +45,9 @@ export function TextButton({
           alignItems="center"
           gap={variant === 'cardTitle' ? 's' : 'xs'}
         >
-          <Text variant={variant}>{label}</Text>
+          <Text variant={variant} numberOfLines={1} ellipsizeMode="clip">
+            {visibleLabel}
+          </Text>
           {Icon ? (
             <Icon
               testID="text-button-icon"
