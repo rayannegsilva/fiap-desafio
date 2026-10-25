@@ -68,3 +68,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Commit `docs: update readme with login and session`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída [checkpoint: 1ecc4e3]
     - **Verificação:** só automatizada (104 testes, lint e typecheck); fase só de documentação.
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions a5f73e1
+    - Constantes nomeadas para a margem do erro (`TextField`) e a borda do card selecionado (`TrocaAluno`); `_senha` mantido com comentário (lint não aceita rest siblings sem uso).
