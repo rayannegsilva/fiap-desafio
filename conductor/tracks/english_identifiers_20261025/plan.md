@@ -16,11 +16,11 @@ Origem e detalhes (regras, mapa de nomes, comandos): [`docs/superpowers/plans/20
     - [x] Pastas `Schedule`, `ReportCard`, `StudentSwitch`, componentes, hooks, rotas
     - [x] Verificação completa PASS
     - [x] Commit `refactor: use english names for screens and routes`
-- [ ] Task 4: Sem comentários e varredura final
-    - [ ] Remover comentários de `src/`
-    - [ ] Varreduras vazias
-    - [ ] Verificação completa PASS
-    - [ ] Commit `refactor: remove inline comments`
+- [x] Task 4: Sem comentários e varredura final [6b6f441]
+    - [x] Remover comentários de `src/`
+    - [x] Varreduras vazias
+    - [x] Verificação completa PASS
+    - [x] Commit `refactor: remove inline comments`
 - [ ] Task 5: README
     - [ ] Atualizar Estrutura
     - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
