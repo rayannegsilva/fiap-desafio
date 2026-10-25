@@ -41,4 +41,5 @@ Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/pl
     - [x] Atualizar Estrutura e Status
     - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
     - [x] Commit `docs: update readme with animated splash`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída [checkpoint: a68976e]
+    - **Verificação:** só automatizada (157 testes, lint e typecheck); fase só de documentação.
