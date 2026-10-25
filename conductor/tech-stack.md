@@ -11,7 +11,6 @@
 - **Fonte:** Montserrat (Google Fonts), linkada com `react-native-asset`
 - **Ícones:** SVGs do design via `react-native-svg` + `react-native-svg-transformer` (`fill="currentColor"`)
 - **Animações:** react-native-reanimated 4 + react-native-worklets
-- **Splash animada:** lottie-react-native
 - **Layout seguro:** react-native-safe-area-context
 
 ## Arquitetura

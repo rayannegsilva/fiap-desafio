@@ -140,3 +140,22 @@ it('animates the body to zero height when closing from the settled state', async
   expect(body).toHaveAnimatedStyle({ height: 0 });
   jest.useRealTimers();
 });
+
+it('widens the touch target of row headers only', async () => {
+  await renderWithProviders(
+    <>
+      <Collapsible title="CIÊNCIAS" variant="row">
+        <Text>a</Text>
+      </Collapsible>
+      <Collapsible title="1º TRIMESTRE" variant="card">
+        <Text>b</Text>
+      </Collapsible>
+    </>,
+  );
+  expect(
+    screen.getByRole('button', { name: 'CIÊNCIAS' }).props.hitSlop,
+  ).toEqual({ top: 4, bottom: 4 });
+  expect(
+    screen.getByRole('button', { name: '1º TRIMESTRE' }).props.hitSlop,
+  ).toBeUndefined();
+});

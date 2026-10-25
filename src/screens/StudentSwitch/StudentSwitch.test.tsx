@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react-native';
+import { fireEvent, screen, within } from '@testing-library/react-native';
 import { useSessionStore } from '../../store/useSessionStore';
 import { renderWithProviders } from '../../test/renderWithProviders';
 import { StudentSwitch } from './StudentSwitch';
@@ -42,4 +42,12 @@ it('goes back on FECHAR without switching', async () => {
   await fireEvent.press(screen.getByRole('button', { name: 'FECHAR' }));
   expect(useSessionStore.getState().studentRm).toBe(12567);
   expect(mockGoBack).toHaveBeenCalledTimes(1);
+});
+
+it('renders the cards inside a scroll view', async () => {
+  await renderWithProviders(<StudentSwitch />);
+  const scroll = screen.getByTestId('student-switch-scroll');
+  expect(
+    within(scroll).getByRole('button', { name: 'JOANA DA SILVA' }),
+  ).toBeOnTheScreen();
 });

@@ -80,7 +80,7 @@ Organização por camada em `src/`:
 ```
 src/
 ├── animations/   # presets Reanimated reutilizáveis
-├── assets/       # lottie, imagens, fontes
+├── assets/       # imagens, fontes
 ├── components/   # componentes compartilhados (Restyle)
 ├── hooks/
 ├── routes/       # React Navigation + tipos de rota

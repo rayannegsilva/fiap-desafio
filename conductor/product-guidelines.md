@@ -106,7 +106,7 @@ Nomes de responsável e aluno no cabeçalho em caixa alta, só o primeiro nome. 
 
 ## Animações
 - **Propósito antes de enfeite:** toda animação comunica algo — origem/destino de navegação, mudança de estado, hierarquia ou feedback.
-- **Duração:** microinterações 100–200ms; transições de tela e entradas de conteúdo 250–400ms; splash é exceção, mas curta (≤ 2s) e não atrasa o app pronto.
+- **Duração:** microinterações 100–200ms; transições de tela e entradas de conteúdo 250–400ms; splash é exceção, mas curta (≤ 2,5s) e não atrasa o app pronto.
 - **Física:** springs para elementos manipuláveis/gestos; timing com easing (ease-out na entrada, ease-in na saída) para transições.
 - **Performance:** animar apenas `transform` e `opacity` sempre que possível; rodar na UI thread (Reanimated worklets); meta de 60 fps.
 - **Nunca bloquear:** interação permitida durante ou interrompendo a animação.

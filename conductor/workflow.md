@@ -97,7 +97,7 @@ yarn lint && yarn tsc --noEmit && CI=true yarn test
 
 ### Unitários
 - Hooks, stores Zustand, utilitários e presets de animação.
-- Mockar dependências nativas (Reanimated, Lottie, navegação) via `jest.setup`.
+- Mockar dependências nativas (Reanimated, navegação) via `jest.setup`.
 - Cobrir sucesso e falha.
 
 ### Integração

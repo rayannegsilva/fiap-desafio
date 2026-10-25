@@ -25,6 +25,7 @@ import { Text } from '../Text/Text';
 const CHEVRON_SIZE = 14;
 const CARD_HEIGHT = 90;
 const ROW_HEIGHT = 37;
+const ROW_HIT_SLOP = { top: 4, bottom: 4 };
 const OPEN_EASING = Easing.out(Easing.cubic);
 const CLOSE_EASING = Easing.in(Easing.cubic);
 
@@ -91,9 +92,9 @@ export function Collapsible({
     height.value = reduceMotion
       ? 0
       : withTiming(0, {
-        duration: motion.duration.transition,
-        easing: CLOSE_EASING,
-      });
+          duration: motion.duration.transition,
+          easing: CLOSE_EASING,
+        });
   };
 
   const toggle = () => {
@@ -120,6 +121,7 @@ export function Collapsible({
         accessibilityLabel={title}
         accessibilityState={{ expanded }}
         onPress={toggle}
+        hitSlop={isCard ? undefined : ROW_HIT_SLOP}
       >
         <Box
           flexDirection="row"
@@ -127,11 +129,11 @@ export function Collapsible({
           gap="s"
           {...(isCard
             ? {
-              backgroundColor: 'surfaceRaised',
-              borderRadius: 'default',
-              height: CARD_HEIGHT,
-              paddingHorizontal: 'sm',
-            }
+                backgroundColor: 'surfaceRaised',
+                borderRadius: 'default',
+                height: CARD_HEIGHT,
+                paddingHorizontal: 'sm',
+              }
             : { height: ROW_HEIGHT })}
         >
           <Text variant={isCard ? 'cardTitle' : 'captionMedium'} flex={1}>

@@ -1,4 +1,4 @@
-import { Pressable } from 'react-native';
+import { Pressable, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -10,6 +10,7 @@ import type { Student } from '../../data/types';
 import { useSession } from '../../store/useSession';
 import { useSessionStore } from '../../store/useSessionStore';
 import { Box } from '../../theme/restyle';
+import { useAppTheme } from '../../theme/useAppTheme';
 import { studentFullName, studentInfoLine } from '../../utils/student';
 
 const CLOSE_ICON_SIZE = 24;
@@ -59,6 +60,7 @@ export function StudentSwitch() {
   const session = useSession();
   const selectStudent = useSessionStore(s => s.selectStudent);
   const insets = useSafeAreaInsets();
+  const theme = useAppTheme();
 
   if (!session) {
     return null;
@@ -79,24 +81,32 @@ export function StudentSwitch() {
           onPress={navigation.goBack}
         />
       </Box>
-      <Box paddingHorizontal="xxl" style={{ marginTop: TITLE_TOP }}>
-        <Text variant="screenTitle" textAlign="center">
-          Escolha o perfil que você quer visualizar
-        </Text>
-      </Box>
-      <Box paddingHorizontal="m" gap="m" style={{ marginTop: CARDS_TOP }}>
-        {session.guardian.alunos.map(student => (
-          <StudentCard
-            key={student.rm}
-            student={student}
-            selected={student.rm === session.student.rm}
-            onPress={() => {
-              selectStudent(student.rm);
-              navigation.goBack();
-            }}
-          />
-        ))}
-      </Box>
+      <ScrollView
+        testID="student-switch-scroll"
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingBottom: theme.spacing.l + insets.bottom,
+        }}
+      >
+        <Box paddingHorizontal="xxl" style={{ marginTop: TITLE_TOP }}>
+          <Text variant="screenTitle" textAlign="center">
+            Escolha o perfil que você quer visualizar
+          </Text>
+        </Box>
+        <Box paddingHorizontal="m" gap="m" style={{ marginTop: CARDS_TOP }}>
+          {session.guardian.alunos.map(student => (
+            <StudentCard
+              key={student.rm}
+              student={student}
+              selected={student.rm === session.student.rm}
+              onPress={() => {
+                selectStudent(student.rm);
+                navigation.goBack();
+              }}
+            />
+          ))}
+        </Box>
+      </ScrollView>
     </Box>
   );
 }

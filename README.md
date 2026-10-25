@@ -14,7 +14,6 @@ App mobile (iOS e Android) para responsáveis acompanharem as aulas do dia e o b
 - [react-native-svg](https://github.com/software-mansion/react-native-svg) + [svg-transformer](https://github.com/kristerkari/react-native-svg-transformer): ícones como componentes
 - [React Navigation](https://reactnavigation.org) (native-stack + bottom-tabs) + react-native-screens
 - [Zustand](https://zustand.docs.pmnd.rs) + [AsyncStorage](https://github.com/react-native-async-storage/async-storage): estado e persistência
-- [Lottie](https://github.com/lottie-react-native/lottie-react-native): animações
 - Montserrat (Regular/Medium/SemiBold/Bold) via [react-native-asset](https://github.com/unimonkiez/react-native-asset)
 - [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) + Jest: testes
 - [Husky](https://typicode.github.io/husky/) + [commitlint](https://commitlint.js.org): hooks de qualidade nos commits

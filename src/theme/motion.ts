@@ -5,10 +5,10 @@ export const motion = {
   duration: { micro: 150, transition: 300 },
   stagger: 40,
   splash: {
-    letterDuration: 550,
-    letterStagger: 200,
+    letterDuration: 700,
+    letterStagger: 250,
     hold: 150,
-    travel: 500,
+    travel: 600,
     handoff: 150,
     fadeOut: 250,
   },
