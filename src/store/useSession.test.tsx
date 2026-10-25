@@ -36,3 +36,16 @@ it('reports hydration', async () => {
   const { result } = await renderHook(() => useSessionHydrated());
   expect(result.current).toBe(true);
 });
+
+it('catches hydration that finishes before the hook subscribes', async () => {
+  let done = false;
+  const persist = useSessionStore.persist;
+  jest.spyOn(persist, 'hasHydrated').mockImplementation(() => done);
+  jest.spyOn(persist, 'onFinishHydration').mockImplementation(() => {
+    done = true;
+    return () => {};
+  });
+  const { result } = await renderHook(() => useSessionHydrated());
+  expect(result.current).toBe(true);
+  jest.restoreAllMocks();
+});

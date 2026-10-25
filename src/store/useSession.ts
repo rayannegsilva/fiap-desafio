@@ -1,17 +1,21 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useSyncExternalStore } from 'react';
 import { getResponsavel } from '../data/repository';
 import type { Aluno, Responsavel } from '../data/types';
 import { useSessionStore } from './useSessionStore';
 
-export function useSessionHydrated() {
-  const [hydrated, setHydrated] = useState(
+const subscribeHydration = (cb: () => void) => {
+  const offHydrate = useSessionStore.persist.onHydrate(cb);
+  const offFinish = useSessionStore.persist.onFinishHydration(cb);
+  return () => {
+    offHydrate();
+    offFinish();
+  };
+};
+
+export function useSessionHydrated(): boolean {
+  return useSyncExternalStore(subscribeHydration, () =>
     useSessionStore.persist.hasHydrated(),
   );
-  useEffect(
-    () => useSessionStore.persist.onFinishHydration(() => setHydrated(true)),
-    [],
-  );
-  return hydrated;
 }
 
 export function useSession(): {
