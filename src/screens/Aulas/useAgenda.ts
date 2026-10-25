@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import type { ScheduleDay } from '../../data/types';
 import { useSession } from '../../store/useSession';
-import { initialDay } from '../../utils/agenda';
+import { initialDay } from '../../utils/schedule';
 
 export function useAgenda() {
   const session = useSession();

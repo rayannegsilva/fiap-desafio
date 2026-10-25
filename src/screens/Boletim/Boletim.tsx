@@ -7,10 +7,10 @@ import { Text } from '../../components/Text/Text';
 import { motion } from '../../theme/motion';
 import { Box } from '../../theme/restyle';
 import {
-  boletimLabel,
-  disciplinaLabel,
-  trimestreLabel,
-} from '../../utils/boletim';
+  reportCardLabel,
+  subjectLabel,
+  termLabel,
+} from '../../utils/reportCard';
 import { DisciplinaDetalhe } from './DisciplinaDetalhe';
 import { useBoletim } from './useBoletim';
 
@@ -35,7 +35,7 @@ export function Boletim() {
               options={boletins}
               selected={selected}
               onSelect={selectBoletim}
-              getLabel={boletimLabel}
+              getLabel={reportCardLabel}
               getKey={boletim => boletim.ano}
               accessibilityLabel="Ano do boletim"
             />
@@ -49,13 +49,13 @@ export function Boletim() {
                 >
                   <Collapsible
                     variant="card"
-                    title={trimestreLabel(trimestre.trimestre)}
+                    title={termLabel(trimestre.trimestre)}
                   >
                     {trimestre.disciplinas.map(disciplina => (
                       <Collapsible
                         key={disciplina.nome}
                         variant="row"
-                        title={disciplinaLabel(disciplina.nome)}
+                        title={subjectLabel(disciplina.nome)}
                       >
                         <DisciplinaDetalhe disciplina={disciplina} />
                       </Collapsible>

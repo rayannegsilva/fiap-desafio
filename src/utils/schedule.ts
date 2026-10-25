@@ -26,8 +26,8 @@ const WEEKDAYS = [
 ];
 
 // Weekday read in UTC so the date never shifts with the device time zone.
-const parse = (dia: string) => {
-  const [year, month, day] = dia.split('-').map(Number);
+const parse = (isoDate: string) => {
+  const [year, month, day] = isoDate.split('-').map(Number);
   return {
     month,
     day,
@@ -35,12 +35,12 @@ const parse = (dia: string) => {
   };
 };
 
-export const formatDayLabel = (dia: string) => {
-  const { month, day, weekday } = parse(dia);
+export const formatDayLabel = (isoDate: string) => {
+  const { month, day, weekday } = parse(isoDate);
   return `${day} de ${MONTHS[month - 1]}, ${WEEKDAYS[weekday]}`;
 };
 
-export const initialDay = (agenda: ScheduleDay[], today: Date) =>
-  agenda.find(d => parse(d.dia).weekday === today.getDay()) ??
-  agenda[0] ??
+export const initialDay = (schedule: ScheduleDay[], today: Date) =>
+  schedule.find(d => parse(d.dia).weekday === today.getDay()) ??
+  schedule[0] ??
   null;

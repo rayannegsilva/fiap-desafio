@@ -3,7 +3,7 @@ import { Dropdown } from '../../components/Dropdown/Dropdown';
 import { Header } from '../../components/Header/Header';
 import { Text } from '../../components/Text/Text';
 import { Box } from '../../theme/restyle';
-import { formatDayLabel } from '../../utils/agenda';
+import { formatDayLabel } from '../../utils/schedule';
 import { AulaItem } from './AulaItem';
 import { SemAulas } from './SemAulas';
 import { useAgenda } from './useAgenda';

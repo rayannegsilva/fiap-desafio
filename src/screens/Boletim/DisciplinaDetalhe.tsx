@@ -1,7 +1,7 @@
 import { Text } from '../../components/Text/Text';
 import type { Subject } from '../../data/types';
 import { Box } from '../../theme/restyle';
-import { formatFaltas, formatNota } from '../../utils/boletim';
+import { formatAbsences, formatGrade } from '../../utils/reportCard';
 
 type Props = { disciplina: Subject };
 
@@ -19,8 +19,8 @@ function Linha({ label, value }: LinhaProps) {
 export function DisciplinaDetalhe({ disciplina }: Props) {
   return (
     <>
-      <Linha label="Nota:" value={formatNota(disciplina.nota)} />
-      <Linha label="Faltas:" value={formatFaltas(disciplina.faltas)} />
+      <Linha label="Nota:" value={formatGrade(disciplina.nota)} />
+      <Linha label="Faltas:" value={formatAbsences(disciplina.faltas)} />
     </>
   );
 }
