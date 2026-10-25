@@ -1,0 +1,85 @@
+import { Image, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Logout from '../../assets/icons/logout.svg';
+import logo from '../../assets/images/logo.png';
+import type { RootStackParamList } from '../../routes/types';
+import { useSession } from '../../store/useSession';
+import { useSessionStore } from '../../store/useSessionStore';
+import { Box } from '../../theme/restyle';
+import {
+  guardianFirstName,
+  studentFirstName,
+  studentInfoLine,
+} from '../../utils/student';
+import { Text } from '../Text/Text';
+import { TextButton } from '../TextButton/TextButton';
+
+const ACTION_BAR_HEIGHT = 48;
+const LOGO_SIZE = { width: 100, height: 16 };
+const LOGOUT_ICON_SIZE = 10;
+
+const styles = StyleSheet.create({
+  logo: LOGO_SIZE,
+});
+
+export function Header() {
+  const session = useSession();
+  const signOut = useSessionStore(s => s.signOut);
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
+  const insets = useSafeAreaInsets();
+
+  if (!session) {
+    return null;
+  }
+  const { responsavel, aluno } = session;
+
+  return (
+    <Box backgroundColor="background" style={{ paddingTop: insets.top }}>
+      <Box
+        height={ACTION_BAR_HEIGHT}
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        paddingHorizontal="m"
+      >
+        <Image
+          source={logo}
+          style={styles.logo}
+          resizeMode="contain"
+          accessible
+          accessibilityRole="image"
+          accessibilityLabel="FIAP School"
+        />
+        <Box flexDirection="row" alignItems="center" gap="l">
+          {responsavel.alunos.length > 1 ? (
+            <TextButton
+              label="TROCAR PERFIL"
+              onPress={() => navigation.navigate('TrocaAluno')}
+            />
+          ) : null}
+          <TextButton
+            label="SAIR"
+            onPress={signOut}
+            icon={Logout}
+            iconSize={LOGOUT_ICON_SIZE}
+          />
+        </Box>
+      </Box>
+      <Box alignItems="center" paddingTop="m" paddingBottom="m">
+        <Text variant="greeting">
+          Olá,{' '}
+          <Text variant="greetingName">{guardianFirstName(responsavel)}</Text>
+        </Text>
+        <Box marginTop="xl2" alignItems="center" gap="s">
+          <Text variant="bodyMedium" accessibilityRole="header">
+            {studentFirstName(aluno)}
+          </Text>
+          <Text variant="body">{studentInfoLine(aluno)}</Text>
+        </Box>
+      </Box>
+    </Box>
+  );
+}

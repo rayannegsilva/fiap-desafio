@@ -15,6 +15,12 @@ const textVariants = {
     fontFamily: 'Montserrat-Regular',
     color: 'textPrimary',
   },
+  greetingName: {
+    fontSize: 24,
+    lineHeight: 29,
+    fontFamily: 'Montserrat-Bold',
+    color: 'textPrimary',
+  },
   screenTitle: {
     fontSize: 24,
     lineHeight: 29,
@@ -103,6 +109,7 @@ const spacing = {
   m: 16,
   l: 24,
   xl: 28,
+  xl2: 36,
   xxl: 48,
 };
 

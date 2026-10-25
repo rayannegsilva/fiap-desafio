@@ -21,9 +21,7 @@ it('opens Main without ever showing Login when a session exists', async () => {
   useSessionStore.getState().signIn(1, 12567);
   await renderWithProviders(<RootNavigator />);
   expect(screen.queryByLabelText('CPF')).not.toBeOnTheScreen();
-  expect(
-    await screen.findByLabelText('Trocar aluno (temporário)'),
-  ).toBeOnTheScreen();
+  expect(await screen.findByText('GUSTAVO')).toBeOnTheScreen();
 });
 
 it('goes from Login to Main after a valid login', async () => {
@@ -34,8 +32,6 @@ it('goes from Login to Main after a valid login', async () => {
   await fireEvent.press(screen.getByRole('button', { name: 'FAZER LOGIN' }));
   await act(() => jest.advanceTimersByTimeAsync(AUTH_DELAY_MS));
 
-  expect(
-    await screen.findByLabelText('Trocar aluno (temporário)'),
-  ).toBeOnTheScreen();
+  expect(await screen.findByText('GUSTAVO')).toBeOnTheScreen();
   expect(screen.queryByLabelText('CPF')).not.toBeOnTheScreen();
 });
