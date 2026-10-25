@@ -34,11 +34,12 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar
     - [x] Confirmar PASS
     - [x] Commit `feat(login): add login form state hook`
-- [ ] Task 6: Tela de Login e navegação por sessão
-    - [ ] Escrever testes falhando (Login, RootNavigator sem/com sessão sem piscar o Login, App)
-    - [ ] Implementar `Login.tsx` e `RootNavigator.tsx`; remover botão temporário
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(login): add login screen and session-based navigation`
+- [x] Task 6: Tela de Login e navegação por sessão [912b98a]
+    - [x] Escrever testes falhando (Login, RootNavigator sem/com sessão sem piscar o Login, App)
+    - [x] Implementar `Login.tsx` e `RootNavigator.tsx`; remover botão temporário
+    - [x] Confirmar PASS
+    - [x] Commit `feat(login): add login screen and session-based navigation`
+    - **Desvio:** `TextField` alterado (achado na revisão do design): rótulo centralizado (`textAlign="center"`, com teste) e texto de erro com `marginTop: 32` e centralizado, para bater com o Figma (erro 32 abaixo do sublinhado).
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Cabeçalho e troca de aluno
