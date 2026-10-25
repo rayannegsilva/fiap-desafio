@@ -1,5 +1,6 @@
 import { fireEvent, screen } from '@testing-library/react-native';
 import Close from '../../assets/icons/close.svg';
+import Logout from '../../assets/icons/logout.svg';
 import { renderWithProviders } from '../../test/renderWithProviders';
 import { darkTheme } from '../../theme/theme';
 import { TextButton } from './TextButton';
@@ -33,4 +34,14 @@ it('tints the icon with the variant text color', async () => {
   expect(screen.getByTestId('text-button-icon').props.color).toBe(
     darkTheme.colors.accentText,
   );
+});
+
+it('places the icon after the label', async () => {
+  await renderWithProviders(
+    <TextButton label="SAIR" icon={Logout} iconSize={10} onPress={jest.fn()} />,
+  );
+  const json = JSON.stringify(screen.toJSON());
+  const textAt = json.indexOf('["SAIR"]');
+  expect(textAt).toBeGreaterThan(-1);
+  expect(json.indexOf('text-button-icon')).toBeGreaterThan(textAt);
 });

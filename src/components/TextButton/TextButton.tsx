@@ -39,7 +39,12 @@ export function TextButton({
       onPressOut={onPressOut}
     >
       <Animated.View style={animatedStyle}>
-        <Box flexDirection="row" alignItems="center" gap="xs">
+        <Box
+          flexDirection="row"
+          alignItems="center"
+          gap={variant === 'cardTitle' ? 's' : 'xs'}
+        >
+          <Text variant={variant}>{label}</Text>
           {Icon ? (
             <Icon
               testID="text-button-icon"
@@ -48,7 +53,6 @@ export function TextButton({
               height={iconSize}
             />
           ) : null}
-          <Text variant={variant}>{label}</Text>
         </Box>
       </Animated.View>
     </Pressable>
