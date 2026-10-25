@@ -2,7 +2,7 @@
 
 Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/superpowers/plans/2026-10-25-boletim.md`](../../../docs/superpowers/plans/2026-10-25-boletim.md). Cada task abaixo corresponde à task de mesmo número lá. Seguir `conductor/workflow.md`.
 
-## Phase 1: Lógica do boletim
+## Phase 1: Lógica do boletim [checkpoint: 0d798e9]
 
 - [x] Task 1: Formatadores do boletim [adf5e89]
     - [x] Escrever testes falhando (nota inteira/decimal/null, faltas 0/null, rótulos)
@@ -14,7 +14,7 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `src/screens/Boletim/useBoletim.ts`
     - [x] Confirmar PASS
     - [x] Commit `feat(boletim): add report card hook with year selection`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Tela
 
