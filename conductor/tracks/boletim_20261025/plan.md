@@ -1,0 +1,44 @@
+# Plan: Boletim
+
+Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/superpowers/plans/2026-10-25-boletim.md`](../../../docs/superpowers/plans/2026-10-25-boletim.md). Cada task abaixo corresponde à task de mesmo número lá. Seguir `conductor/workflow.md`.
+
+## Phase 1: Lógica do boletim
+
+- [ ] Task 1: Formatadores do boletim
+    - [ ] Escrever testes falhando (nota inteira/decimal/null, faltas 0/null, rótulos)
+    - [ ] Implementar `src/utils/boletim.ts`
+    - [ ] Confirmar PASS
+    - [ ] Commit `feat(boletim): add report card formatters`
+- [ ] Task 2: `useBoletim`
+    - [ ] Escrever testes falhando (ano mais recente e ordem, trocar ano, voltar ao mais recente ao trocar de aluno)
+    - [ ] Implementar `src/screens/Boletim/useBoletim.ts`
+    - [ ] Confirmar PASS
+    - [ ] Commit `feat(boletim): add report card hook with year selection`
+- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+
+## Phase 2: Tela
+
+- [ ] Task 3: Dropdown estático com uma opção
+    - [ ] Escrever teste falhando
+    - [ ] Implementar em `Dropdown.tsx`
+    - [ ] Confirmar PASS (agenda intacta)
+    - [ ] Commit `feat(dropdown): render a static box for a single option`
+- [ ] Task 4: Detalhe da disciplina
+    - [ ] Escrever testes falhando (nota/faltas, traços sem avaliação)
+    - [ ] Implementar `DisciplinaDetalhe`
+    - [ ] Confirmar PASS
+    - [ ] Commit `feat(boletim): add subject grade details`
+- [ ] Task 5: Tela de Boletim
+    - [ ] Escrever testes falhando (ano recente e trimestres fechados, abrir trimestre/disciplina, trocar ano, caixa estática)
+    - [ ] Implementar `Boletim.tsx`
+    - [ ] `yarn lint && yarn typecheck && CI=true yarn test` PASS
+    - [ ] Commit `feat(boletim): show report card with trimesters and subjects`
+- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+
+## Phase 3: Documentação
+
+- [ ] Task 6: README
+    - [ ] Atualizar Estrutura e Status
+    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
+    - [ ] Commit `docs: update readme with report card`
+- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
