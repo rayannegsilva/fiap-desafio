@@ -69,7 +69,6 @@ export function Dropdown<T>({
     </Box>
   );
 
-  // A single option has nothing to choose: same box, no interaction.
   if (isStatic) return field;
 
   return (

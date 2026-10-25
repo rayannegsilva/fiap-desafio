@@ -25,7 +25,6 @@ const WEEKDAYS = [
   'sábado',
 ];
 
-// Weekday read in UTC so the date never shifts with the device time zone.
 const parse = (isoDate: string) => {
   const [year, month, day] = isoDate.split('-').map(Number);
   return {

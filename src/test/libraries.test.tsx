@@ -55,7 +55,6 @@ describe('zustand + async-storage', () => {
     );
     await act(() => useProbe.getState().inc());
     const stored = await AsyncStorage.getItem('probe');
-    // Non-null: zustand persist just wrote this key above.
     expect(JSON.parse(stored!).state.n).toBe(1);
   });
 });
@@ -66,7 +65,6 @@ describe('lottie', () => {
     await render(
       <LottieView
         testID="anim"
-        // LottieView is mocked; any source placeholder satisfies the prop type.
         source={{} as unknown as string}
         autoPlay
         onAnimationFinish={onFinish}

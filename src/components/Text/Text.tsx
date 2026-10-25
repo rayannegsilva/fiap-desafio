@@ -8,8 +8,6 @@ type Props = ComponentProps<typeof RestyleText>;
 export function Text({
   variant = 'body',
   maxFontSizeMultiplier = MAX_FONT_SIZE_MULTIPLIER,
-  // Android measures custom-font text narrower than it draws, wrapping the
-  // last word into a clipped line; 'simple' avoids it. No effect on iOS.
   textBreakStrategy = 'simple',
   ...rest
 }: Props) {

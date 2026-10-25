@@ -6,8 +6,6 @@ import { darkTheme } from '../theme/theme';
 import { MainTabNavigator } from './MainTabNavigator';
 
 function visibleIconColor(testId: string) {
-  // react-navigation renders each tab icon twice (crossfade between
-  // focused/unfocused tint); only the wrapper with opacity 1 is shown.
   const icons = screen.getAllByTestId(testId);
   const visible = icons.find(icon => {
     const style = icon.parent?.props.style;

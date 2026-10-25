@@ -12,7 +12,6 @@ export function useReportCard() {
   );
   const rm = student?.rm ?? null;
 
-  // Switching student drops the choice (state reset during render).
   const [chosenRm, setChosenRm] = useState(rm);
   if (chosenRm !== rm) {
     setChosenRm(rm);

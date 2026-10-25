@@ -9,7 +9,6 @@ const records = guardiansJson as GuardianRecord[];
 
 const onlyDigits = (value: string) => value.replace(/\D/g, '');
 
-// eslint no-unused-vars não aceita rest siblings; o prefixo marca a senha descartada.
 function toGuardian({ senha: _senha, ...guardian }: GuardianRecord): Guardian {
   return guardian;
 }

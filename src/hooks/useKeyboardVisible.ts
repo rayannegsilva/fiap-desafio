@@ -5,7 +5,6 @@ export function useKeyboardVisible(): boolean {
   const [visible, setVisible] = useState(Keyboard.isVisible());
 
   useEffect(() => {
-    // Will* events don't fire on Android
     const ios = Platform.OS === 'ios';
     const show = Keyboard.addListener(
       ios ? 'keyboardWillShow' : 'keyboardDidShow',
