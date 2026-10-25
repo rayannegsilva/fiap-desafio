@@ -82,17 +82,22 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │   │   ├── TextField/
 │   │   ├── Collapsible/
 │   │   ├── Dropdown/
-│   │   └── Header/            # Cabeçalho autenticado (aluno, troca e sair)
+│   │   ├── Header/            # Cabeçalho autenticado (aluno, troca e sair)
+│   │   ├── FiapStrokeLogo/    # Logo FIAP desenhada traço a traço
+│   │   ├── SplashOverlay/     # Splash animada até a primeira tela
+│   │   └── StudentSummary/    # Saudação e aluno no topo das telas
 │   ├── data/
 │   │   ├── types.ts           # Tipos de responsável, aluno e agenda
 │   │   ├── responsaveis.json  # Responsáveis e alunos (dados fictícios)
 │   │   └── repository.ts      # authenticate e getGuardian
+│   ├── hooks/
+│   │   └── useKeyboardVisible.ts # Visibilidade do teclado
 │   ├── routes/
 │   │   ├── RootNavigator.tsx    # Stack: Login, Main, StudentSwitch
 │   │   ├── MainTabNavigator.tsx # Abas: Schedule, ReportCard
 │   │   └── types.ts             # Parâmetros de rota tipados
 │   ├── screens/               # Uma pasta por tela (Tela.tsx + Tela.test.tsx)
-│   │   ├── Login/
+│   │   ├── Login/             # Login: useLoginForm, loginLayout
 │   │   ├── Schedule/          # Agenda do aluno: useSchedule, LessonItem, EmptyDay
 │   │   ├── ReportCard/        # Boletim: useReportCard, SubjectDetails
 │   │   └── StudentSwitch/
@@ -117,6 +122,7 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 │       ├── reportCard.ts      # Rótulos e formatação de nota e faltas
 │       ├── formatCpf.ts       # Máscara de CPF
 │       └── student.ts         # Helpers de aluno
+├── docs/adr/                # Decisões de arquitetura
 ├── android/                 # Projeto nativo Android
 └── ios/                     # Projeto nativo iOS
 ```
@@ -142,6 +148,7 @@ Este README é atualizado ao concluir cada track.
 | Login, sessão, cabeçalho e troca de aluno | ✅ |
 | Agenda de aulas | ✅ |
 | Boletim | ✅ |
+| Tema do sistema e splash animada | ✅ |
 
 ## Acesso de demonstração
 
