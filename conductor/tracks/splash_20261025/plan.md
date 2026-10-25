@@ -37,8 +37,8 @@ Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/pl
 
 ## Phase 3: Documentação
 
-- [ ] Task 4: README
-    - [ ] Atualizar Estrutura e Status
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
-    - [ ] Commit `docs: update readme with animated splash`
+- [x] Task 4: README a68976e
+    - [x] Atualizar Estrutura e Status
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage`
+    - [x] Commit `docs: update readme with animated splash`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
