@@ -40,7 +40,10 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Confirmar PASS
     - [x] Commit `feat(login): add login screen and session-based navigation`
     - **Desvio:** `TextField` alterado (achado na revisão do design): rótulo centralizado (`textAlign="center"`, com teste) e texto de erro com `marginTop: 32` e centralizado, para bater com o Figma (erro 32 abaixo do sublinhado).
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) [checkpoint: d1355a0]
+    - **Verificação manual:** iOS e Android — estados do Login, máscara, botão, carregando, erro com shake, teclado, login válido e reabertura em Aulas. Confirmado pelo usuário.
+    - **Desvio (verificação no aparelho) [d3f7f3f]:** `useSessionHydrated` tinha corrida (reidratação terminando antes da inscrição deixava tela branca no Android); passou a usar `useSyncExternalStore`.
+    - **Desvio (verificação no aparelho) [d1355a0]:** "Next" do CPF não fazia nada; `TextField` repassa `ref` e o Login foca a SENHA.
 
 ## Phase 3: Cabeçalho e troca de aluno
 
