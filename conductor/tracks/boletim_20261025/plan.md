@@ -28,11 +28,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `DisciplinaDetalhe`
     - [x] Confirmar PASS
     - [x] Commit `feat(boletim): add subject grade details`
-- [ ] Task 5: Tela de Boletim
-    - [ ] Escrever testes falhando (ano recente e trimestres fechados, abrir trimestre/disciplina, trocar ano, caixa estática)
-    - [ ] Implementar `Boletim.tsx`
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test` PASS
-    - [ ] Commit `feat(boletim): show report card with trimesters and subjects`
+- [x] Task 5: Tela de Boletim [26a87e8]
+    - [x] Escrever testes falhando (ano recente e trimestres fechados, abrir trimestre/disciplina, trocar ano, caixa estática)
+    - [x] Implementar `Boletim.tsx`
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test` PASS
+    - [x] Commit `feat(boletim): show report card with trimesters and subjects`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Documentação
