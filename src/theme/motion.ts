@@ -4,4 +4,12 @@ export const motion = {
   spring: { damping: 15, stiffness: 300 },
   duration: { micro: 150, transition: 300 },
   stagger: 40,
+  splash: {
+    letterDuration: 550,
+    letterStagger: 200,
+    hold: 150,
+    travel: 500,
+    handoff: 150,
+    fadeOut: 250,
+  },
 } as const;
