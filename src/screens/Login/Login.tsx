@@ -85,6 +85,12 @@ export function Login() {
                     ? 'numbers-and-punctuation'
                     : 'number-pad'
                 }
+                // iOS autocorrect/suggestions fight the masked controlled value (flicker)
+                autoCorrect={false}
+                spellCheck={false}
+                autoComplete="off"
+                textContentType="none"
+                maxLength={14}
                 returnKeyType="next"
                 submitBehavior="submit"
                 onSubmitEditing={() => senhaRef.current?.focus()}

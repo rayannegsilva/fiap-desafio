@@ -34,6 +34,13 @@ it('masks the cpf and enables the button when the form is complete', async () =>
   expect(screen.getByRole('button', { name: 'FAZER LOGIN' })).toBeEnabled();
 });
 
+it('keeps ios autocorrect off the masked cpf field', async () => {
+  await renderWithProviders(<Login />);
+  const cpf = screen.getByLabelText('CPF');
+  expect(cpf).toHaveProp('autoCorrect', false);
+  expect(cpf).toHaveProp('maxLength', 14);
+});
+
 it('shows loading and then signs in with valid credentials', async () => {
   await renderWithProviders(<Login />);
   await fillAndSubmit('96929456004', '123456');
