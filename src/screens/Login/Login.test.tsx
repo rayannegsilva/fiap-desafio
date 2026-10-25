@@ -3,6 +3,7 @@ import { act, fireEvent, screen } from '@testing-library/react-native';
 import { AUTH_DELAY_MS } from '../../data/repository';
 import { useSessionStore } from '../../store/useSessionStore';
 import { renderWithProviders } from '../../test/renderWithProviders';
+import { darkTheme } from '../../theme/theme';
 import { Login } from './Login';
 
 beforeEach(() => {
@@ -84,5 +85,12 @@ describe('with the keyboard open', () => {
       screen.getByRole('button', { name: 'FAZER LOGIN' }),
     ).toBeOnTheScreen();
     jest.restoreAllMocks();
+  });
+});
+
+it('paints the keyboard avoiding area with the theme background', async () => {
+  await renderWithProviders(<Login />);
+  expect(StyleSheet.flatten(screen.getByTestId('login-screen').props.style)).toMatchObject({
+    backgroundColor: darkTheme.colors.background,
   });
 });

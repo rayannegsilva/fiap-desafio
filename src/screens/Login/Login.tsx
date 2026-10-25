@@ -22,27 +22,21 @@ const FIELD_INPUT_HEIGHT = 71;
 const FIELD_GAP = 40;
 const LOGO_TO_FIELDS = 76;
 
-const styles = StyleSheet.create({
-  flex: { flex: 1 },
-  logo: { ...LOGO_SIZE, marginTop: LOGO_TOP, alignSelf: 'center' },
-  input: { height: FIELD_INPUT_HEIGHT },
-  scroll: { flexGrow: 1 },
-  fields: { marginTop: LOGO_TO_FIELDS },
-});
-
 export function Login() {
   const { cpf, senha, setCpf, setSenha, canSubmit, loading, error, submit } =
     useLoginForm();
+
   const senhaRef = useRef<ComponentRef<typeof TextInput>>(null);
   const scrollRef = useRef<ComponentRef<typeof ScrollView>>(null);
   const keyboardVisible = useKeyboardVisible();
+
   useEffect(() => {
     if (keyboardVisible) scrollRef.current?.scrollToEnd({ animated: true });
   }, [keyboardVisible]);
   const theme = useAppTheme();
   const insets = useSafeAreaInsets();
   const footerStyle = { paddingBottom: keyboardVisible ? 0 : insets.bottom };
-  // keeps SENHA off the button while the keyboard is open
+
   const scrollPadding = {
     paddingBottom: keyboardVisible ? theme.spacing.l : 0,
   };
@@ -52,8 +46,8 @@ export function Login() {
 
   return (
     <KeyboardAvoidingView
-      style={styles.flex}
-      // with edge-to-edge Android doesn't resize the window, so the view must pad itself on both platforms
+      testID="login-screen"
+      style={[styles.flex, { backgroundColor: theme.colors.background }]}
       behavior="padding"
     >
       <Box flex={1} backgroundColor="background">
@@ -79,13 +73,11 @@ export function Login() {
                 label="CPF"
                 value={cpf}
                 onChangeText={setCpf}
-                // iOS number-pad has no return key; this one does (mask keeps digits only)
                 keyboardType={
                   Platform.OS === 'ios'
                     ? 'numbers-and-punctuation'
                     : 'number-pad'
                 }
-                // iOS autocorrect/suggestions fight the masked controlled value (flicker)
                 autoCorrect={false}
                 spellCheck={false}
                 autoComplete="off"
@@ -123,3 +115,11 @@ export function Login() {
     </KeyboardAvoidingView>
   );
 }
+
+const styles = StyleSheet.create({
+  flex: { flex: 1 },
+  logo: { ...LOGO_SIZE, marginTop: LOGO_TOP, alignSelf: 'center' },
+  input: { height: FIELD_INPUT_HEIGHT },
+  scroll: { flexGrow: 1 },
+  fields: { marginTop: LOGO_TO_FIELDS },
+});
