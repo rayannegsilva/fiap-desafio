@@ -9,11 +9,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
     - [x] Implementar `src/data/types.ts` e `src/data/repository.ts`
     - [x] Confirmar PASS
     - [x] Commit `feat(data): add typed repository over embedded json` (inclui `src/data/responsaveis.json`)
-- [ ] Task 2: Formatadores de aluno
-    - [ ] Escrever testes falhando
-    - [ ] Implementar `src/utils/student.ts`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(utils): add student display formatters`
+- [x] Task 2: Formatadores de aluno [cfe65a2]
+    - [x] Escrever testes falhando
+    - [x] Implementar `src/utils/student.ts`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(utils): add student display formatters`
 - [ ] Task 3: Store de sessão
     - [ ] Escrever testes falhando (signIn/selectAluno/signOut, persistência só de ids, sessão órfã)
     - [ ] Implementar `useSessionStore`, `useSessionHydrated`, `useSession`
