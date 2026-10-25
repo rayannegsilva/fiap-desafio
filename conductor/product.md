@@ -28,8 +28,9 @@ Pais e responsáveis por alunos da escola, que acessam o app no celular para con
 - Rodapé com navegação entre **Aulas** e **Boletim**.
 
 ### Aulas
-- Ao abrir, mostra as aulas de um dia: horário de início e término e a disciplina.
-- Navegação entre os dias da semana.
+- Ao abrir, mostra as aulas do dia da semana de hoje: horário e disciplina.
+- Dropdown para trocar entre os 7 dias da semana; dias sem aula mostram "Sem aulas neste dia".
+- Trocar de aluno mantém o dia selecionado.
 
 ### Boletim
 - Ao abrir, mostra o boletim de 2025, com apenas o 1º trimestre avaliado.
