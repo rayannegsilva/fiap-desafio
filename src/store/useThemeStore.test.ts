@@ -2,18 +2,18 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { act } from '@testing-library/react-native';
 import { useThemeStore } from './useThemeStore';
 
-it('defaults to dark theme', () => {
-  expect(useThemeStore.getState().theme).toBe('dark');
+it('follows the system by default', () => {
+  expect(useThemeStore.getState().mode).toBe('system');
 });
 
-it('toggles and persists the theme', async () => {
-  await act(() => useThemeStore.getState().toggleTheme());
-  expect(useThemeStore.getState().theme).toBe('light');
+it('stores and persists the chosen mode', async () => {
+  await act(() => useThemeStore.getState().setMode('light'));
+  expect(useThemeStore.getState().mode).toBe('light');
   const stored = await AsyncStorage.getItem('theme-storage');
-  expect(JSON.parse(stored!).state.theme).toBe('light');
+  expect(JSON.parse(stored!).state.mode).toBe('light');
 });
 
-it('toggles back to dark', async () => {
-  await act(() => useThemeStore.getState().toggleTheme());
-  expect(useThemeStore.getState().theme).toBe('dark');
+it('goes back to the system mode', async () => {
+  await act(() => useThemeStore.getState().setMode('system'));
+  expect(useThemeStore.getState().mode).toBe('system');
 });
