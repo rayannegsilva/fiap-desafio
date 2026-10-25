@@ -18,11 +18,11 @@ Origem e detalhes (medidas do Figma, interfaces, testes, comandos): [`docs/super
 
 ## Phase 2: Tela
 
-- [ ] Task 3: Item de aula e estado vazio
-    - [ ] Escrever testes falhando
-    - [ ] Implementar `AulaItem` e `SemAulas`
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(agenda): add class item and empty day components`
+- [x] Task 3: Item de aula e estado vazio [53abc70]
+    - [x] Escrever testes falhando
+    - [x] Implementar `AulaItem` e `SemAulas`
+    - [x] Confirmar PASS
+    - [x] Commit `feat(agenda): add class item and empty day components`
 - [ ] Task 4: Tela de Aulas
     - [ ] Escrever testes falhando (aulas do dia de hoje, trocar dia pelo dropdown → vazio)
     - [ ] Implementar `Aulas.tsx`
