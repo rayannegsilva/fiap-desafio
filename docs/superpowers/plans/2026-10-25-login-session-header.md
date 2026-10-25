@@ -1,3 +1,5 @@
+
+
 # Dados, sessão, Login, cabeçalho e Troca de aluno — Implementation Plan
 
 > **Para agentes executores:** este plano é registrado como track via `conductor-new-track` e executado com `conductor-implement` (num subagente), seguindo `conductor/workflow.md` (um commit por task com resumo de 3–5 linhas no corpo, SHA no `plan.md` da track). Steps usam checkbox (`- [ ]`).
