@@ -4,16 +4,16 @@ Origem e detalhes (decisões, tempos, interfaces, testes): [`docs/superpowers/pl
 
 ## Phase 1: Tema do sistema e splash nativa
 
-- [ ] Task 0: Tema segue o sistema
-    - [ ] Escrever testes falhando (padrão `system`, override manual, troca ao vivo)
-    - [ ] Implementar `useThemeStore` (`mode`/`setMode`), `useAppTheme`, `useResolvedScheme`, `StatusBar`; atualizar guidelines
-    - [ ] Confirmar PASS
-    - [ ] Commit `feat(theme): follow the system color scheme`
-- [ ] Task 1: Splash nativa no modo do sistema
-    - [ ] iOS LaunchScreen `systemBackgroundColor` sem labels
-    - [ ] Android `values`/`values-night` + Android 12+ sem ícone
-    - [ ] Verificação completa PASS
-    - [ ] Commit `feat(splash): native launch screen follows the system scheme`
+- [x] Task 0: Tema segue o sistema b640f0b
+    - [x] Escrever testes falhando (padrão `system`, override manual, troca ao vivo)
+    - [x] Implementar `useThemeStore` (`mode`/`setMode`), `useAppTheme`, `useResolvedScheme`, `StatusBar`; atualizar guidelines
+    - [x] Confirmar PASS
+    - [x] Commit `feat(theme): follow the system color scheme`
+- [x] Task 1: Splash nativa no modo do sistema e129412
+    - [x] iOS LaunchScreen `systemBackgroundColor` sem labels
+    - [x] Android `values`/`values-night` + Android 12+ sem ícone
+    - [x] Verificação completa PASS
+    - [x] Commit `feat(splash): native launch screen follows the system scheme`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Splash animada
