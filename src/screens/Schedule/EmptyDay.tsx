@@ -6,11 +6,6 @@ import { motion } from '../../theme/motion';
 
 const EMPTY_GAP = 20;
 
-const styles = StyleSheet.create({
-  container: { alignItems: 'center', paddingTop: EMPTY_GAP, gap: EMPTY_GAP },
-  image: { width: '100%', maxWidth: 328, aspectRatio: 328 / 208 },
-});
-
 export function EmptyDay() {
   return (
     <Animated.View
@@ -22,3 +17,8 @@ export function EmptyDay() {
     </Animated.View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: { alignItems: 'center', paddingTop: EMPTY_GAP, gap: EMPTY_GAP },
+  image: { width: '100%', maxWidth: 328, aspectRatio: 328 / 208 },
+});

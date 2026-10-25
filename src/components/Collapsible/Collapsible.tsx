@@ -28,10 +28,6 @@ const ROW_HEIGHT = 37;
 const OPEN_EASING = Easing.out(Easing.cubic);
 const CLOSE_EASING = Easing.in(Easing.cubic);
 
-const styles = StyleSheet.create({
-  body: { overflow: 'hidden' },
-});
-
 type Props = {
   title: string;
   variant: 'card' | 'row';
@@ -95,9 +91,9 @@ export function Collapsible({
     height.value = reduceMotion
       ? 0
       : withTiming(0, {
-          duration: motion.duration.transition,
-          easing: CLOSE_EASING,
-        });
+        duration: motion.duration.transition,
+        easing: CLOSE_EASING,
+      });
   };
 
   const toggle = () => {
@@ -131,11 +127,11 @@ export function Collapsible({
           gap="s"
           {...(isCard
             ? {
-                backgroundColor: 'surfaceRaised',
-                borderRadius: 'default',
-                height: CARD_HEIGHT,
-                paddingHorizontal: 'sm',
-              }
+              backgroundColor: 'surfaceRaised',
+              borderRadius: 'default',
+              height: CARD_HEIGHT,
+              paddingHorizontal: 'sm',
+            }
             : { height: ROW_HEIGHT })}
         >
           <Text variant={isCard ? 'cardTitle' : 'captionMedium'} flex={1}>
@@ -168,3 +164,7 @@ export function Collapsible({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  body: { overflow: 'hidden' },
+});

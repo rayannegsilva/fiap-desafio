@@ -13,16 +13,6 @@ const OPTION_HIT_SLOP = { top: 4, bottom: 4 };
 const CHEVRON_SIZE = 14;
 const PANEL_Z_INDEX = 10;
 
-const styles = StyleSheet.create({
-  panel: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    zIndex: PANEL_Z_INDEX,
-    elevation: PANEL_Z_INDEX,
-  },
-});
-
 type Props<T> = {
   options: T[];
   selected: T;
@@ -122,3 +112,13 @@ export function Dropdown<T>({
     </Box>
   );
 }
+
+const styles = StyleSheet.create({
+  panel: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    zIndex: PANEL_Z_INDEX,
+    elevation: PANEL_Z_INDEX,
+  },
+});

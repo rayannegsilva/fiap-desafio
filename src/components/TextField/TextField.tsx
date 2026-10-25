@@ -17,11 +17,6 @@ const SHAKE_STEP = motion.duration.micro / 3;
 
 const ERROR_TOP = 32;
 
-const styles = StyleSheet.create({
-  input: { textAlign: 'center' },
-  error: { marginTop: ERROR_TOP, textAlign: 'center' },
-});
-
 type Props = TextInputProps & {
   label: string;
   error?: string;
@@ -78,6 +73,7 @@ export function TextField({ label, error, style, ref, ...rest }: Props) {
       {error ? (
         <Text
           variant="error"
+          textAlign="center"
           style={styles.error}
           accessibilityLiveRegion="polite"
         >
@@ -87,3 +83,8 @@ export function TextField({ label, error, style, ref, ...rest }: Props) {
     </Animated.View>
   );
 }
+
+const styles = StyleSheet.create({
+  input: { textAlign: 'center' },
+  error: { marginTop: ERROR_TOP },
+});

@@ -20,10 +20,6 @@ const ACTION_BAR_HEIGHT = 48;
 const LOGO_SIZE = { width: 100, height: 16 };
 const LOGOUT_ICON_SIZE = 10;
 
-const styles = StyleSheet.create({
-  logo: LOGO_SIZE,
-});
-
 export function Header() {
   const session = useSession();
   const signOut = useSessionStore(s => s.signOut);
@@ -82,3 +78,7 @@ export function Header() {
     </Box>
   );
 }
+
+const styles = StyleSheet.create({
+  logo: LOGO_SIZE,
+});
