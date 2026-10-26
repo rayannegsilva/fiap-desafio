@@ -2,7 +2,7 @@
 
 Origem e detalhes: [`docs/superpowers/plans/2026-10-26-followups.md`](../../../docs/superpowers/plans/2026-10-26-followups.md). Cada task abaixo corresponde à task de mesmo número lá. Seguir `conductor/workflow.md`.
 
-## Phase 1: Registro dos ajustes entregues
+## Phase 1: Registro dos ajustes entregues [checkpoint: 89df5a1]
 
 - [x] Task 1: Troca de aluno com skeleton 95d994b
     - [x] Aceite: aluno pressionado destacado na hora; troca só após o fim da transição de saída; skeleton pulsante por no mínimo 300 ms em `Schedule` e `ReportCard`; cascata de entrada só em troca de aba
@@ -19,9 +19,9 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-followups.md`](../../../d
 - [x] Task 5: Splash encerra o desenho pelo callback da animação 89df5a1
     - [x] Aceite: flag de fim do desenho definida no callback do `withTiming`, sem `setTimeout`
     - [x] Validação: `SplashOverlay.test.tsx`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
-## Phase 2: Tema automático e tema da navegação
+## Phase 2: Tema automático e tema da navegação [checkpoint: 668ca5a]
 
 - [x] Task 6: Tema segue só o sistema `7a2fed3`
     - [x] Ajustar `useAppTheme.test.tsx` (sem `useThemeStore`)
@@ -33,4 +33,4 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-followups.md`](../../../d
     - [x] `useNavigationTheme()` e `AppProviders` com `theme`
     - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage` PASS
     - [x] Commit `fix(navigation): follow the app theme in the navigation container`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
