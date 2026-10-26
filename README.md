@@ -1,10 +1,32 @@
-# FiapTeste
+# Fiap School - Desafio Técnico Mobile
 
-App mobile (iOS e Android) para responsáveis acompanharem as aulas do dia e o boletim dos alunos. React Native CLI, TypeScript e Restyle, com tema escuro (e opção clara) e animações em todas as telas.
+Aplicativo mobile desenvolvido para o desafio técnico da FIAP, permitindo que responsáveis acompanhem a rotina acadêmica de seus alunos, incluindo aulas, horários, notas e faltas.
 
-> Em construção. Funcionalidades são adicionadas por tracks (ver [Fluxo de desenvolvimento](#fluxo-de-desenvolvimento)).
+Desenvolvido com React Native CLI, TypeScript e Restyle, com foco em qualidade de código, organização arquitetural, acessibilidade visual e experiência do usuário.
+
+O desenvolvimento foi conduzido utilizando Spec-Driven Development (SDD), com apoio de inteligência artificial para planejamento, decomposição de tarefas e implementação orientada a testes (TDD).
+
+## Demonstração
+
+ADICIONAR DEMONSTRAÇÃO
+
+## Funcionalidades
+
+- **Login** com CPF (máscara automática) e senha, erro genérico em credenciais inválidas e teclado que não cobre os campos.
+- **Sessão persistida:** ao reabrir, o app vai direto para a agenda; sessão corrompida cai com segurança no login.
+- **Cabeçalho** com saudação ao responsável, nome, turma, RM e período do aluno; **SAIR** encerra a sessão.
+- **Troca de aluno** (TROCAR PERFIL) para responsáveis com mais de um aluno, com o aluno atual destacado.
+- **Agenda:** aulas do dia (horário e disciplina), seleção entre os dias da semana e estado vazio para dias sem aula.
+- **Boletim:** ano mais recente por padrão, troca de ano quando há histórico, trimestres e disciplinas expansíveis com nota e faltas (`-` quando ainda não avaliado).
+- **Splash animada:** o logo FIAP é desenhado traço a traço e segue para a primeira tela.
+- **Tema claro/escuro** acompanhando o sistema em tempo real.
+- **Animações** com Reanimated (entrada em cascata, toque, expandir/recolher), respeitando a opção de reduzir movimento.
+- **Acessibilidade:** rótulos para leitores de tela, áreas de toque de 44 pt e limite de fonte dinâmica.
+- **Ícone do app** para Android (adaptativo e temático) e iOS 26 (Liquid Glass).
 
 ## Stack
+
+Aqui está a lista da tecnologia utillizada no projeto:
 
 - [React Native](https://reactnative.dev) 0.88 (React Native CLI)
 - TypeScript
@@ -18,50 +40,10 @@ App mobile (iOS e Android) para responsáveis acompanharem as aulas do dia e o b
 - [React Native Testing Library](https://callstack.github.io/react-native-testing-library/) + Jest: testes
 - [Husky](https://typicode.github.io/husky/) + [commitlint](https://commitlint.js.org): hooks de qualidade nos commits
 
-## Como rodar
 
-### Requisitos
+## Arquitetura e organização
 
-- Node >= 22.11
-- Yarn
-- Ruby + Bundler (CocoaPods)
-- Xcode (iOS) e/ou Android Studio (Android)
-- Ambiente configurado conforme [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment)
-
-### Instalação
-
-```sh
-yarn               # instala deps e ativa os hooks (husky) via "prepare"
-bundle install
-cd ios && bundle exec pod install && cd ..
-yarn react-native-asset   # linka as fontes (após clonar ou trocar fontes)
-```
-
-### Execução
-
-```sh
-yarn start     # Metro
-yarn ios       # iOS
-yarn android   # Android
-```
-
-### Qualidade
-
-```sh
-yarn lint
-yarn typecheck
-yarn test
-```
-
-Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`.
-
-### Hooks (Husky + commitlint)
-
-- `commit-msg`: valida a mensagem ([Conventional Commits](https://www.conventionalcommits.org/) + tipo `conductor`)
-- `pre-commit`: `yarn lint && yarn typecheck`
-- `pre-push`: `CI=true yarn test`
-
-## Estrutura
+O código é organizado por responsabilidades, separando telas, componentes reutilizáveis, navegação, estado, camada de dados e design system.
 
 ```
 .
@@ -127,34 +109,144 @@ Após instalar qualquer dependência nativa: `cd ios && bundle exec pod install`
 └── ios/                     # Projeto nativo iOS
 ```
 
-## Fluxo de desenvolvimento
+**Principais decisões:**
 
-Spec driven development: nenhuma funcionalidade começa pelo código.
+- **Estado e sessão:** Zustand e AsyncStorage para manter a sessão e o aluno selecionado entre aberturas.
+- **Dados desacoplados da interface:** `src/data/repository.ts` centraliza o acesso ao JSON do desafio.
+- **Temas consistentes:** paleta e tokens centralizados em `src/theme/`, com suporte claro/escuro.
+- **Registros arquiteturais:** decisões documentadas em [`docs/adr/`](docs/adr/).
 
-1. **Plano** — brainstorming da funcionalidade resulta num plano com contexto, decisões, critérios de aceite e tasks detalhadas, em [`docs/superpowers/plans/`](docs/superpowers/plans/).
-2. **Track** — o plano vira uma track no [Conductor](https://github.com/gemini-cli-extensions/conductor) em [`conductor/tracks/`](conductor/tracks/), com `spec.md` e `plan.md`. O contexto do projeto (produto, guidelines, stack, workflow) fica em [`conductor/`](conductor/index.md).
-3. **Implementação** — TDD, um commit por task ([Conventional Commits](https://www.conventionalcommits.org/)); o `plan.md` registra o SHA de cada task e o checkpoint de cada fase.
 
-Este README é atualizado ao concluir cada track.
+## Fluxo de desenvolvimento: SDD, IA e TDD
 
-## Status
+O projeto foi desenvolvido com **Spec-Driven Development (SDD)**: as funcionalidades foram planejadas e especificadas antes da implementação. Os artefatos desse processo estão versionados nas pastas **[`docs/`](docs/)** e **[`conductor/`](conductor/)**, permitindo acompanhar as decisões e a execução.
 
-| Funcionalidade | Status |
-| -------------- | ------ |
-| Projeto base (RN CLI + TypeScript + Restyle + Reanimated) | ✅ |
-| Setup de dependências e ferramentas | ✅ |
-| Tema (escuro/claro) e navegação (stack + abas Schedule/ReportCard) | ✅ |
-| Componentes base (texto, botões, campo, collapsible, dropdown) | ✅ |
-| Login, sessão, cabeçalho e troca de aluno | ✅ |
-| Agenda de aulas | ✅ |
-| Boletim | ✅ |
-| Tema do sistema e splash animada | ✅ |
+### 1. Planejamento - Claude + OP Brainstorm
+
+O Claude e o OP Brainstorm foram utilizados para analisar os requisitos, explorar abordagens e gerar planos com contexto, decisões, critérios de aceite e tarefas detalhadas.
+
+Os planos estão em [`docs/superpowers/plans/`](docs/superpowers/plans/).
+
+### 2. Especificações e tracks — Conductor
+
+Os planos foram organizados em *tracks* com o [Conductor](https://github.com/gemini-cli-extensions/conductor), originalmente desenvolvido para o ecossistema Gemini e utilizado como skill no Claude.
+
+As tracks ficam em [`conductor/tracks/`](conductor/tracks/) e incluem:
+
+- `spec.md`: escopo, requisitos e comportamentos esperados;
+- `plan.md`: tarefas, checkpoints e referências aos commits de execução.
+
+O contexto geral do projeto — produto, stack, diretrizes e workflow — está em [`conductor/`](conductor/), com entrada em [`conductor/index.md`](conductor/index.md).
+
+### 3. Implementação — delegação de tarefas e TDD
+
+Com as tarefas especificadas, a implementação foi delegada a um modelo de IA de menor capacidade, enquanto o Claude permaneceu responsável pelas etapas de análise e planejamento. A execução foi **orientada a TDD**, com testes para verificar os comportamentos esperados.
+
+O fluxo adotado prevê **um commit por tarefa**, seguindo Conventional Commits. O `plan.md` registra os SHAs e checkpoints de cada fase, tornando as alterações rastreáveis.
+
+A implementação também passou por execução de testes, revisão de código e validação manual das telas, fluxos e animações.
+
+## Como rodar
+
+O app roda em **Android no macOS, Windows e Linux**. O **iOS exige macOS** com Xcode.
+
+Guia oficial do ambiente: [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment).
+
+### macOS (iOS e Android)
+
+**Pré-requisitos**
+
+- Node.js **>= 22.11** e Yarn;
+- Xcode (iOS), com Ruby, Bundler e CocoaPods;
+- Android Studio com Android SDK e JDK 17 (Android).
+
+**Instalação**
+
+```sh
+git clone <URL_DO_SEU_REPOSITORIO>
+cd FiapTeste
+
+yarn install                                # dependências + hooks do Husky (via prepare)
+bundle install                              # Ruby gems (CocoaPods)
+cd ios && bundle exec pod install && cd ..  # dependências nativas do iOS
+```
+
+**Execução**
+
+```sh
+yarn start     # terminal 1: Metro
+yarn ios       # terminal 2: simulador iOS
+yarn android   # terminal 2: emulador ou aparelho Android
+```
+
+Para rodar num iPhone físico: `yarn ios --device "<nome do iPhone>"` (requer assinatura com um Apple ID no Xcode).
+
+Após adicionar dependências nativas, rode de novo `cd ios && bundle exec pod install && cd ..`.
+
+### Windows e Linux (Android)
+
+**Pré-requisitos**
+
+- Node.js **>= 22.11** e Yarn;
+- Android Studio com Android SDK, um emulador (AVD) e JDK 17;
+- variável de ambiente `ANDROID_HOME` apontando para o SDK e `platform-tools` no `PATH`.
+
+**Instalação** (PowerShell no Windows, terminal no Linux)
+
+```sh
+git clone <URL_DO_SEU_REPOSITORIO>
+cd FiapTeste
+yarn install
+```
+
+**Execução**
+
+```sh
+yarn start     # terminal 1: Metro
+yarn android   # terminal 2: emulador ou aparelho Android
+```
+
+Os passos de `bundle` e `pod install` são só do iOS e não se aplicam ao Windows nem ao Linux. No Linux, o emulador precisa de KVM habilitado para ter desempenho aceitável.
+
+### Qualidade e testes
+
+```sh
+yarn lint         # ESLint
+yarn typecheck    # TypeScript
+yarn test         # Testes automatizados
+```
+
+Hooks do Git (Husky + commitlint):
+
+- `commit-msg`: valida a mensagem ([Conventional Commits](https://www.conventionalcommits.org/) + tipo `conductor`);
+- `pre-commit`: `yarn lint && yarn typecheck`;
+- `pre-push`: `CI=true yarn test`.
+
+## Dispositivos testados
+
+| Plataforma | Dispositivo | Sistema |
+| --- | --- | --- |
+| iOS | iPhone 15 (aparelho físico) | iOS 26.6.2 |
+| iOS | iPhone 15 (simulador, Xcode 27.1) | iOS 26.5 |
+| Android | Pixel 7 (emulador, 1080×2400) | Android 17 (API 37) |
 
 ## Acesso de demonstração
 
-Os dados são fictícios e ficam embutidos em `src/data/responsaveis.json`.
+Os dados utilizados são **fictícios** e estão em `src/data/responsaveis.json`.
 
-| CPF | Senha | Responsável | Alunos |
-| --- | ----- | ----------- | ------ |
-| `969.294.560-04` | `123456` | Gustavo | Rafael e Joana (permite trocar de perfil) |
-| `508.795.670-07` | `987654` | Adelaide | Bianca |
+| Responsável | CPF | Senha | Alunos |
+| --- | --- | --- | --- |
+| Gustavo | `969.294.560-04` | `123456` | Rafael e Joana |
+| Adelaide | `508.795.670-07` | `987654` | Bianca |
+
+Use a conta de **Gustavo** para testar a troca de aluno e a conta de **Adelaide** para o fluxo com apenas um aluno vinculado.
+
+## Sobre a desenvolvedora
+
+Sou desenvolvedora de software, formada em Ciência da Computação pelo Instituto Federal do Ceará (IFCE) e mestre em Ciência da Computação pela UFERSA, com pesquisa na área de Engenharia de Software.
+
+Tenho aproximadamente quatro anos de experiência profissional, atuando principalmente no desenvolvimento de aplicações mobile com React Native, além de experiência em desenvolvimento backend e frontend.
+
+Ao longo da minha trajetória, tenho trabalhado com desenvolvimento e manutenção de aplicações em produção, participando de diferentes etapas do ciclo de vida do software, desde a implementação de funcionalidades até testes, manutenção e publicação.
+
+Neste desafio, busquei aplicar não apenas meus conhecimentos em React Native, mas também práticas de engenharia de software, automação, testes e desenvolvimento assistido por inteligência artificial, com foco na qualidade técnica e na experiência do usuário.
