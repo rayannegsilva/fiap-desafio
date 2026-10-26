@@ -79,3 +79,10 @@ it('labels the tabs AGENDA and BOLETIM', async () => {
   expect(screen.getByRole('button', { name: /AGENDA/ })).toBeOnTheScreen();
   expect(screen.getByRole('button', { name: /BOLETIM/ })).toBeOnTheScreen();
 });
+
+it('mounts the ReportCard screen before its tab is visited', async () => {
+  await renderWithProviders(<MainTabNavigator />);
+  expect(
+    screen.getAllByText('BOLETIM', { includeHiddenElements: true }).length,
+  ).toBeGreaterThan(1);
+});

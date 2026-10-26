@@ -38,6 +38,7 @@ export function MainTabNavigator() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
+        lazy: false,
         tabBarActiveTintColor: theme.colors.accentText,
         tabBarInactiveTintColor: theme.colors.textPrimary,
         tabBarStyle: {
