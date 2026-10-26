@@ -1,6 +1,15 @@
-import type { FC } from 'react';
+import { useEffect, useRef, useState, type FC } from 'react';
 import { Modal, Pressable, StyleSheet } from 'react-native';
-import Animated, { FadeIn, Keyframe } from 'react-native-reanimated';
+import Animated, {
+  cancelAnimation,
+  FadeIn,
+  Keyframe,
+  useAnimatedStyle,
+  useReducedMotion,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import { scheduleOnRN } from 'react-native-worklets';
 import type { SvgProps } from 'react-native-svg';
 import { motion } from '../../theme/motion';
 import { Box } from '../../theme/restyle';
@@ -22,6 +31,7 @@ type Props = {
   cancelLabel: string;
   onConfirm: () => void;
   onCancel: () => void;
+  onClosed?: () => void;
   confirmIcon?: FC<SvgProps>;
 };
 
@@ -33,9 +43,54 @@ export function ConfirmDialog({
   cancelLabel,
   onConfirm,
   onCancel,
+  onClosed,
   confirmIcon,
 }: Props) {
-  if (!visible) {
+  const reduceMotion = useReducedMotion();
+  const [mounted, setMounted] = useState(visible);
+  const presence = useSharedValue(1);
+  const onClosedRef = useRef(onClosed);
+
+  useEffect(() => {
+    onClosedRef.current = onClosed;
+  });
+
+  useEffect(() => {
+    if (visible) {
+      setMounted(true);
+      cancelAnimation(presence);
+      presence.value = withTiming(1, { duration: motion.duration.micro });
+      return;
+    }
+    if (!mounted) return;
+    const finish = () => {
+      setMounted(false);
+      presence.value = 1;
+      onClosedRef.current?.();
+    };
+    if (reduceMotion) {
+      finish();
+      return;
+    }
+    presence.value = withTiming(
+      0,
+      { duration: motion.duration.exit, easing: motion.easing.exit },
+      finished => {
+        'worklet';
+        if (finished) scheduleOnRN(finish);
+      },
+    );
+  }, [visible, mounted, reduceMotion, presence]);
+
+  const backdropStyle = useAnimatedStyle(() => ({ opacity: presence.value }));
+  const cardStyle = useAnimatedStyle(() => ({
+    opacity: presence.value,
+    transform: [
+      { scale: motion.pressScale + (1 - motion.pressScale) * presence.value },
+    ],
+  }));
+
+  if (!visible && !mounted) {
     return null;
   }
 
@@ -48,19 +103,22 @@ export function ConfirmDialog({
       onRequestClose={onCancel}
     >
       <Box flex={1} justifyContent="center">
-        <Animated.View
-          style={styles.backdrop}
-          entering={FadeIn.duration(motion.duration.micro)}
-        >
-          <Pressable
-            testID="confirm-dialog-backdrop"
+        <Animated.View style={[styles.backdrop, backdropStyle]}>
+          <Animated.View
             style={styles.fill}
-            accessible={false}
-            importantForAccessibility="no"
-            onPress={onCancel}
-          />
+            entering={FadeIn.duration(motion.duration.micro)}
+          >
+            <Pressable
+              testID="confirm-dialog-backdrop"
+              style={styles.fill}
+              accessible={false}
+              importantForAccessibility="no"
+              onPress={onCancel}
+            />
+          </Animated.View>
         </Animated.View>
-        <Animated.View entering={cardEntering}>
+        <Animated.View style={cardStyle}>
+         <Animated.View entering={cardEntering}>
           <Box
             backgroundColor="surfaceRaised"
             borderRadius="default"
@@ -94,6 +152,7 @@ export function ConfirmDialog({
               />
             </Box>
           </Box>
+         </Animated.View>
         </Animated.View>
       </Box>
     </Modal>

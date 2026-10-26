@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Image, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -23,6 +23,7 @@ export function Header() {
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const insets = useSafeAreaInsets();
   const [confirmingSignOut, setConfirmingSignOut] = useState(false);
+  const signingOut = useRef(false);
 
   if (!session) {
     return null;
@@ -69,10 +70,15 @@ export function Header() {
         cancelLabel="CANCELAR"
         confirmIcon={Logout}
         onConfirm={() => {
+          signingOut.current = true;
           setConfirmingSignOut(false);
-          signOut();
         }}
         onCancel={() => setConfirmingSignOut(false)}
+        onClosed={() => {
+          if (!signingOut.current) return;
+          signingOut.current = false;
+          signOut();
+        }}
       />
     </Box>
   );

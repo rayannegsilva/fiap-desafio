@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react-native';
+import { act, fireEvent, screen } from '@testing-library/react-native';
 import { useSessionStore } from '../../store/useSessionStore';
 import { renderWithProviders } from '../../test/renderWithProviders';
 import { Header } from './Header';
@@ -33,21 +33,32 @@ it('opens the confirmation on SAIR without signing out', async () => {
   expect(useSessionStore.getState().guardianId).toBe(1);
 });
 
-it('signs out when the confirmation is accepted', async () => {
+it('signs out only after the dialog finishes closing', async () => {
+  jest.useFakeTimers();
   useSessionStore.getState().signIn(1, 12567);
   await renderWithProviders(<Header />);
   await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
   await fireEvent.press(screen.getAllByRole('button', { name: 'SAIR' })[1]);
+  expect(useSessionStore.getState().guardianId).toBe(1);
+  await act(async () => {
+    jest.advanceTimersByTime(400);
+  });
   expect(useSessionStore.getState().guardianId).toBeNull();
+  jest.useRealTimers();
 });
 
 it('keeps the session when the confirmation is cancelled', async () => {
+  jest.useFakeTimers();
   useSessionStore.getState().signIn(1, 12567);
   await renderWithProviders(<Header />);
   await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
   await fireEvent.press(screen.getByRole('button', { name: 'CANCELAR' }));
+  await act(async () => {
+    jest.advanceTimersByTime(400);
+  });
   expect(screen.queryByText('Sair da conta?')).not.toBeOnTheScreen();
   expect(useSessionStore.getState().guardianId).toBe(1);
+  jest.useRealTimers();
 });
 
 it('renders nothing without a session', async () => {
