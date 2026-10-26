@@ -36,3 +36,6 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
     - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage` PASS
     - [x] Commit `feat(motion): fade content in and out across screens`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions c8d9ec0
