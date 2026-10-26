@@ -28,9 +28,9 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-followups.md`](../../../d
     - [x] `useResolvedScheme` lê só `useColorScheme()`; remover `useThemeStore.ts`, seu teste e a linha do `README.md`
     - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage` PASS
     - [x] Commit `refactor(theme): follow the system scheme only`
-- [ ] Task 7: Sincronizar NavigationContainer com o tema Restyle
-    - [ ] Testes (`useNavigationTheme.test.tsx`: `dark` e cores por esquema, sem preferência = escuro, troca ao vivo)
-    - [ ] `useNavigationTheme()` e `AppProviders` com `theme`
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage` PASS
-    - [ ] Commit `fix(navigation): follow the app theme in the navigation container`
+- [x] Task 7: Sincronizar NavigationContainer com o tema Restyle `668ca5a`
+    - [x] Testes (`useNavigationTheme.test.tsx`: `dark` e cores por esquema, sem preferência = escuro, troca ao vivo)
+    - [x] `useNavigationTheme()` e `AppProviders` com `theme`
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage` PASS
+    - [x] Commit `fix(navigation): follow the app theme in the navigation container`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
