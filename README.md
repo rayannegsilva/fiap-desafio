@@ -6,6 +6,21 @@ Desenvolvido com React Native CLI, TypeScript e Restyle, com foco em qualidade d
 
 O desenvolvimento foi conduzido utilizando Spec-Driven Development (SDD), com apoio de inteligência artificial para planejamento, decomposição de tarefas e implementação orientada a testes (TDD).
 
+## Demonstração
+
+<table>
+  <tr>
+    <th width="50%">iOS</th>
+    <th width="50%">Android</th>
+  </tr>
+  <tr>
+    <td><video src="https://github.com/user-attachments/assets/fd0ba7ce-054d-417b-9234-e981ec3a7e42" controls muted width="100%"></video><
+/td>
+    <td><video src="https://github.com/user-attachments/assets/e626d752-cc85-40b9-b1df-807cf93967a9" controls muted width="100%"></video><
+/td>
+  </tr>
+</table>
+
 ## Funcionalidades
 
 - **Login** com CPF (máscara automática) e senha, erro genérico em credenciais inválidas e teclado que não cobre os campos.
