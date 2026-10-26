@@ -1,4 +1,4 @@
-import { fireEvent, screen } from '@testing-library/react-native';
+import { fireEvent, screen, waitFor } from '@testing-library/react-native';
 import { renderWithProviders } from '../../test/renderWithProviders';
 import { Dropdown } from './Dropdown';
 
@@ -36,8 +36,10 @@ it('opens, marks the selected option, selects and closes', async () => {
   expect(screen.getByRole('button', { name: '7EF - 2025' })).toBeSelected();
   expect(screen.getByRole('button', { name: '6EF - 2024' })).not.toBeSelected();
   await fireEvent.press(screen.getByRole('button', { name: '6EF - 2024' }));
-  expect(onSelect).toHaveBeenCalledWith(years[1]);
-  expect(screen.queryByRole('button', { name: '6EF - 2024' })).toBeNull();
+  await waitFor(() => expect(onSelect).toHaveBeenCalledWith(years[1]));
+  await waitFor(() =>
+    expect(screen.queryByRole('button', { name: '6EF - 2024' })).toBeNull(),
+  );
 });
 
 it('closes when the box is pressed again', async () => {

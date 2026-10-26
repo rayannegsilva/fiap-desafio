@@ -1,6 +1,11 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import Animated, { FadeIn, FadeOut, Keyframe } from 'react-native-reanimated';
+import Animated, {
+  FadeIn,
+  FadeOut,
+  Keyframe,
+  useReducedMotion,
+} from 'react-native-reanimated';
 import { useChevronRotation } from '../../animations/useChevronRotation';
 import ChevronDown from '../../assets/icons/chevron-down.svg';
 import { motion } from '../../theme/motion';
@@ -31,7 +36,9 @@ export function Dropdown<T>({
   accessibilityLabel,
 }: Props<T>) {
   const theme = useAppTheme();
+  const reduceMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
+  const selectTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
   const chevronStyle = useChevronRotation(open);
   const panelMotion = useMemo(() => {
     const hidden = { transform: [{ translateY: -theme.spacing.s }] };
@@ -54,6 +61,17 @@ export function Dropdown<T>({
     };
   }, [theme.spacing.s]);
   const selectedKey = getKey(selected);
+
+  useEffect(() => () => clearTimeout(selectTimer.current), []);
+
+  const choose = (option: T) => {
+    setOpen(false);
+    clearTimeout(selectTimer.current);
+    selectTimer.current = setTimeout(
+      () => onSelect(option),
+      reduceMotion ? 0 : motion.duration.exit,
+    );
+  };
 
   const isStatic = options.length < 2;
   const field = (
@@ -120,10 +138,7 @@ export function Dropdown<T>({
                   hitSlop={OPTION_HIT_SLOP}
                   accessibilityLabel={getLabel(option)}
                   accessibilityState={{ selected: key === selectedKey }}
-                  onPress={() => {
-                    onSelect(option);
-                    setOpen(false);
-                  }}
+                  onPress={() => choose(option)}
                 >
                   <Box paddingVertical="s" paddingHorizontal="m">
                     <Text>{getLabel(option)}</Text>

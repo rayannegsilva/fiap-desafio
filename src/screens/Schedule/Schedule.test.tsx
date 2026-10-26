@@ -34,7 +34,7 @@ it('switches day from the dropdown', async () => {
   await fireEvent.press(
     screen.getByRole('button', { name: '16 de março, domingo' }),
   );
-  expect(screen.getByText('Sem aulas neste dia')).toBeOnTheScreen();
+  expect(await screen.findByText('Sem aulas neste dia')).toBeOnTheScreen();
 });
 
 it('shows only the header without a session', async () => {

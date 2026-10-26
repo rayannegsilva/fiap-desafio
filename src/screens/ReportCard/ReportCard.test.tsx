@@ -1,4 +1,10 @@
-import { act, fireEvent, screen, within } from '@testing-library/react-native';
+import {
+  act,
+  fireEvent,
+  screen,
+  waitFor,
+  within,
+} from '@testing-library/react-native';
 import { useSessionStore } from '../../store/useSessionStore';
 import { renderWithProviders } from '../../test/renderWithProviders';
 import { ReportCard } from './ReportCard';
@@ -38,7 +44,11 @@ it('switches year from the dropdown', async () => {
   await renderWithProviders(<ReportCard />);
   await fireEvent.press(screen.getByRole('button', { name: 'Ano do boletim' }));
   await fireEvent.press(screen.getByRole('button', { name: '6EF - 2024' }));
-  expect(screen.getByText('6EF - 2024')).toBeOnTheScreen();
+  await waitFor(() =>
+    expect(
+      screen.getByRole('button', { name: 'Ano do boletim' }),
+    ).toHaveAccessibilityValue({ text: '6EF - 2024' }),
+  );
   expect(
     screen.getByRole('button', { name: '1º TRIMESTRE', expanded: false }),
   ).toBeOnTheScreen();
