@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import Animated, { Keyframe } from 'react-native-reanimated';
 import { useChevronRotation } from '../../animations/useChevronRotation';
 import ChevronDown from '../../assets/icons/chevron-down.svg';
 import { motion } from '../../theme/motion';
@@ -33,6 +33,23 @@ export function Dropdown<T>({
   const theme = useAppTheme();
   const [open, setOpen] = useState(false);
   const chevronStyle = useChevronRotation(open);
+  const panelMotion = useMemo(() => {
+    const hidden = {
+      opacity: 0,
+      transform: [{ translateY: -theme.spacing.s }],
+    };
+    const shown = { opacity: 1, transform: [{ translateY: 0 }] };
+    return {
+      entering: new Keyframe({
+        0: hidden,
+        100: { ...shown, easing: motion.easing.enter },
+      }).duration(motion.duration.micro),
+      exiting: new Keyframe({
+        0: shown,
+        100: { ...hidden, easing: motion.easing.exit },
+      }).duration(motion.duration.exit),
+    };
+  }, [theme.spacing.s]);
   const selectedKey = getKey(selected);
 
   const isStatic = options.length < 2;
@@ -75,8 +92,8 @@ export function Dropdown<T>({
       {open ? (
         <Animated.View
           testID="dropdown-panel"
-          entering={FadeIn.duration(motion.duration.micro)}
-          exiting={FadeOut.duration(motion.duration.micro)}
+          entering={panelMotion.entering}
+          exiting={panelMotion.exiting}
           style={[
             styles.panel,
             {
