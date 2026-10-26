@@ -87,6 +87,17 @@ it('reports a guardian without students', async () => {
   expect(useSessionStore.getState().guardianId).toBeNull();
 });
 
+it('reports a failed authentication and releases the form', async () => {
+  jest.spyOn(repository, 'authenticate').mockRejectedValue(new Error('x'));
+  const { result } = await renderHook(() => useLoginForm());
+  await fill(result, '96929456004', '123456');
+  await act(() => result.current.submit());
+  expect(result.current.error).toBe(
+    'Não foi possível entrar agora. Pode tentar novamente?',
+  );
+  expect(result.current.loading).toBe(false);
+});
+
 it('authenticates only once when submit is called twice while loading', async () => {
   const spy = jest.spyOn(repository, 'authenticate');
   const { result } = await renderHook(() => useLoginForm());

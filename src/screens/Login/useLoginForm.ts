@@ -5,6 +5,7 @@ import { formatCpf } from '../../utils/formatCpf';
 
 const CPF_DIGITS = 11;
 const INVALID_CREDENTIALS = 'Usuário ou senha inválida. Pode tentar novamente?';
+const UNAVAILABLE = 'Não foi possível entrar agora. Pode tentar novamente?';
 const NO_STUDENTS = 'Nenhum aluno vinculado a este responsável.';
 
 export function useLoginForm() {
@@ -44,6 +45,8 @@ export function useLoginForm() {
       } else {
         signIn(guardian.id, guardian.alunos[0].rm);
       }
+    } catch {
+      setError(UNAVAILABLE);
     } finally {
       inFlight.current = false;
       setLoading(false);
