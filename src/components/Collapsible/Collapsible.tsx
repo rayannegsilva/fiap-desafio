@@ -41,7 +41,7 @@ export function Collapsible({
 }: Props) {
   const theme = useAppTheme();
   const [expanded, setExpanded] = useState(defaultExpanded);
-    const chevronStyle = useChevronRotation(expanded, {
+  const chevronStyle = useChevronRotation(expanded, {
     duration: motion.duration.transition,
     easing: motion.easing.enter,
   });

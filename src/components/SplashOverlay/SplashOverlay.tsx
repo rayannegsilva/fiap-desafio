@@ -78,7 +78,7 @@ export function SplashOverlay({ onFinish }: Props) {
   }, []);
 
   useEffect(() => {
-    if (!drawn ||!hydrated || leaving.current) {
+    if (!drawn || !hydrated || leaving.current) {
       return;
     }
     leaving.current = true;

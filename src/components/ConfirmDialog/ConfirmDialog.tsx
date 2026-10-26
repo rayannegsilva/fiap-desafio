@@ -118,41 +118,41 @@ export function ConfirmDialog({
           </Animated.View>
         </Animated.View>
         <Animated.View style={cardStyle}>
-         <Animated.View entering={cardEntering}>
-          <Box
-            backgroundColor="surfaceRaised"
-            borderRadius="default"
-            padding="l"
-            marginHorizontal="l"
-            accessibilityViewIsModal
-          >
-            <Text variant="sectionTitle" accessibilityRole="header">
-              {title}
-            </Text>
-            <Text variant="body" marginTop="m">
-              {message}
-            </Text>
+          <Animated.View entering={cardEntering}>
             <Box
-              flexDirection="row"
-              justifyContent="flex-end"
-              marginTop="l"
-              gap="l"
+              backgroundColor="surfaceRaised"
+              borderRadius="default"
+              padding="l"
+              marginHorizontal="l"
+              accessibilityViewIsModal
             >
-              <TextButton
-                variant="cardTitle"
-                color="textPrimary"
-                label={cancelLabel}
-                onPress={onCancel}
-              />
-              <TextButton
-                variant="cardTitle"
-                label={confirmLabel}
-                icon={confirmIcon}
-                onPress={onConfirm}
-              />
+              <Text variant="sectionTitle" accessibilityRole="header">
+                {title}
+              </Text>
+              <Text variant="body" marginTop="m">
+                {message}
+              </Text>
+              <Box
+                flexDirection="row"
+                justifyContent="flex-end"
+                marginTop="l"
+                gap="l"
+              >
+                <TextButton
+                  variant="cardTitle"
+                  color="textPrimary"
+                  label={cancelLabel}
+                  onPress={onCancel}
+                />
+                <TextButton
+                  variant="cardTitle"
+                  label={confirmLabel}
+                  icon={confirmIcon}
+                  onPress={onConfirm}
+                />
+              </Box>
             </Box>
-          </Box>
-         </Animated.View>
+          </Animated.View>
         </Animated.View>
       </Box>
     </Modal>
