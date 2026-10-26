@@ -14,7 +14,7 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
     - [x] Commit `feat(navigation): fade between screens and tabs`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
-## Phase 2: Componentes
+## Phase 2: Componentes [checkpoint: 12ed22f]
 
 - [x] Task 3: Collapsible fechando suave d4bb237
     - [x] Teste de alternância rápida
@@ -27,7 +27,7 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
     - [x] Testes (desmonta após a saída, reabrir no meio, reduzir movimento, `signOut` após a saída)
     - [x] `ConfirmDialog` com `mounted` + `onClosed`; `Header` desloga em `onClosed`
     - [x] Commit `feat(confirm-dialog): animate the dialog out before closing`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Conteúdo
 
