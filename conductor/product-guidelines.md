@@ -67,6 +67,7 @@ Mensagem de erro usa `accentText`, não vermelho (decisão do design). `#29F4D5`
 ### Componentes e estados
 
 - **Login:** logo grande; campos centralizados com rótulo acima e sublinhado; botão de largura total colado na base.
+  - O botão tem 60 de altura; o rodapé `accent` soma o inset inferior do sistema, então em iPhones com home indicator a faixa colorida fica maior que no Figma.
   - Botão desabilitado (fundo `accent`, texto `textDisabled`) até CPF e senha preenchidos.
   - Carregando: botão sem texto, com indicador.
   - Erro: mensagem centralizada abaixo da senha, em `accentText`.
