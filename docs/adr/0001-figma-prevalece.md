@@ -15,4 +15,4 @@ Quando o texto do enunciado e o Figma divergem em layout ou conteúdo de uma tel
 
 - A troca de aluno é uma tela própria (`StudentSwitch`), aberta de baixo para cima, fora do rodapé de abas.
 - Divergências futuras entre enunciado e Figma seguem esta regra e são registradas na spec da track correspondente.
-- Elementos que não existem no Figma (ex.: botão de tema) só entram com decisão explícita registrada em `conductor/product-guidelines.md`.
+- Elementos que não existem no Figma (ex.: o modal de confirmação de saída) só entram com decisão explícita registrada em `conductor/product-guidelines.md`.

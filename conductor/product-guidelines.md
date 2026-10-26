@@ -10,11 +10,10 @@ Fonte da verdade: o Figma do produto. Referências exportadas em [`docs/design/`
 
 - Toda cor, espaçamento, raio e fonte vem do tema Restyle — nunca valores fixos em componentes.
 - O design de referência é **escuro**: fundo preto, superfícies em cinza, destaque turquesa e rosa só na marca.
-- Botão de tema (claro/escuro) na barra de ações do cabeçalho, junto de TROCAR PERFIL e SAIR — único elemento fora do Figma.
 
 ### Cores
 
-O tema segue o modo do sistema (claro ou escuro), inclusive trocas com o app aberto; a escolha manual (`light`/`dark`), quando existir, sobrepõe o sistema e é persistida. O **escuro** é o do Figma; o **claro** é derivado e mantém as mesmas chaves. A status bar acompanha o tema.
+O tema segue o modo do sistema (claro ou escuro), inclusive trocas com o app aberto; não há botão de troca manual no app. O **escuro** é o do Figma; o **claro** é derivado e mantém as mesmas chaves. A status bar acompanha o tema.
 
 | Token           | Escuro (Figma) | Claro (derivado) | Uso                                                                                      |
 | --------------- | -------------- | ---------------- | ---------------------------------------------------------------------------------------- |
