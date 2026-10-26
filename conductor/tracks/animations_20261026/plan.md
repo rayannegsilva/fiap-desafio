@@ -23,10 +23,10 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
 - [x] Task 4: Dropdown com deslocamento 42546f3
     - [x] Entrada/saída do painel com fade + 8pt
     - [x] Commit `feat(dropdown): slide the panel in and out`
-- [ ] Task 5: Saída do modal
-    - [ ] Testes (desmonta após a saída, reabrir no meio, reduzir movimento, `signOut` após a saída)
-    - [ ] `ConfirmDialog` com `mounted` + `onClosed`; `Header` desloga em `onClosed`
-    - [ ] Commit `feat(confirm-dialog): animate the dialog out before closing`
+- [x] Task 5: Saída do modal 12ed22f
+    - [x] Testes (desmonta após a saída, reabrir no meio, reduzir movimento, `signOut` após a saída)
+    - [x] `ConfirmDialog` com `mounted` + `onClosed`; `Header` desloga em `onClosed`
+    - [x] Commit `feat(confirm-dialog): animate the dialog out before closing`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 3: Conteúdo
