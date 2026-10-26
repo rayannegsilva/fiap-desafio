@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Pressable, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import Animated from 'react-native-reanimated';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { usePressScale } from '../../animations/usePressScale';
@@ -9,6 +11,8 @@ import { TextButton } from '../../components/TextButton/TextButton';
 import type { Student } from '../../data/types';
 import { useSession } from '../../store/useSession';
 import { useSessionStore } from '../../store/useSessionStore';
+import type { RootStackParamList } from '../../routes/types';
+import { motion } from '../../theme/motion';
 import { Box } from '../../theme/restyle';
 import { useAppTheme } from '../../theme/useAppTheme';
 import { studentFullName, studentInfoLine } from '../../utils/student';
@@ -58,11 +62,42 @@ function StudentCard({ student, selected, onPress }: CardProps) {
 }
 
 export function StudentSwitch() {
-  const navigation = useNavigation();
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const session = useSession();
-  const selectStudent = useSessionStore(s => s.selectStudent);
+  const switchStudent = useSessionStore(s => s.switchStudent);
   const insets = useSafeAreaInsets();
   const theme = useAppTheme();
+  const [pendingRm, setPendingRm] = useState<number | null>(null);
+
+  const choose = (rm: number) => {
+    if (pendingRm !== null) {
+      return;
+    }
+    setPendingRm(rm);
+    let done = false;
+    let timer: ReturnType<typeof setTimeout>;
+    let unsubscribe: () => void = () => {};
+    const commit = () => {
+      if (done) {
+        return;
+      }
+      done = true;
+      clearTimeout(timer);
+      unsubscribe();
+      switchStudent(rm);
+    };
+    unsubscribe = navigation.addListener('transitionEnd', e => {
+      if (e.data.closing) {
+        commit();
+      }
+    });
+    timer = setTimeout(
+      commit,
+      motion.duration.transition + motion.duration.micro,
+    );
+    navigation.goBack();
+  };
 
   if (!session) {
     return null;
@@ -100,11 +135,8 @@ export function StudentSwitch() {
             <StudentCard
               key={student.rm}
               student={student}
-              selected={student.rm === session.student.rm}
-              onPress={() => {
-                selectStudent(student.rm);
-                navigation.goBack();
-              }}
+              selected={student.rm === (pendingRm ?? session.student.rm)}
+              onPress={() => choose(student.rm)}
             />
           ))}
         </Box>

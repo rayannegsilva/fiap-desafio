@@ -1,4 +1,4 @@
-import { fireEvent, screen, within } from '@testing-library/react-native';
+import { act, fireEvent, screen, within } from '@testing-library/react-native';
 import { useSessionStore } from '../../store/useSessionStore';
 import { renderWithProviders } from '../../test/renderWithProviders';
 import { Schedule } from './Schedule';
@@ -51,4 +51,14 @@ it('scrolls the greeting together with the content', async () => {
   expect(
     within(scroll).getByText('7EF - RM 12567 - Matutino'),
   ).toBeOnTheScreen();
+});
+
+it('shows the skeleton while switching and the list after', async () => {
+  await renderWithProviders(<Schedule />);
+  await act(() => useSessionStore.getState().switchStudent(12568));
+  expect(screen.getByLabelText('Carregando aulas')).toBeOnTheScreen();
+  expect(screen.queryByTestId('schedule-list')).toBeNull();
+  await act(() => jest.advanceTimersByTimeAsync(300));
+  expect(screen.queryByLabelText('Carregando aulas')).toBeNull();
+  expect(screen.getByTestId('schedule-list')).toBeOnTheScreen();
 });

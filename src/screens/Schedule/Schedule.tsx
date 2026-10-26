@@ -4,12 +4,14 @@ import { Dropdown } from '../../components/Dropdown/Dropdown';
 import { Header } from '../../components/Header/Header';
 import { StudentSummary } from '../../components/StudentSummary/StudentSummary';
 import { Text } from '../../components/Text/Text';
+import { useSessionStore } from '../../store/useSessionStore';
 import { motion } from '../../theme/motion';
 import { Box } from '../../theme/restyle';
 import { useAppTheme } from '../../theme/useAppTheme';
 import { formatDayLabel } from '../../utils/schedule';
 import { LessonItem } from './LessonItem';
 import { EmptyDay } from './EmptyDay';
+import { ScheduleSkeleton } from './ScheduleSkeleton';
 import { useSchedule } from './useSchedule';
 
 const TITLE_TO_DROPDOWN = 32;
@@ -17,6 +19,7 @@ const LIST_SIDE_MARGIN = 40;
 
 export function Schedule() {
   const theme = useAppTheme();
+  const switching = useSessionStore(s => s.switching);
   const { days, selectedDay, selectDay } = useSchedule();
 
   return (
@@ -49,28 +52,32 @@ export function Schedule() {
                 accessibilityLabel="Dia da agenda"
               />
             </Box>
-            <Animated.View
-              key={selectedDay.dia}
-              testID="schedule-list"
-              exiting={FadeOut.duration(motion.duration.exit)}
-              style={{
-                paddingTop: theme.spacing.l,
-                gap: theme.spacing.m,
-                paddingHorizontal: LIST_SIDE_MARGIN,
-              }}
-            >
-              {selectedDay.aulas.length > 0 ? (
-                selectedDay.aulas.map((lesson, index) => (
-                  <LessonItem
-                    key={`${lesson.horario}-${lesson.disciplina}`}
-                    lesson={lesson}
-                    index={index}
-                  />
-                ))
-              ) : (
-                <EmptyDay />
-              )}
-            </Animated.View>
+            {switching ? (
+              <ScheduleSkeleton />
+            ) : (
+              <Animated.View
+                key={selectedDay.dia}
+                testID="schedule-list"
+                exiting={FadeOut.duration(motion.duration.exit)}
+                style={{
+                  paddingTop: theme.spacing.l,
+                  gap: theme.spacing.m,
+                  paddingHorizontal: LIST_SIDE_MARGIN,
+                }}
+              >
+                {selectedDay.aulas.length > 0 ? (
+                  selectedDay.aulas.map((lesson, index) => (
+                    <LessonItem
+                      key={`${lesson.horario}-${lesson.disciplina}`}
+                      lesson={lesson}
+                      index={index}
+                    />
+                  ))
+                ) : (
+                  <EmptyDay />
+                )}
+              </Animated.View>
+            )}
           </>
         ) : null}
       </ScrollView>

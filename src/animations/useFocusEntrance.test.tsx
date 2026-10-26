@@ -14,16 +14,24 @@ function Probe() {
   return <Animated.View testID="probe" style={style} />;
 }
 
-function createNavigation(focused: boolean) {
-  const listeners = new Set<() => void>();
+function createNavigation(focused: boolean, parentFocused = true) {
+  const listeners = new Map<string, Set<() => void>>();
   const navigation = {
     isFocused: () => focused,
-    addListener: (_event: string, callback: () => void) => {
-      listeners.add(callback);
-      return () => listeners.delete(callback);
+    getParent: () => ({ isFocused: () => parentFocused }),
+    addListener: (event: string, callback: () => void) => {
+      const set = listeners.get(event) ?? new Set();
+      listeners.set(event, set);
+      set.add(callback);
+      return () => set.delete(callback);
     },
   };
-  return { navigation, emitFocus: () => listeners.forEach(fn => fn()) };
+  const emit = (event: string) => listeners.get(event)?.forEach(fn => fn());
+  return {
+    navigation,
+    emitFocus: () => emit('focus'),
+    emitBlur: () => emit('blur'),
+  };
 }
 
 function renderFocused(navigation: ReturnType<typeof createNavigation>) {
@@ -63,7 +71,28 @@ it('stays hidden while unfocused and plays once focus arrives', async () => {
   await renderFocused(navigation);
   jest.advanceTimersByTime(2000);
   expect(screen.getByTestId('probe')).toHaveAnimatedStyle({ opacity: 0 });
+  navigation.emitBlur();
   navigation.emitFocus();
   jest.advanceTimersByTime(2000);
+  expect(screen.getByTestId('probe')).toHaveAnimatedStyle({ opacity: 1 });
+});
+
+it('replays after a tab switch blur and focus', async () => {
+  const navigation = createNavigation(true);
+  await renderFocused(navigation);
+  jest.advanceTimersByTime(2000);
+  navigation.emitBlur();
+  navigation.emitFocus();
+  expect(screen.getByTestId('probe')).toHaveAnimatedStyle({ opacity: 0 });
+  jest.advanceTimersByTime(2000);
+  expect(screen.getByTestId('probe')).toHaveAnimatedStyle({ opacity: 1 });
+});
+
+it('does not replay when blurred while the parent is unfocused', async () => {
+  const navigation = createNavigation(true, false);
+  await renderFocused(navigation);
+  jest.advanceTimersByTime(2000);
+  navigation.emitBlur();
+  navigation.emitFocus();
   expect(screen.getByTestId('probe')).toHaveAnimatedStyle({ opacity: 1 });
 });

@@ -30,7 +30,24 @@ export function useFocusEntrance(index: number) {
     if (!navigation || navigation.isFocused()) {
       play();
     }
-    return navigation?.addListener('focus', play);
+    if (!navigation) {
+      return;
+    }
+    let blurredByTabSwitch = false;
+    const unsubscribeBlur = navigation.addListener('blur', () => {
+      blurredByTabSwitch = navigation.getParent()?.isFocused() ?? true;
+    });
+    const unsubscribeFocus = navigation.addListener('focus', () => {
+      const shouldPlay = blurredByTabSwitch;
+      blurredByTabSwitch = false;
+      if (shouldPlay) {
+        play();
+      }
+    });
+    return () => {
+      unsubscribeBlur();
+      unsubscribeFocus();
+    };
   }, [navigation, index, reduceMotion, progress]);
 
   return useAnimatedStyle(() => {

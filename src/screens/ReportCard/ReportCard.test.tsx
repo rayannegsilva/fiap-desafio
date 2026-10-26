@@ -70,3 +70,15 @@ it('scrolls the greeting together with the content', async () => {
     within(scroll).getByText('7EF - RM 12567 - Matutino'),
   ).toBeOnTheScreen();
 });
+
+it('shows the skeleton while switching and the content after', async () => {
+  jest.useFakeTimers();
+  await renderWithProviders(<ReportCard />);
+  await act(() => useSessionStore.getState().switchStudent(12568));
+  expect(screen.getByLabelText('Carregando boletim')).toBeOnTheScreen();
+  expect(screen.getByText('JOANA')).toBeOnTheScreen();
+  await act(() => jest.advanceTimersByTimeAsync(300));
+  expect(screen.queryByLabelText('Carregando boletim')).toBeNull();
+  expect(screen.getByText('2EM - 2025')).toBeOnTheScreen();
+  jest.useRealTimers();
+});
