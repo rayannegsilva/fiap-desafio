@@ -141,7 +141,7 @@ it('animates the body to zero height when closing from the settled state', async
   jest.useRealTimers();
 });
 
-it('fades the content out with the height when closing', async () => {
+it('fades the content out faster than the height when closing', async () => {
   jest.useFakeTimers();
   await renderWithProviders(
     <Collapsible title="CIÊNCIAS" variant="row" defaultExpanded>
@@ -154,7 +154,7 @@ it('fades the content out with the height when closing', async () => {
   });
   await fireEvent.press(screen.getByRole('button', { name: 'CIÊNCIAS' }));
   await act(async () => {
-    jest.advanceTimersByTime(150);
+    jest.advanceTimersByTime(60);
   });
   const opacity = getAnimatedStyle(content).opacity as number;
   expect(opacity).toBeGreaterThan(0);

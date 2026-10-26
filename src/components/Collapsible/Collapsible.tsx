@@ -24,6 +24,7 @@ import { Text } from '../Text/Text';
 const CHEVRON_SIZE = 14;
 const CARD_HEIGHT = 90;
 const ROW_HEIGHT = 37;
+const CLOSE_FADE_RATIO = 0.4;
 const ROW_HIT_SLOP = { top: 4, bottom: 4 };
 
 type Props = {
@@ -51,6 +52,7 @@ export function Collapsible({
   const expandedFlag = useSharedValue(defaultExpanded ? 1 : 0);
   const measured = useSharedValue(0);
   const height = useSharedValue(0);
+  const contentOpacity = useSharedValue(defaultExpanded ? 1 : 0);
   const isSettled = useSharedValue(defaultExpanded ? 1 : 0);
 
   const bodyStyle = useAnimatedStyle(() => ({
@@ -59,15 +61,12 @@ export function Collapsible({
 
   const contentStyle = useAnimatedStyle(() => {
     if (isSettled.value) return { position: 'relative', opacity: 1 };
-    const progress = measured.value
-      ? Math.min(height.value / measured.value, 1)
-      : 0;
     return {
       position: 'absolute',
       left: 0,
       right: 0,
       top: 0,
-      opacity: progress,
+      opacity: contentOpacity.value,
     };
   });
 
@@ -75,8 +74,13 @@ export function Collapsible({
     'worklet';
     if (reduceMotion) {
       isSettled.value = 1;
+      contentOpacity.value = 1;
       return;
     }
+    contentOpacity.value = withTiming(1, {
+      duration: motion.duration.transition,
+      easing: motion.easing.enter,
+    });
     const target = measure(contentRef)?.height || measured.value;
     height.value = withTiming(
       target,
@@ -93,6 +97,12 @@ export function Collapsible({
     const current = measure(bodyRef)?.height ?? measured.value;
     height.value = current;
     isSettled.value = 0;
+    contentOpacity.value = reduceMotion
+      ? 0
+      : withTiming(0, {
+          duration: motion.duration.transition * CLOSE_FADE_RATIO,
+          easing: motion.easing.enter,
+        });
     height.value = reduceMotion
       ? 0
       : withTiming(0, {
