@@ -1,13 +1,17 @@
 import { ScrollView } from 'react-native';
+import Animated, { FadeOut } from 'react-native-reanimated';
 import { Dropdown } from '../../components/Dropdown/Dropdown';
 import { StudentSummary } from '../../components/StudentSummary/StudentSummary';
 import { Text } from '../../components/Text/Text';
+import { motion } from '../../theme/motion';
 import { Box } from '../../theme/restyle';
+import { useAppTheme } from '../../theme/useAppTheme';
 import { reportCardLabel } from '../../utils/reportCard';
 import { TermCard } from './TermCard';
 import { useReportCard } from './useReportCard';
 
 export function ReportCardContent() {
+  const theme = useAppTheme();
   const { reportCards, selected, selectReportCard, listKey } = useReportCard();
 
   return (
@@ -34,11 +38,15 @@ export function ReportCardContent() {
             getKey={reportCard => reportCard.ano}
             accessibilityLabel="Ano do boletim"
           />
-          <Box key={listKey} marginTop="m" gap="m">
+          <Animated.View
+            key={listKey}
+            exiting={FadeOut.duration(motion.duration.exit)}
+            style={{ marginTop: theme.spacing.m, gap: theme.spacing.m }}
+          >
             {selected.trimestres.map((term, index) => (
               <TermCard key={term.trimestre} term={term} index={index} />
             ))}
-          </Box>
+          </Animated.View>
         </Box>
       ) : null}
     </ScrollView>

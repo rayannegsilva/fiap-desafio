@@ -1,6 +1,7 @@
 import { ActivityIndicator, Pressable } from 'react-native';
-import Animated from 'react-native-reanimated';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { usePressScale } from '../../animations/usePressScale';
+import { motion } from '../../theme/motion';
 import { Box } from '../../theme/restyle';
 import { useAppTheme } from '../../theme/useAppTheme';
 import { Text } from '../Text/Text';
@@ -41,16 +42,23 @@ export function PrimaryButton({
           alignItems="center"
           justifyContent="center"
         >
-          {loading ? (
-            <ActivityIndicator color={theme.colors.onAccent} />
-          ) : (
-            <Text
-              variant="button"
-              color={disabled ? 'textDisabled' : 'onAccent'}
-            >
-              {label}
-            </Text>
-          )}
+          <Animated.View
+            key={loading ? 'loading' : 'label'}
+            testID="primary-button-content"
+            entering={FadeIn.duration(motion.duration.micro)}
+            exiting={FadeOut.duration(motion.duration.micro)}
+          >
+            {loading ? (
+              <ActivityIndicator color={theme.colors.onAccent} />
+            ) : (
+              <Text
+                variant="button"
+                color={disabled ? 'textDisabled' : 'onAccent'}
+              >
+                {label}
+              </Text>
+            )}
+          </Animated.View>
         </Box>
       </Animated.View>
     </Pressable>

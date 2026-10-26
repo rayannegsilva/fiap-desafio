@@ -1,5 +1,5 @@
 import { Image, StyleSheet } from 'react-native';
-import Animated, { FadeIn } from 'react-native-reanimated';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import noClasses from '../../assets/images/no-classes.png';
 import { Text } from '../../components/Text/Text';
 import { motion } from '../../theme/motion';
@@ -9,7 +9,9 @@ const EMPTY_GAP = 20;
 export function EmptyDay() {
   return (
     <Animated.View
+      testID="empty-day"
       entering={FadeIn.duration(motion.duration.transition)}
+      exiting={FadeOut.duration(motion.duration.exit)}
       style={styles.container}
     >
       <Image source={noClasses} style={styles.image} accessible={false} />

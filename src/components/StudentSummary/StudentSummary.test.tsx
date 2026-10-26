@@ -19,3 +19,11 @@ it('renders nothing without a session', async () => {
   await renderWithProviders(<StudentSummary />);
   expect(screen.queryByRole('header')).not.toBeOnTheScreen();
 });
+
+it('cross-fades the student identity when the student changes', async () => {
+  useSessionStore.getState().signIn(1, 12567);
+  await renderWithProviders(<StudentSummary />);
+  const identity = screen.getByTestId('student-identity');
+  expect(identity.props.entering).toBeDefined();
+  expect(identity.props.exiting).toBeDefined();
+});

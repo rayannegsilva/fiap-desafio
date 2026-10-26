@@ -1,6 +1,8 @@
 import { useEffect, type ComponentRef, type Ref } from 'react';
 import { StyleSheet, TextInput, type TextInputProps } from 'react-native';
 import Animated, {
+  FadeIn,
+  FadeOut,
   useAnimatedStyle,
   useReducedMotion,
   useSharedValue,
@@ -71,14 +73,20 @@ export function TextField({ label, error, style, ref, ...rest }: Props) {
         backgroundColor={filled ? 'lineActive' : 'lineIdle'}
       />
       {error ? (
-        <Text
-          variant="error"
-          textAlign="center"
+        <Animated.View
+          testID="text-field-error"
+          entering={FadeIn.duration(motion.duration.micro)}
+          exiting={FadeOut.duration(motion.duration.exit)}
           style={styles.error}
-          accessibilityLiveRegion="polite"
         >
-          {error}
-        </Text>
+          <Text
+            variant="error"
+            textAlign="center"
+            accessibilityLiveRegion="polite"
+          >
+            {error}
+          </Text>
+        </Animated.View>
       ) : null}
     </Animated.View>
   );

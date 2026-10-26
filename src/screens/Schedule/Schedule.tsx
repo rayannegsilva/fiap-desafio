@@ -1,8 +1,10 @@
 import { ScrollView, StyleSheet } from 'react-native';
+import Animated, { FadeOut } from 'react-native-reanimated';
 import { Dropdown } from '../../components/Dropdown/Dropdown';
 import { Header } from '../../components/Header/Header';
 import { StudentSummary } from '../../components/StudentSummary/StudentSummary';
 import { Text } from '../../components/Text/Text';
+import { motion } from '../../theme/motion';
 import { Box } from '../../theme/restyle';
 import { useAppTheme } from '../../theme/useAppTheme';
 import { formatDayLabel } from '../../utils/schedule';
@@ -47,11 +49,14 @@ export function Schedule() {
                 accessibilityLabel="Dia da agenda"
               />
             </Box>
-            <Box
+            <Animated.View
               key={selectedDay.dia}
-              paddingTop="l"
-              gap="m"
-              style={{ paddingHorizontal: LIST_SIDE_MARGIN }}
+              exiting={FadeOut.duration(motion.duration.exit)}
+              style={{
+                paddingTop: theme.spacing.l,
+                gap: theme.spacing.m,
+                paddingHorizontal: LIST_SIDE_MARGIN,
+              }}
             >
               {selectedDay.aulas.length > 0 ? (
                 selectedDay.aulas.map((lesson, index) => (
@@ -64,7 +69,7 @@ export function Schedule() {
               ) : (
                 <EmptyDay />
               )}
-            </Box>
+            </Animated.View>
           </>
         ) : null}
       </ScrollView>

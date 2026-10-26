@@ -37,3 +37,12 @@ it('shows a spinner instead of the label while loading and ignores presses', asy
   await fireEvent.press(button);
   expect(onPress).not.toHaveBeenCalled();
 });
+
+it('fades its content when switching between label and spinner', async () => {
+  await renderWithProviders(
+    <PrimaryButton label="FAZER LOGIN" onPress={jest.fn()} />,
+  );
+  const content = screen.getByTestId('primary-button-content');
+  expect(content.props.entering).toBeDefined();
+  expect(content.props.exiting).toBeDefined();
+});

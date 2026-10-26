@@ -102,3 +102,10 @@ it('colors the cursor and selection with accentText', async () => {
   expect(input).toHaveProp('cursorColor', darkTheme.colors.accentText);
   expect(input).toHaveProp('selectionColor', darkTheme.colors.accentText);
 });
+
+it('fades the error message in and out', async () => {
+  await renderWithProviders(<TextField label="CPF" value="1" error="erro" />);
+  const error = screen.getByTestId('text-field-error');
+  expect(error.props.entering).toBeDefined();
+  expect(error.props.exiting).toBeDefined();
+});
