@@ -10,7 +10,7 @@
 
 **Tech Stack:** React Navigation 7 (native-stack), Zustand 5 + AsyncStorage (`persist`), Restyle, Reanimated 4, RNTL 14 — tudo instalado. Componentes de `src/components/` (Text, PrimaryButton, TextButton, TextField).
 
-**Spec:** design em `conductor/product.md` (Autenticação, Área autenticada, Seleção de aluno, Estados de erro) e `conductor/product-guidelines.md` (Cabeçalho, Login, Troca de aluno, Textos do design, Dados e privacidade). Medidas abaixo vêm do Figma (`lS5jNff8UuWaPnOPZWxb8n`, frames de 414 de largura).
+**Spec:** design em `conductor/product.md` (Autenticação, Área autenticada, Seleção de aluno, Estados de erro) e `conductor/product-guidelines.md` (Cabeçalho, Login, Troca de aluno, Textos do design, Dados e privacidade). Medidas abaixo vêm do Figma (frames de 414 de largura).
 
 ## Contexto
 

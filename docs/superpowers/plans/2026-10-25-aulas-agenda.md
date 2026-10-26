@@ -8,7 +8,7 @@
 
 **Tech Stack:** Restyle, Reanimated 4 (layout animations `entering`), Zustand (sessão), RNTL 14 — tudo instalado.
 
-**Spec:** `conductor/product.md` (seção Aulas) e `conductor/product-guidelines.md` (Aula, Agenda vazia, Dropdown, Textos do design, Animações). Figma `lS5jNff8UuWaPnOPZWxb8n`, página Aulas (`1:2`): frames "Aulas - Lista de aulas" `2:88`, "Aulas - Dropdown com dias" `2:48`, "Aulas - Sem aulas" `2:24`.
+**Spec:** `conductor/product.md` (seção Aulas) e `conductor/product-guidelines.md` (Aula, Agenda vazia, Dropdown, Textos do design, Animações). Figma, página Aulas (`1:2`): frames "Aulas - Lista de aulas" `2:88`, "Aulas - Dropdown com dias" `2:48`, "Aulas - Sem aulas" `2:24`.
 
 ## Contexto
 

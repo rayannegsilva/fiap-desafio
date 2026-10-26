@@ -42,7 +42,7 @@ Pais e responsáveis por alunos da escola, que acessam o app no celular para con
 - Lista os alunos do responsável: nome completo, RM e turma.
 - Após a escolha, volta para a tela anterior.
 - Não aparece quando o responsável tem um único aluno; não faz parte do rodapé.
-- Troca de aluno sem cabeçalho nem rodapé, conforme o Figma: o desafio pede fidelidade ao Figma, que prevalece sobre o texto do PDF.
+- Troca de aluno sem cabeçalho nem rodapé, conforme o Figma: os requisitos pedem fidelidade ao Figma, que prevalece sobre o texto deles.
 
 ### Estados de erro
 - Dados faltando tratados com mensagem clara (ex.: responsável sem alunos vinculados).
