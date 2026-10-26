@@ -4,14 +4,14 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
 
 ## Phase 1: Base e transições de tela
 
-- [ ] Task 1: Tokens de movimento
-    - [ ] Testes (`exit < transition`, curvas definidas)
-    - [ ] `motion.duration.exit`, `motion.easing`; usos locais passam a usar os tokens
-    - [ ] Commit `feat(motion): add exit duration and easing tokens`
-- [ ] Task 2: Fade entre telas e entre abas
-    - [ ] Testes das opções de navegação
-    - [ ] `RootNavigator` e `MainTabNavigator` com `animation: 'fade'`
-    - [ ] Commit `feat(navigation): fade between screens and tabs`
+- [x] Task 1: Tokens de movimento 1c490c8
+    - [x] Testes (`exit < transition`, curvas definidas)
+    - [x] `motion.duration.exit`, `motion.easing`; usos locais passam a usar os tokens
+    - [x] Commit `feat(motion): add exit duration and easing tokens`
+- [x] Task 2: Fade entre telas e entre abas f1c6a07
+    - [x] Testes das opções de navegação
+    - [x] `RootNavigator` e `MainTabNavigator` com `animation: 'fade'`
+    - [x] Commit `feat(navigation): fade between screens and tabs`
 - [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Componentes
