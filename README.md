@@ -14,10 +14,8 @@ O desenvolvimento foi conduzido utilizando Spec-Driven Development (SDD), com ap
     <th width="50%">Android</th>
   </tr>
   <tr>
-    <td><video src="https://github.com/user-attachments/assets/fd0ba7ce-054d-417b-9234-e981ec3a7e42" controls muted width="100%"></video><
-/td>
-    <td><video src="https://github.com/user-attachments/assets/e626d752-cc85-40b9-b1df-807cf93967a9" controls muted width="100%"></video><
-/td>
+    <td><video src="https://github.com/user-attachments/assets/fd0ba7ce-054d-417b-9234-e981ec3a7e42" controls muted width="100%"></video></td>
+    <td><video src="https://github.com/user-attachments/assets/e626d752-cc85-40b9-b1df-807cf93967a9" controls muted width="100%"></video></td>
   </tr>
 </table>
 
