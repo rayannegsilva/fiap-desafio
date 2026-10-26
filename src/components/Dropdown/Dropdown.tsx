@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { Pressable, StyleSheet } from 'react-native';
-import Animated, { Keyframe } from 'react-native-reanimated';
+import Animated, { FadeIn, FadeOut, Keyframe } from 'react-native-reanimated';
 import { useChevronRotation } from '../../animations/useChevronRotation';
 import ChevronDown from '../../assets/icons/chevron-down.svg';
 import { motion } from '../../theme/motion';
@@ -34,20 +34,23 @@ export function Dropdown<T>({
   const [open, setOpen] = useState(false);
   const chevronStyle = useChevronRotation(open);
   const panelMotion = useMemo(() => {
-    const hidden = {
-      opacity: 0,
-      transform: [{ translateY: -theme.spacing.s }],
-    };
-    const shown = { opacity: 1, transform: [{ translateY: 0 }] };
+    const hidden = { transform: [{ translateY: -theme.spacing.s }] };
+    const shown = { transform: [{ translateY: 0 }] };
     return {
       entering: new Keyframe({
         0: hidden,
         100: { ...shown, easing: motion.easing.enter },
       }).duration(motion.duration.micro),
       exiting: new Keyframe({
-        0: shown,
-        100: { ...hidden, easing: motion.easing.exit },
+        0: { ...shown, opacity: 1 },
+        100: { ...hidden, opacity: 0, easing: motion.easing.exit },
       }).duration(motion.duration.exit),
+      contentEntering: FadeIn.duration(motion.duration.micro).easing(
+        motion.easing.enter,
+      ),
+      contentExiting: FadeOut.duration(motion.duration.exit).easing(
+        motion.easing.exit,
+      ),
     };
   }, [theme.spacing.s]);
   const selectedKey = getKey(selected);
@@ -104,26 +107,31 @@ export function Dropdown<T>({
             },
           ]}
         >
-          {options.map(option => {
-            const key = getKey(option);
-            return (
-              <Pressable
-                key={key}
-                accessibilityRole="button"
-                hitSlop={OPTION_HIT_SLOP}
-                accessibilityLabel={getLabel(option)}
-                accessibilityState={{ selected: key === selectedKey }}
-                onPress={() => {
-                  onSelect(option);
-                  setOpen(false);
-                }}
-              >
-                <Box paddingVertical="s" paddingHorizontal="m">
-                  <Text>{getLabel(option)}</Text>
-                </Box>
-              </Pressable>
-            );
-          })}
+          <Animated.View
+            entering={panelMotion.contentEntering}
+            exiting={panelMotion.contentExiting}
+          >
+            {options.map(option => {
+              const key = getKey(option);
+              return (
+                <Pressable
+                  key={key}
+                  accessibilityRole="button"
+                  hitSlop={OPTION_HIT_SLOP}
+                  accessibilityLabel={getLabel(option)}
+                  accessibilityState={{ selected: key === selectedKey }}
+                  onPress={() => {
+                    onSelect(option);
+                    setOpen(false);
+                  }}
+                >
+                  <Box paddingVertical="s" paddingHorizontal="m">
+                    <Text>{getLabel(option)}</Text>
+                  </Box>
+                </Pressable>
+              );
+            })}
+          </Animated.View>
         </Animated.View>
       ) : null}
     </Box>

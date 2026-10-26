@@ -82,20 +82,19 @@ it('renders a static box when there is a single option', async () => {
   expect(screen.queryByRole('button', { name: 'Ano letivo' })).toBeNull();
 });
 
-it('slides the panel down 8pt while fading in and back up while fading out', async () => {
+it('slides an opaque panel in, fades it out on exit and fades its options', async () => {
   await setup();
   await fireEvent.press(screen.getByRole('button', { name: 'Ano letivo' }));
   const { entering, exiting } = screen.getByTestId('dropdown-panel').props;
   expect(entering.definitions[0]).toEqual({
-    opacity: 0,
     transform: [{ translateY: -8 }],
   });
   expect(entering.definitions[100]).toMatchObject({
-    opacity: 1,
     transform: [{ translateY: 0 }],
   });
   expect(exiting.definitions[100]).toMatchObject({
     opacity: 0,
     transform: [{ translateY: -8 }],
   });
+  expect(entering.definitions[0]).not.toHaveProperty('opacity');
 });
