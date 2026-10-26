@@ -25,11 +25,29 @@ it('hides TROCAR PERFIL when the guardian has a single student', async () => {
   expect(screen.getByRole('button', { name: 'SAIR' })).toBeOnTheScreen();
 });
 
-it('signs out on SAIR', async () => {
+it('opens the confirmation on SAIR without signing out', async () => {
   useSessionStore.getState().signIn(1, 12567);
   await renderWithProviders(<Header />);
   await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
+  expect(screen.getByText('Sair da conta?')).toBeOnTheScreen();
+  expect(useSessionStore.getState().guardianId).toBe(1);
+});
+
+it('signs out when the confirmation is accepted', async () => {
+  useSessionStore.getState().signIn(1, 12567);
+  await renderWithProviders(<Header />);
+  await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
+  await fireEvent.press(screen.getAllByRole('button', { name: 'SAIR' })[1]);
   expect(useSessionStore.getState().guardianId).toBeNull();
+});
+
+it('keeps the session when the confirmation is cancelled', async () => {
+  useSessionStore.getState().signIn(1, 12567);
+  await renderWithProviders(<Header />);
+  await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
+  await fireEvent.press(screen.getByRole('button', { name: 'CANCELAR' }));
+  expect(screen.queryByText('Sair da conta?')).not.toBeOnTheScreen();
+  expect(useSessionStore.getState().guardianId).toBe(1);
 });
 
 it('renders nothing without a session', async () => {

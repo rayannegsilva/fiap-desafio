@@ -45,3 +45,21 @@ it('places the icon after the label', async () => {
   expect(textAt).toBeGreaterThan(-1);
   expect(json.indexOf('text-button-icon')).toBeGreaterThan(textAt);
 });
+
+it('overrides the text and icon color', async () => {
+  await renderWithProviders(
+    <TextButton
+      label="CANCELAR"
+      variant="cardTitle"
+      color="textPrimary"
+      icon={Close}
+      onPress={jest.fn()}
+    />,
+  );
+  expect(screen.getByTestId('text-button-icon').props.color).toBe(
+    darkTheme.colors.textPrimary,
+  );
+  expect(screen.getByText('CANCELAR')).toHaveStyle({
+    color: darkTheme.colors.textPrimary,
+  });
+});

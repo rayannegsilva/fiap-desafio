@@ -54,5 +54,6 @@ it('switches student from the header and signs out', async () => {
   expect(screen.getByText('2EM - RM 12568 - Matutino')).toBeOnTheScreen();
 
   await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
+  await fireEvent.press(screen.getAllByRole('button', { name: 'SAIR' })[1]);
   expect(await screen.findByLabelText('CPF')).toBeOnTheScreen();
 });

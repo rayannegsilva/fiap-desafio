@@ -4,6 +4,7 @@ import Animated from 'react-native-reanimated';
 import type { SvgProps } from 'react-native-svg';
 import { usePressScale } from '../../animations/usePressScale';
 import { Box } from '../../theme/restyle';
+import type { Theme } from '../../theme/theme';
 import { useAppTheme } from '../../theme/useAppTheme';
 import { Text } from '../Text/Text';
 
@@ -14,6 +15,7 @@ type Props = {
   label: string;
   onPress: () => void;
   variant?: 'caption' | 'cardTitle';
+  color?: keyof Theme['colors'];
   icon?: FC<SvgProps>;
   iconSize?: number;
 };
@@ -22,12 +24,13 @@ export function TextButton({
   label,
   onPress,
   variant = 'caption',
+  color: colorToken,
   icon: Icon,
   iconSize = DEFAULT_ICON_SIZE,
 }: Props) {
   const theme = useAppTheme();
   const { animatedStyle, onPressIn, onPressOut } = usePressScale();
-  const color = theme.colors[theme.textVariants[variant].color];
+  const color = theme.colors[colorToken ?? theme.textVariants[variant].color];
 
   return (
     <Pressable
@@ -44,7 +47,9 @@ export function TextButton({
           alignItems="center"
           gap={variant === 'cardTitle' ? 's' : 'xs'}
         >
-          <Text variant={variant}>{label}</Text>
+          <Text variant={variant} color={colorToken}>
+            {label}
+          </Text>
           {Icon ? (
             <Icon
               testID="text-button-icon"

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Image, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -8,6 +9,7 @@ import type { RootStackParamList } from '../../routes/types';
 import { useSession } from '../../store/useSession';
 import { useSessionStore } from '../../store/useSessionStore';
 import { Box } from '../../theme/restyle';
+import { ConfirmDialog } from '../ConfirmDialog/ConfirmDialog';
 import { TextButton } from '../TextButton/TextButton';
 
 const ACTION_BAR_HEIGHT = 48;
@@ -20,6 +22,7 @@ export function Header() {
   const navigation =
     useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const insets = useSafeAreaInsets();
+  const [confirmingSignOut, setConfirmingSignOut] = useState(false);
 
   if (!session) {
     return null;
@@ -52,12 +55,25 @@ export function Header() {
           ) : null}
           <TextButton
             label="SAIR"
-            onPress={signOut}
+            onPress={() => setConfirmingSignOut(true)}
             icon={Logout}
             iconSize={LOGOUT_ICON_SIZE}
           />
         </Box>
       </Box>
+      <ConfirmDialog
+        visible={confirmingSignOut}
+        title="Sair da conta?"
+        message="Você vai precisar entrar de novo com CPF e senha."
+        confirmLabel="SAIR"
+        cancelLabel="CANCELAR"
+        confirmIcon={Logout}
+        onConfirm={() => {
+          setConfirmingSignOut(false);
+          signOut();
+        }}
+        onCancel={() => setConfirmingSignOut(false)}
+      />
     </Box>
   );
 }
