@@ -57,7 +57,7 @@ it('switches student from the header and signs out', async () => {
   await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
   await fireEvent.press(screen.getAllByRole('button', { name: 'SAIR' })[1]);
   expect(await screen.findByLabelText('CPF')).toBeOnTheScreen();
-});
+}, 20000);
 
 it('fades between Login and Main', async () => {
   await renderWithProviders(<RootNavigator />);

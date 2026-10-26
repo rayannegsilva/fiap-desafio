@@ -29,15 +29,17 @@ describe('react-navigation', () => {
   it('renders a native stack inside bottom tabs', async () => {
     const Stack = createNativeStackNavigator();
     const Tabs = createBottomTabNavigator();
+    const InnerScreen = () => <Text>inner</Text>;
+    const EmptyScreen = () => null;
     const Inner = () => (
       <Stack.Navigator>
-        <Stack.Screen name="Inner" component={() => <Text>inner</Text>} />
+        <Stack.Screen name="Inner" component={InnerScreen} />
       </Stack.Navigator>
     );
     await renderWithProviders(
       <Tabs.Navigator>
         <Tabs.Screen name="One" component={Inner} />
-        <Tabs.Screen name="Two" component={() => null} />
+        <Tabs.Screen name="Two" component={EmptyScreen} />
       </Tabs.Navigator>,
     );
     expect(await screen.findByText('inner')).toBeOnTheScreen();
