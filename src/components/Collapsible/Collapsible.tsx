@@ -6,7 +6,6 @@ import {
   type LayoutChangeEvent,
 } from 'react-native';
 import Animated, {
-  Easing,
   measure,
   useAnimatedRef,
   useAnimatedStyle,
@@ -26,7 +25,6 @@ const CHEVRON_SIZE = 14;
 const CARD_HEIGHT = 90;
 const ROW_HEIGHT = 37;
 const ROW_HIT_SLOP = { top: 4, bottom: 4 };
-const CLOSE_EASING = Easing.in(Easing.cubic);
 
 type Props = {
   title: string;
@@ -43,10 +41,9 @@ export function Collapsible({
 }: Props) {
   const theme = useAppTheme();
   const [expanded, setExpanded] = useState(defaultExpanded);
-  const easing = expanded ? motion.easing.enter : CLOSE_EASING;
-  const chevronStyle = useChevronRotation(expanded, {
+    const chevronStyle = useChevronRotation(expanded, {
     duration: motion.duration.transition,
-    easing,
+    easing: motion.easing.enter,
   });
   const reduceMotion = useReducedMotion();
   const bodyRef = useAnimatedRef<Animated.View>();
@@ -60,11 +57,19 @@ export function Collapsible({
     height: isSettled.value ? 'auto' : height.value,
   }));
 
-  const contentStyle = useAnimatedStyle(() =>
-    isSettled.value
-      ? { position: 'relative' }
-      : { position: 'absolute', left: 0, right: 0, top: 0 },
-  );
+  const contentStyle = useAnimatedStyle(() => {
+    if (isSettled.value) return { position: 'relative', opacity: 1 };
+    const progress = measured.value
+      ? Math.min(height.value / measured.value, 1)
+      : 0;
+    return {
+      position: 'absolute',
+      left: 0,
+      right: 0,
+      top: 0,
+      opacity: progress,
+    };
+  });
 
   const open = () => {
     'worklet';
@@ -92,7 +97,7 @@ export function Collapsible({
       ? 0
       : withTiming(0, {
           duration: motion.duration.transition,
-          easing: CLOSE_EASING,
+          easing: motion.easing.enter,
         });
   };
 

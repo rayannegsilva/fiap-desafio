@@ -141,6 +141,55 @@ it('animates the body to zero height when closing from the settled state', async
   jest.useRealTimers();
 });
 
+it('fades the content out with the height when closing', async () => {
+  jest.useFakeTimers();
+  await renderWithProviders(
+    <Collapsible title="CIÊNCIAS" variant="row" defaultExpanded>
+      <Text>Nota:</Text>
+    </Collapsible>,
+  );
+  const content = screen.getByText('Nota:').parent!;
+  await fireEvent(content, 'layout', {
+    nativeEvent: { layout: { x: 0, y: 0, width: 100, height: 40 } },
+  });
+  await fireEvent.press(screen.getByRole('button', { name: 'CIÊNCIAS' }));
+  await act(async () => {
+    jest.advanceTimersByTime(150);
+  });
+  const opacity = getAnimatedStyle(content).opacity as number;
+  expect(opacity).toBeGreaterThan(0);
+  expect(opacity).toBeLessThan(1);
+  await act(async () => {
+    jest.advanceTimersByTime(500);
+  });
+  expect(content).toHaveAnimatedStyle({ opacity: 0 });
+  jest.useRealTimers();
+});
+
+it('ends in the last requested state after toggling twice quickly', async () => {
+  jest.useFakeTimers();
+  await renderWithProviders(
+    <Collapsible title="CIÊNCIAS" variant="row">
+      <Text>Nota:</Text>
+    </Collapsible>,
+  );
+  const header = screen.getByRole('button', { name: 'CIÊNCIAS' });
+  await fireEvent.press(header);
+  await act(async () => {
+    jest.advanceTimersByTime(60);
+  });
+  await fireEvent.press(header);
+  await fireEvent.press(header);
+  await act(async () => {
+    jest.advanceTimersByTime(500);
+  });
+  expect(header).toBeExpanded();
+  expect(screen.getByText('Nota:').parent!.parent!).toHaveAnimatedStyle({
+    height: 'auto',
+  });
+  jest.useRealTimers();
+});
+
 it('widens the touch target of row headers only', async () => {
   await renderWithProviders(
     <>
