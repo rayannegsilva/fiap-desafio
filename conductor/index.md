@@ -18,4 +18,5 @@
 ## Tracks
 
 -   [Tracks Registry](./tracks.md)
--   [Tracks Directory](./tracks/)
+-   [Tracks em andamento](./tracks/)
+-   [Tracks concluídas](./archive/)

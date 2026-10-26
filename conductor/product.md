@@ -10,7 +10,7 @@ Pais e responsáveis por alunos da escola, que acessam o app no celular para con
 
 ### Splash e tema
 - Splash animada na abertura do app.
-- Tema escuro por padrão (identidade do produto), com opção de tema claro no cabeçalho; a escolha é lembrada.
+- Tema claro ou escuro acompanhando o modo do sistema (o escuro é o do Figma; o claro é derivado).
 
 ### Autenticação
 - Login com CPF e senha do responsável.

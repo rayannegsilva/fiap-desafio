@@ -6,10 +6,6 @@ Desenvolvido com React Native CLI, TypeScript e Restyle, com foco em qualidade d
 
 O desenvolvimento foi conduzido utilizando Spec-Driven Development (SDD), com apoio de inteligência artificial para planejamento, decomposição de tarefas e implementação orientada a testes (TDD).
 
-## Demonstração
-
-ADICIONAR DEMONSTRAÇÃO
-
 ## Funcionalidades
 
 - **Login** com CPF (máscara automática) e senha, erro genérico em credenciais inválidas e teclado que não cobre os campos.
@@ -131,7 +127,7 @@ Os planos estão em [`docs/superpowers/plans/`](docs/superpowers/plans/).
 
 Os planos foram organizados em *tracks* com o [Conductor](https://github.com/gemini-cli-extensions/conductor), originalmente desenvolvido para o ecossistema Gemini e utilizado como skill no Claude.
 
-As tracks ficam em [`conductor/tracks/`](conductor/tracks/) e incluem:
+As tracks concluídas ficam em [`conductor/archive/`](conductor/archive/) (as em andamento, em `conductor/tracks/`) e incluem:
 
 - `spec.md`: escopo, requisitos e comportamentos esperados;
 - `plan.md`: tarefas, checkpoints e referências aos commits de execução.
@@ -160,11 +156,11 @@ Guia oficial do ambiente: [Set Up Your Environment](https://reactnative.dev/docs
 - Xcode (iOS), com Ruby, Bundler e CocoaPods;
 - Android Studio com Android SDK e JDK 17 (Android).
 
-**Instalação**
+**Instalação** (ou clone via SSH: `git clone git@github.com:rayannegsilva/fiap-desafio.git`)
 
 ```sh
-git clone <URL_DO_SEU_REPOSITORIO>
-cd FiapTeste
+git clone https://github.com/rayannegsilva/fiap-desafio.git
+cd fiap-desafio
 
 yarn install                                # dependências + hooks do Husky (via prepare)
 bundle install                              # Ruby gems (CocoaPods)
@@ -194,8 +190,8 @@ Após adicionar dependências nativas, rode de novo `cd ios && bundle exec pod i
 **Instalação** (PowerShell no Windows, terminal no Linux)
 
 ```sh
-git clone <URL_DO_SEU_REPOSITORIO>
-cd FiapTeste
+git clone https://github.com/rayannegsilva/fiap-desafio.git
+cd fiap-desafio
 yarn install
 ```
 
