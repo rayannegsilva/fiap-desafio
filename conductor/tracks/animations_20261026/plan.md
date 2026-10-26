@@ -29,10 +29,10 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
     - [x] Commit `feat(confirm-dialog): animate the dialog out before closing`
 - [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
-## Phase 3: Conteúdo
+## Phase 3: Conteúdo [checkpoint: 8e64acc]
 
 - [x] Task 6: Listas, cabeçalho e login 8e64acc
     - [x] Listas e `EmptyDay` com `exiting`; `StudentSummary` com fade cruzado; erro do `TextField` e `PrimaryButton` com fade
     - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage` PASS
     - [x] Commit `feat(motion): fade content in and out across screens`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md) — track concluída
