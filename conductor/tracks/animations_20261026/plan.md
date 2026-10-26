@@ -2,7 +2,7 @@
 
 Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../docs/superpowers/plans/2026-10-26-animacoes.md). Cada task abaixo corresponde à task de mesmo número lá. Seguir `conductor/workflow.md`.
 
-## Phase 1: Base e transições de tela
+## Phase 1: Base e transições de tela [checkpoint: f1c6a07]
 
 - [x] Task 1: Tokens de movimento 1c490c8
     - [x] Testes (`exit < transition`, curvas definidas)
@@ -12,7 +12,7 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
     - [x] Testes das opções de navegação
     - [x] `RootNavigator` e `MainTabNavigator` com `animation: 'fade'`
     - [x] Commit `feat(navigation): fade between screens and tabs`
-- [ ] Task: Phase Verification & Checkpoint (Refer to workflow.md)
+- [x] Task: Phase Verification & Checkpoint (Refer to workflow.md)
 
 ## Phase 2: Componentes
 
