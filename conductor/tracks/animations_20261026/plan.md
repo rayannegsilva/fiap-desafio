@@ -20,9 +20,9 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
     - [x] Teste de alternância rápida
     - [x] Curva de abrir no fechar, opacidade do conteúdo junto da altura
     - [x] Commit `fix(collapsible): close as smoothly as it opens`
-- [ ] Task 4: Dropdown com deslocamento
-    - [ ] Entrada/saída do painel com fade + 8pt
-    - [ ] Commit `feat(dropdown): slide the panel in and out`
+- [x] Task 4: Dropdown com deslocamento 42546f3
+    - [x] Entrada/saída do painel com fade + 8pt
+    - [x] Commit `feat(dropdown): slide the panel in and out`
 - [ ] Task 5: Saída do modal
     - [ ] Testes (desmonta após a saída, reabrir no meio, reduzir movimento, `signOut` após a saída)
     - [ ] `ConfirmDialog` com `mounted` + `onClosed`; `Header` desloga em `onClosed`
