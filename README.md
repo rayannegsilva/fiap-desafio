@@ -228,6 +228,7 @@ Hooks do Git (Husky + commitlint):
 | --- | --- | --- |
 | iOS | iPhone 15 (aparelho físico) | iOS 26.6.2 |
 | iOS | iPhone 15 (simulador, Xcode 27.1) | iOS 26.5 |
+| iOS | iPhone 13 (simulador, Xcode 27.1) | iOS 26.5 |
 | Android | Pixel 7 (emulador, 1080×2400) | Android 17 (API 37) |
 
 ## Acesso de demonstração
