@@ -1,6 +1,5 @@
 import * as ReactNative from 'react-native';
-import { act, renderHook } from '@testing-library/react-native';
-import { useThemeStore } from '../store/useThemeStore';
+import { renderHook } from '@testing-library/react-native';
 import { darkTheme, lightTheme } from './theme';
 import { useAppTheme, useResolvedScheme } from './useAppTheme';
 
@@ -8,7 +7,6 @@ let systemScheme: 'light' | 'dark' | null = null;
 
 beforeEach(() => {
   systemScheme = null;
-  useThemeStore.setState({ mode: 'system' });
   jest
     .spyOn(ReactNative, 'useColorScheme')
     .mockImplementation(() => systemScheme);
@@ -29,13 +27,6 @@ it('uses the light theme when the system is light', async () => {
 
 it('uses the dark theme when the system is dark', async () => {
   systemScheme = 'dark';
-  const { result } = await renderHook(() => useAppTheme());
-  expect(result.current).toBe(darkTheme);
-});
-
-it('ignores the system when a mode is chosen', async () => {
-  systemScheme = 'light';
-  await act(() => useThemeStore.getState().setMode('dark'));
   const { result } = await renderHook(() => useAppTheme());
   expect(result.current).toBe(darkTheme);
 });

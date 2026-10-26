@@ -97,7 +97,6 @@ O código é organizado por responsabilidades, separando telas, componentes reut
 │   ├── store/
 │   │   ├── useSessionStore.ts # Sessão persistida (Zustand + AsyncStorage)
 │   │   ├── useSession.ts      # Responsável e aluno ativo da sessão
-│   │   └── useThemeStore.ts   # Tema claro/escuro (Zustand + AsyncStorage)
 │   ├── theme/
 │   │   ├── palette.ts         # Cores do design (escuro e claro)
 │   │   ├── theme.ts           # Tema Restyle: cores, espaçamento, raio, tipografia
