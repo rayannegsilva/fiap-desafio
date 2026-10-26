@@ -9,6 +9,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import { scheduleOnRN } from 'react-native-worklets';
 import logo from '../../assets/images/logo.png';
 import { LOGO_SIZE, LOGO_TOP } from '../../screens/Login/loginLayout';
 import { useSessionHydrated } from '../../store/useSession';
@@ -64,12 +65,14 @@ export function SplashOverlay({ onFinish }: Props) {
       });
       return;
     }
-    progress.value = withTiming(1, {
-      duration: DRAWING_DURATION,
-      easing: Easing.linear,
-    });
-    const timer = setTimeout(() => setDrawn(true), DRAWING_DURATION);
-    return () => clearTimeout(timer);
+    progress.value = withTiming(
+      1,
+      { duration: DRAWING_DURATION, easing: Easing.linear },
+      finished => {
+        'worklet';
+        if (finished) scheduleOnRN(setDrawn, true);
+      },
+    );
   }, [reduceMotion, progress, logoOpacity]);
 
   useEffect(() => {
