@@ -1,8 +1,10 @@
 import { useEffect, useRef, type ComponentRef } from 'react';
 import {
+  Keyboard,
   KeyboardAvoidingView,
   Image,
   Platform,
+  Pressable,
   ScrollView,
   StyleSheet,
   TextInput,
@@ -64,49 +66,59 @@ export function Login() {
             testID="login-scroll"
             contentContainerStyle={[styles.scroll, scrollPadding]}
             keyboardShouldPersistTaps="handled"
+            keyboardDismissMode={
+              Platform.OS === 'ios' ? 'interactive' : 'on-drag'
+            }
             showsVerticalScrollIndicator={false}
           >
-            <Image
-              source={logo}
-              style={styles.logo}
-              resizeMode="contain"
-              accessible
-              accessibilityRole="image"
-              accessibilityLabel="FIAP School"
-            />
-            <Box marginHorizontal="xxl" style={styles.fields}>
-              <TextField
-                label="CPF"
-                value={cpf}
-                onChangeText={setCpf}
-                keyboardType={
-                  Platform.OS === 'ios'
-                    ? 'numbers-and-punctuation'
-                    : 'number-pad'
-                }
-                autoCorrect={false}
-                spellCheck={false}
-                autoComplete="off"
-                textContentType="none"
-                maxLength={14}
-                returnKeyType="next"
-                submitBehavior="submit"
-                onSubmitEditing={() => passwordRef.current?.focus()}
-                style={styles.input}
+            <Pressable
+              testID="login-dismiss-keyboard"
+              accessible={false}
+              onPress={Keyboard.dismiss}
+              style={styles.dismiss}
+            >
+              <Image
+                source={logo}
+                style={styles.logo}
+                resizeMode="contain"
+                accessible
+                accessibilityRole="image"
+                accessibilityLabel="FIAP School"
               />
-              <Box height={FIELD_GAP} />
-              <TextField
-                label="SENHA"
-                ref={passwordRef}
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-                returnKeyType="done"
-                onSubmitEditing={onSubmit}
-                error={error ?? undefined}
-                style={styles.input}
-              />
-            </Box>
+              <Box marginHorizontal="xxl" style={styles.fields}>
+                <TextField
+                  label="CPF"
+                  value={cpf}
+                  onChangeText={setCpf}
+                  keyboardType={
+                    Platform.OS === 'ios'
+                      ? 'numbers-and-punctuation'
+                      : 'number-pad'
+                  }
+                  autoCorrect={false}
+                  spellCheck={false}
+                  autoComplete="off"
+                  textContentType="none"
+                  maxLength={14}
+                  returnKeyType="next"
+                  submitBehavior="submit"
+                  onSubmitEditing={() => passwordRef.current?.focus()}
+                  style={styles.input}
+                />
+                <Box height={FIELD_GAP} />
+                <TextField
+                  label="SENHA"
+                  ref={passwordRef}
+                  value={password}
+                  onChangeText={setPassword}
+                  secureTextEntry
+                  returnKeyType="done"
+                  onSubmitEditing={onSubmit}
+                  error={error ?? undefined}
+                  style={styles.input}
+                />
+              </Box>
+            </Pressable>
           </ScrollView>
         </Box>
         <Box testID="login-footer" backgroundColor="accent" style={footerStyle}>
@@ -127,5 +139,6 @@ const styles = StyleSheet.create({
   logo: { ...LOGO_SIZE, marginTop: LOGO_TOP, alignSelf: 'center' },
   input: { height: FIELD_INPUT_HEIGHT },
   scroll: { flexGrow: 1 },
+  dismiss: { flexGrow: 1 },
   fields: { marginTop: LOGO_TO_FIELDS },
 });

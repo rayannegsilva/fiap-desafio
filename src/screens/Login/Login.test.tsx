@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput } from 'react-native';
+import { Keyboard, StyleSheet, TextInput } from 'react-native';
 import { act, fireEvent, screen } from '@testing-library/react-native';
 import { AUTH_DELAY_MS } from '../../data/repository';
 import { useSessionStore } from '../../store/useSessionStore';
@@ -95,4 +95,11 @@ it('paints the keyboard avoiding area with the theme background', async () => {
   ).toMatchObject({
     backgroundColor: darkTheme.colors.background,
   });
+});
+
+it('dismisses the keyboard when tapping outside the inputs', async () => {
+  const dismiss = jest.spyOn(Keyboard, 'dismiss');
+  await renderWithProviders(<Login />);
+  await fireEvent.press(screen.getByTestId('login-dismiss-keyboard'));
+  expect(dismiss).toHaveBeenCalled();
 });
