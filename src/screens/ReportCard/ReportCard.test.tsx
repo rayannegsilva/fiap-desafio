@@ -29,6 +29,11 @@ it('opens a trimester and a subject', async () => {
   expect(screen.getByText('Nota:')).toBeOnTheScreen();
 });
 
+it('fades the term list out when it is replaced', async () => {
+  await renderWithProviders(<ReportCard />);
+  expect(screen.getByTestId('report-card-list').props.exiting).toBeDefined();
+});
+
 it('switches year from the dropdown', async () => {
   await renderWithProviders(<ReportCard />);
   await fireEvent.press(screen.getByRole('button', { name: 'Ano do boletim' }));

@@ -40,6 +40,7 @@ export function ReportCardContent() {
           />
           <Animated.View
             key={listKey}
+            testID="report-card-list"
             exiting={FadeOut.duration(motion.duration.exit)}
             style={{ marginTop: theme.spacing.m, gap: theme.spacing.m }}
           >

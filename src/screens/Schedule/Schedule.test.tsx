@@ -23,6 +23,11 @@ it('shows the classes of today weekday', async () => {
   expect(screen.queryByLabelText('Trocar aluno (temporário)')).toBeNull();
 });
 
+it('fades the class list out when it is replaced', async () => {
+  await renderWithProviders(<Schedule />);
+  expect(screen.getByTestId('schedule-list').props.exiting).toBeDefined();
+});
+
 it('switches day from the dropdown', async () => {
   await renderWithProviders(<Schedule />);
   await fireEvent.press(screen.getByRole('button', { name: 'Dia da agenda' }));

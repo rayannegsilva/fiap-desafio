@@ -51,6 +51,7 @@ export function Schedule() {
             </Box>
             <Animated.View
               key={selectedDay.dia}
+              testID="schedule-list"
               exiting={FadeOut.duration(motion.duration.exit)}
               style={{
                 paddingTop: theme.spacing.l,
