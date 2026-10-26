@@ -71,7 +71,6 @@ it('stays hidden while unfocused and plays once focus arrives', async () => {
   await renderFocused(navigation);
   jest.advanceTimersByTime(2000);
   expect(screen.getByTestId('probe')).toHaveAnimatedStyle({ opacity: 0 });
-  navigation.emitBlur();
   navigation.emitFocus();
   jest.advanceTimersByTime(2000);
   expect(screen.getByTestId('probe')).toHaveAnimatedStyle({ opacity: 1 });

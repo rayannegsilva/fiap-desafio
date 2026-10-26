@@ -20,7 +20,9 @@ export function useFocusEntrance(index: number) {
     if (reduceMotion) {
       return;
     }
+    let hasPlayed = false;
     const play = () => {
+      hasPlayed = true;
       progress.value = 0;
       progress.value = withDelay(
         index * motion.stagger,
@@ -38,7 +40,7 @@ export function useFocusEntrance(index: number) {
       blurredByTabSwitch = navigation.getParent()?.isFocused() ?? true;
     });
     const unsubscribeFocus = navigation.addListener('focus', () => {
-      const shouldPlay = blurredByTabSwitch;
+      const shouldPlay = !hasPlayed || blurredByTabSwitch;
       blurredByTabSwitch = false;
       if (shouldPlay) {
         play();
