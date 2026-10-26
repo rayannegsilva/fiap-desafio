@@ -16,10 +16,10 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-animacoes.md`](../../../d
 
 ## Phase 2: Componentes
 
-- [ ] Task 3: Collapsible fechando suave
-    - [ ] Teste de alternância rápida
-    - [ ] Curva de abrir no fechar, opacidade do conteúdo junto da altura
-    - [ ] Commit `fix(collapsible): close as smoothly as it opens`
+- [x] Task 3: Collapsible fechando suave d4bb237
+    - [x] Teste de alternância rápida
+    - [x] Curva de abrir no fechar, opacidade do conteúdo junto da altura
+    - [x] Commit `fix(collapsible): close as smoothly as it opens`
 - [ ] Task 4: Dropdown com deslocamento
     - [ ] Entrada/saída do painel com fade + 8pt
     - [ ] Commit `feat(dropdown): slide the panel in and out`
