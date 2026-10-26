@@ -39,6 +39,7 @@ export function MainTabNavigator() {
       screenOptions={{
         headerShown: false,
         lazy: false,
+        animation: 'fade',
         tabBarActiveTintColor: theme.colors.accentText,
         tabBarInactiveTintColor: theme.colors.textPrimary,
         tabBarStyle: {

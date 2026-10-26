@@ -1,3 +1,4 @@
+import { collectByProp } from '../test/collectByProp';
 import { act, fireEvent, screen } from '@testing-library/react-native';
 import { AUTH_DELAY_MS } from '../data/repository';
 import { useSessionStore } from '../store/useSessionStore';
@@ -56,4 +57,10 @@ it('switches student from the header and signs out', async () => {
   await fireEvent.press(screen.getByRole('button', { name: 'SAIR' }));
   await fireEvent.press(screen.getAllByRole('button', { name: 'SAIR' })[1]);
   expect(await screen.findByLabelText('CPF')).toBeOnTheScreen();
+});
+
+it('fades between Login and Main', async () => {
+  await renderWithProviders(<RootNavigator />);
+  const faded = collectByProp(screen.root, 'stackAnimation', 'fade');
+  expect(faded.length).toBeGreaterThan(0);
 });

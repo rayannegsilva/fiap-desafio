@@ -17,7 +17,13 @@ export function RootNavigator() {
   }
 
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        animation: 'fade',
+        animationTypeForReplace: 'push',
+      }}
+    >
       {signedIn ? (
         <>
           <Stack.Screen name="Main" component={MainTabNavigator} />

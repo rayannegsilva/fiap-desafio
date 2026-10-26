@@ -15,6 +15,24 @@ function visibleIconColor(testId: string) {
   return visible?.props.color;
 }
 
+const mockScreenOptions = jest.fn();
+
+jest.mock('@react-navigation/bottom-tabs', () => {
+  const actual = jest.requireActual('@react-navigation/bottom-tabs');
+  const { createElement } = jest.requireActual('react');
+  return {
+    ...actual,
+    createBottomTabNavigator: () => {
+      const Tab = actual.createBottomTabNavigator();
+      const Navigator = (props: { screenOptions: object }) => {
+        mockScreenOptions(props.screenOptions);
+        return createElement(Tab.Navigator, props);
+      };
+      return { ...Tab, Navigator };
+    },
+  };
+});
+
 it('tints the active tab icon with accentText and the inactive one with textPrimary', async () => {
   await renderWithProviders(<MainTabNavigator />);
   expect(visibleIconColor('tab-icon-schedule')).toBe(
@@ -85,4 +103,11 @@ it('mounts the ReportCard screen before its tab is visited', async () => {
   expect(
     screen.getAllByText('BOLETIM', { includeHiddenElements: true }).length,
   ).toBeGreaterThan(1);
+});
+
+it('fades between tabs', async () => {
+  await renderWithProviders(<MainTabNavigator />);
+  expect(mockScreenOptions).toHaveBeenCalledWith(
+    expect.objectContaining({ animation: 'fade' }),
+  );
 });
