@@ -25,7 +25,7 @@ O desenvolvimento foi conduzido utilizando Spec-Driven Development (SDD), com ap
 - **Sessão persistida:** ao reabrir, o app vai direto para a agenda; sessão corrompida cai com segurança no login.
 - **Cabeçalho** com saudação ao responsável, nome, turma, RM e período do aluno; **SAIR** encerra a sessão.
 - **Troca de aluno** (TROCAR PERFIL) para responsáveis com mais de um aluno, com o aluno atual destacado.
-- **Agenda:** aulas do dia (horário e disciplina), seleção entre os dias da semana e estado vazio para dias sem aula.
+- **Agenda:** aulas do dia (horário e disciplina), seleção entre os dias da semana e estado vazio para dias sem aula. Os dados são fixos (março de 2025), então a agenda funciona como uma semana demonstrativa e o dia inicial segue o dia da semana atual.
 - **Boletim:** ano mais recente por padrão, troca de ano quando há histórico, trimestres e disciplinas expansíveis com nota e faltas (`-` quando ainda não avaliado).
 - **Splash animada:** o logo FIAP é desenhado traço a traço e segue para a primeira tela.
 - **Tema claro/escuro** acompanhando o sistema em tempo real.
@@ -35,7 +35,7 @@ O desenvolvimento foi conduzido utilizando Spec-Driven Development (SDD), com ap
 
 ## Stack
 
-Aqui está a lista da tecnologia utillizada no projeto:
+Aqui está a lista da tecnologia utilizada no projeto:
 
 - [React Native](https://reactnative.dev) 0.88 (React Native CLI)
 - TypeScript
