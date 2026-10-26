@@ -23,11 +23,11 @@ Origem e detalhes: [`docs/superpowers/plans/2026-10-26-followups.md`](../../../d
 
 ## Phase 2: Tema automático e tema da navegação
 
-- [ ] Task 6: Tema segue só o sistema
-    - [ ] Ajustar `useAppTheme.test.tsx` (sem `useThemeStore`)
-    - [ ] `useResolvedScheme` lê só `useColorScheme()`; remover `useThemeStore.ts`, seu teste e a linha do `README.md`
-    - [ ] `yarn lint && yarn typecheck && CI=true yarn test --coverage` PASS
-    - [ ] Commit `refactor(theme): follow the system scheme only`
+- [x] Task 6: Tema segue só o sistema `7a2fed3`
+    - [x] Ajustar `useAppTheme.test.tsx` (sem `useThemeStore`)
+    - [x] `useResolvedScheme` lê só `useColorScheme()`; remover `useThemeStore.ts`, seu teste e a linha do `README.md`
+    - [x] `yarn lint && yarn typecheck && CI=true yarn test --coverage` PASS
+    - [x] Commit `refactor(theme): follow the system scheme only`
 - [ ] Task 7: Sincronizar NavigationContainer com o tema Restyle
     - [ ] Testes (`useNavigationTheme.test.tsx`: `dark` e cores por esquema, sem preferência = escuro, troca ao vivo)
     - [ ] `useNavigationTheme()` e `AppProviders` com `theme`
