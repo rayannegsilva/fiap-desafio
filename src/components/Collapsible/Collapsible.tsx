@@ -26,7 +26,6 @@ const CHEVRON_SIZE = 14;
 const CARD_HEIGHT = 90;
 const ROW_HEIGHT = 37;
 const ROW_HIT_SLOP = { top: 4, bottom: 4 };
-const OPEN_EASING = Easing.out(Easing.cubic);
 const CLOSE_EASING = Easing.in(Easing.cubic);
 
 type Props = {
@@ -44,7 +43,7 @@ export function Collapsible({
 }: Props) {
   const theme = useAppTheme();
   const [expanded, setExpanded] = useState(defaultExpanded);
-  const easing = expanded ? OPEN_EASING : CLOSE_EASING;
+  const easing = expanded ? motion.easing.enter : CLOSE_EASING;
   const chevronStyle = useChevronRotation(expanded, {
     duration: motion.duration.transition,
     easing,
@@ -76,7 +75,7 @@ export function Collapsible({
     const target = measure(contentRef)?.height || measured.value;
     height.value = withTiming(
       target,
-      { duration: motion.duration.transition, easing: OPEN_EASING },
+      { duration: motion.duration.transition, easing: motion.easing.enter },
       finished => {
         'worklet';
         if (finished && expandedFlag.value) isSettled.value = 1;
